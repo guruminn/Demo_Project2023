@@ -128,11 +128,11 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 351336474}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalScale.x
@@ -148,15 +148,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -9.280537
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.1557627
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7
+      value: -1.5924416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalRotation.w
@@ -164,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_LocalRotation.y
@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_Name
-      value: Armature
+      value: obj_arooundGuardsman
       objectReference: {fileID: 0}
     - target: {fileID: 4885301371922852569, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -252,7 +252,7 @@ MonoBehaviour:
   - {fileID: 526913429}
   - {fileID: 1288744295}
   - {fileID: 1833481756}
-  target: {fileID: 1698994597}
+  target: {fileID: 610008230}
 --- !u!65 &12524573
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -265,7 +265,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 0.5, z: 7}
-  m_Center: {x: 0, y: 1.6, z: 2}
+  m_Center: {x: 0, y: 1.24, z: 2}
 --- !u!136 &12524574
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -285,6 +285,311 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 36078ab0369161e49a29d349ae3e0739, type: 3}
   m_PrefabInstance: {fileID: 12524569}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &26039153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 26039154}
+  - component: {fileID: 26039157}
+  - component: {fileID: 26039156}
+  - component: {fileID: 26039155}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_up_arm
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &26039154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26039153}
+  m_LocalRotation: {x: -0.17970929, y: -0.08156138, z: -0.7500576, w: 0.63124156}
+  m_LocalPosition: {x: 0.12564787, y: -0.01411891, z: -0.0019927323}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1400571469}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &26039155
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26039153}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.094130784
+  m_Height: 0.37128434
+  m_Direction: 1
+  m_Center: {x: 0.015936892, y: -0.004231319, z: -0.03362614}
+--- !u!54 &26039156
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26039153}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &26039157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26039153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &44839330 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2259791135636897998, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &44839332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44839330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_hand_End1
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &51904276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7298723178057648393, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &51904277 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3243369280410623155, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &51904278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51904276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_head_End
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &57281827
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,7 +1063,7 @@ GameObject:
   - component: {fileID: 76663775}
   - component: {fileID: 76663774}
   m_Layer: 3
-  m_Name: obj_floor.1
+  m_Name: obj_floor_minimap
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,6 +1147,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 76663772}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &98241731
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 98241732}
+  - component: {fileID: 98241735}
+  - component: {fileID: 98241734}
+  - component: {fileID: 98241733}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_foot
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &98241732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98241731}
+  m_LocalRotation: {x: -0.00015229904, y: -0.008725206, z: -0.01745174, w: 0.9998096}
+  m_LocalPosition: {x: -0.013869269, y: -0.028237391, z: 0.089338675}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1254775244}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &98241733
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98241731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06805235
+  m_Height: 0.25214496
+  m_Direction: 2
+  m_Center: {x: 0.0033950564, y: 0.0004402101, z: -0.00014410913}
+--- !u!54 &98241734
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98241731}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &98241735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98241731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &136769457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,6 +1453,311 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &176019964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5007727553833610988, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &176019966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176019964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_hand_End
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &177854058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 177854059}
+  - component: {fileID: 177854062}
+  - component: {fileID: 177854061}
+  - component: {fileID: 177854060}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_hand
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &177854059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177854058}
+  m_LocalRotation: {x: -0, y: -0.02617695, z: -0, w: 0.99965733}
+  m_LocalPosition: {x: -0.10777277, y: -0.015442789, z: 0.019023977}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1796148046}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &177854060
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177854058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.05913157
+  m_Height: 0.23599556
+  m_Direction: 0
+  m_Center: {x: -0.00053693354, y: 0, z: 0.0021280348}
+--- !u!54 &177854061
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177854058}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &177854062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177854058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &191832535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1223537262638256611, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &191832536 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8481309900031846473, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &191832537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191832535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_3
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &202467275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1200,7 +1886,7 @@ GameObject:
   - component: {fileID: 203793351}
   - component: {fileID: 203793350}
   m_Layer: 3
-  m_Name: obj_stage_stand.1
+  m_Name: obj_stage_stand_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1219,7 +1905,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2110718135}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &203793350
 BoxCollider:
@@ -1897,6 +2583,199 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &256737145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 256737146}
+  - component: {fileID: 256737149}
+  - component: {fileID: 256737148}
+  - component: {fileID: 256737147}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_up_arm
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &256737146
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256737145}
+  m_LocalRotation: {x: -0.16870826, y: -0.07206512, z: 0.079143725, w: 0.97983694}
+  m_LocalPosition: {x: -0.12410269, y: -0.014059722, z: -0.0025521591}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1253210534}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &256737147
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256737145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.09444671
+  m_Height: 0.37534106
+  m_Direction: 0
+  m_Center: {x: 0.0037277117, y: -0.014402598, z: -0.032506533}
+--- !u!54 &256737148
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256737145}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &256737149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 256737145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &288000238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1123238382254880435, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &288000239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4554985843378713689, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &288000240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 288000238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_hand
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &299592478
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,7 +3019,7 @@ GameObject:
   - component: {fileID: 316237845}
   - component: {fileID: 316237844}
   m_Layer: 3
-  m_Name: Cylinder.2
+  m_Name: obj_idol_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2154,12 +3033,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316237842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.010000002, y: -0.00999999, z: -0.059999466}
+  m_LocalPosition: {x: 0.0466686, y: 0.41728806, z: 11.19599}
   m_LocalScale: {x: 1.4999999, y: 0.5, z: 1.4999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 393133049}
-  m_RootOrder: 0
+  m_Father: {fileID: 2110718135}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &316237844
 CapsuleCollider:
@@ -2455,6 +3334,199 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &337328346 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3399587246256704828, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &337328347 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4002450926722991678, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &337328348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337328346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_low_arm
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &348332815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 348332816}
+  - component: {fileID: 348332819}
+  - component: {fileID: 348332818}
+  - component: {fileID: 348332817}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_4
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &348332816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348332815}
+  m_LocalRotation: {x: -0.77704465, y: -0.0038682949, z: -0.003868293, w: 0.6294217}
+  m_LocalPosition: {x: -0.00000012665987, y: 0.039467335, z: 0.018065017}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 547404288}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &348332817
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348332815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.10824267
+  m_Height: 0.25207692
+  m_Direction: 0
+  m_Center: {x: -0.00024396181, y: -0.002003923, z: 0.0023734383}
+--- !u!54 &348332818
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348332815}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &348332819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348332815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &348708586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2591,9 +3663,127 @@ Transform:
   m_Children:
   - {fileID: 627256211}
   - {fileID: 1842707478}
+  - {fileID: 12524576}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &354727845 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2202679967287707246, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &354727846 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2778879754089875888, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &354727847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354727845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_low_leg
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &358668553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2762,7 +3952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2467587272566775366, guid: cf941ceb0c9a9204988909fb5520e9bf, type: 3}
       propertyPath: m_Name
-      value: prefab_guardsmanIncubation.1
+      value: prefab_incubationGuardsman.1
       objectReference: {fileID: 0}
     - target: {fileID: 2467587272566775366, guid: cf941ceb0c9a9204988909fb5520e9bf, type: 3}
       propertyPath: m_Layer
@@ -2885,6 +4075,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &378974044
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 378974045}
+  - component: {fileID: 378974048}
+  - component: {fileID: 378974047}
+  - component: {fileID: 378974046}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_foot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &378974045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378974044}
+  m_LocalRotation: {x: 0.009025427, y: 0.008416347, z: -0.034820728, w: 0.9993174}
+  m_LocalPosition: {x: 0.013851382, y: -0.028231233, z: 0.08928612}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 502168076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &378974046
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378974044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06770064
+  m_Height: 0.25244835
+  m_Direction: 2
+  m_Center: {x: 0.0023662932, y: -0.00084308535, z: 0.0008843988}
+--- !u!54 &378974047
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378974044}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &378974048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 378974044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &391349098
 GameObject:
   m_ObjectHideFlags: 0
@@ -3145,8 +4411,7 @@ Transform:
   m_LocalPosition: {x: 0.056668602, y: 0.42728806, z: 11.255989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 316237843}
+  m_Children: []
   m_Father: {fileID: 2110718135}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3214,6 +4479,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393133048}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &398093851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 398093852}
+  - component: {fileID: 398093855}
+  - component: {fileID: 398093854}
+  - component: {fileID: 398093853}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_toes_End
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &398093852
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398093851}
+  m_LocalRotation: {x: -0.61280257, y: -0.2667004, z: -0.24373628, w: 0.70280623}
+  m_LocalPosition: {x: 0.0019160695, y: -0.0014608817, z: -0.0009109266}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 646174572}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &398093853
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398093851}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.005
+  m_Height: 0.01
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &398093854
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398093851}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &398093855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398093851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &408119006
 GameObject:
   m_ObjectHideFlags: 0
@@ -3339,9 +4680,8 @@ GameObject:
   m_Component:
   - component: {fileID: 411029248}
   - component: {fileID: 411029250}
-  - component: {fileID: 411029249}
   m_Layer: 0
-  m_Name: cam_map
+  m_Name: cam_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3355,21 +4695,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411029247}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 20, z: -2.6900005}
+  m_LocalPosition: {x: 0, y: 21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1698994601}
-  m_RootOrder: 2
+  m_Father: {fileID: 610008233}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!81 &411029249
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411029247}
-  m_Enabled: 1
 --- !u!20 &411029250
 Camera:
   m_ObjectHideFlags: 0
@@ -3413,6 +4745,82 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &413334343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413334344}
+  - component: {fileID: 413334347}
+  - component: {fileID: 413334346}
+  - component: {fileID: 413334345}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_1
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413334344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413334343}
+  m_LocalRotation: {x: 0.008726535, y: -0, z: -0, w: 0.9999619}
+  m_LocalPosition: {x: 0, y: 0.039679974, z: -0.006554138}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1663479030}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &413334345
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413334343}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.10400537
+  m_Height: 0.2735411
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.0015980359, z: 0.0010521002}
+--- !u!54 &413334346
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413334343}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &413334347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413334343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &442148989
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,6 +5142,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &456428051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 456428052}
+  - component: {fileID: 456428055}
+  - component: {fileID: 456428054}
+  - component: {fileID: 456428053}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_5
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &456428052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456428051}
+  m_LocalRotation: {x: -0.7932388, y: 0.010143695, z: -0.0020919107, w: 0.60882264}
+  m_LocalPosition: {x: -0.00063004345, y: 0.08366245, z: -0.0164285}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 689232545}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &456428053
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456428051}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.11160873
+  m_Height: 0.31343395
+  m_Direction: 0
+  m_Center: {x: -0.0004484579, y: 0.0035859644, z: 0.00095036626}
+--- !u!54 &456428054
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456428051}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &456428055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456428051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &484129398
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,6 +5479,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &502168075 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3531558982016292387, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &502168076 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1170206859524506422, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &502168077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502168075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_foot
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &509840733
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,6 +5818,275 @@ Transform:
   m_Father: {fileID: 881569689}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &537498928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537498929}
+  - component: {fileID: 537498932}
+  - component: {fileID: 537498931}
+  - component: {fileID: 537498930}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_low_leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537498929
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537498928}
+  m_LocalRotation: {x: -0.6551974, y: -0.037088916, z: -0.037088916, w: 0.7536347}
+  m_LocalPosition: {x: 0.009186726, y: -0.220142, z: -0.002676554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274621000}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &537498930
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537498928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06308414
+  m_Height: 0.46608436
+  m_Direction: 2
+  m_Center: {x: -0.0019012745, y: 0.021325272, z: -0.002674386}
+--- !u!54 &537498931
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537498928}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &537498932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537498928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &538101626
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 538101627}
+  - component: {fileID: 538101630}
+  - component: {fileID: 538101629}
+  - component: {fileID: 538101628}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_low_arm
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &538101627
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538101626}
+  m_LocalRotation: {x: -0.6548257, y: 0.01773277, z: 0.030035838, w: 0.75497466}
+  m_LocalPosition: {x: -0.11554927, y: -0.0111019015, z: -0.013149327}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 337328347}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &538101628
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538101626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.042521164
+  m_Height: 0.25004926
+  m_Direction: 0
+  m_Center: {x: 0.0005850978, y: -0.0034603048, z: 0}
+--- !u!54 &538101629
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538101626}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &538101630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538101626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &547404287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -366490308820414502, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &547404288 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6044147561414807284, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &547404289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547404287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_4
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &572457127
 GameObject:
   m_ObjectHideFlags: 0
@@ -4229,7 +6099,7 @@ GameObject:
   - component: {fileID: 572457129}
   - component: {fileID: 572457128}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: guardsman_vision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4760,6 +6630,86 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &610008230 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610008231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610008230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 238345459e3cc47b99543f30eaacf14a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MotionSmoothness: 0
+  DelayRecoveryRate: 0.001
+--- !u!4 &610008233 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610008234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610008230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d44bae29a682d548a83980b6a33b126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderBuilderProperty:
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
 --- !u!1 &612776701
 GameObject:
   m_ObjectHideFlags: 0
@@ -4917,6 +6867,199 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2467587272566775362, guid: cf941ceb0c9a9204988909fb5520e9bf, type: 3}
   m_PrefabInstance: {fileID: 364368945}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &638892818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 638892819}
+  - component: {fileID: 638892822}
+  - component: {fileID: 638892821}
+  - component: {fileID: 638892820}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_low_leg
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &638892819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638892818}
+  m_LocalRotation: {x: -0.65455765, y: 0.036224242, z: 0.036224272, w: 0.75427437}
+  m_LocalPosition: {x: -0.00919541, y: -0.21981722, z: -0.002262827}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 354727846}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &638892820
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638892818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06322385
+  m_Height: 0.46608454
+  m_Direction: 2
+  m_Center: {x: 0.0019049328, y: 0.021705404, z: -0.0030258745}
+--- !u!54 &638892821
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638892818}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &638892822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638892818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &646174571 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 706394974824440148, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &646174572 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1434374590553388253, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &646174573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 646174571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_toes_End
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &653466350
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,8 +7126,201 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &689232544 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3116313007087851529, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &689232545 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2680079084507989325, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689232546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689232544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_5
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &704644134
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 704644135}
+  - component: {fileID: 704644138}
+  - component: {fileID: 704644137}
+  - component: {fileID: 704644136}
+  m_Layer: 0
+  m_Name: Coll.human_low:_neck_2
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &704644135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704644134}
+  m_LocalRotation: {x: -0.7487301, y: 0.01029654, z: -0.002021633, w: 0.6627919}
+  m_LocalPosition: {x: 0.000000029802322, y: 0.050105274, z: 0.027115598}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1888628799}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &704644136
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704644134}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.10518439
+  m_Height: 0.26048094
+  m_Direction: 2
+  m_Center: {x: -0.00050762296, y: 0.00056590885, z: -0.0022956133}
+--- !u!54 &704644137
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704644134}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &704644138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704644134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -5309,6 +7645,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &765727461 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 753353006057001261, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &765727462 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2821404590732841393, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &765727463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 765727461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_up_leg
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &769423149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +7877,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &786758454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6279115753470716398, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &786758455 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3541975126061548315, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &786758456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786758454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_shoulder
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &790768149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5769,6 +8339,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &817434840 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7952775134025031261, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &817434841 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -211263960558736006, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &817434842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 817434840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_low_arm
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &831172447
 GameObject:
   m_ObjectHideFlags: 0
@@ -6114,6 +8801,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &855684238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855684239}
+  - component: {fileID: 855684242}
+  - component: {fileID: 855684241}
+  - component: {fileID: 855684240}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_7
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855684239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855684238}
+  m_LocalRotation: {x: -0.9848078, y: -0, z: -0, w: 0.17364824}
+  m_LocalPosition: {x: 0.00087130815, y: -0.05443883, z: 0.03168463}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1034082501}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &855684240
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855684238}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.14218014
+  m_Height: 0.28436083
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.0061982498, z: -0.015862606}
+--- !u!54 &855684241
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855684238}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &855684242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855684238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881569688
 GameObject:
   m_ObjectHideFlags: 0
@@ -6149,6 +8912,123 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &889159340 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8521360233137365118, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &889159341 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1252859141170451772, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &889159342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889159340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_toes
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1001 &912635846
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6202,7 +9082,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2467587272566775366, guid: cf941ceb0c9a9204988909fb5520e9bf, type: 3}
       propertyPath: m_Name
-      value: prefab_guardsmanIncubation.2
+      value: prefab_incubationGuardsman.2
       objectReference: {fileID: 0}
     - target: {fileID: 2467587272566775366, guid: cf941ceb0c9a9204988909fb5520e9bf, type: 3}
       propertyPath: m_Layer
@@ -6222,7 +9102,7 @@ GameObject:
   - component: {fileID: 930955002}
   - component: {fileID: 930955001}
   m_Layer: 3
-  m_Name: Plane.1
+  m_Name: guardsman_vision_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6536,7 +9416,7 @@ GameObject:
   - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: cam_main
-  m_TagString: MainCamera
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6600,13 +9480,89 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.08715578, y: -0, z: -0, w: 0.9961947}
-  m_LocalPosition: {x: 0, y: 1.0999999, z: -2}
+  m_LocalPosition: {x: 0, y: 0.27897656, z: -1.9937644}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1698994601}
+  m_Father: {fileID: 51904277}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!1 &1010682791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010682792}
+  - component: {fileID: 1010682795}
+  - component: {fileID: 1010682794}
+  - component: {fileID: 1010682793}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_2
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010682792
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010682791}
+  m_LocalRotation: {x: -0.72412574, y: 0.017449766, z: 0.017449722, w: 0.6892263}
+  m_LocalPosition: {x: -0.0004734248, y: 0.03134924, z: -0.01469817}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827191315}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1010682793
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010682791}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.100360066
+  m_Height: 0.25847906
+  m_Direction: 0
+  m_Center: {x: 0.0013561919, y: 0.0047586523, z: 0.0002711527}
+--- !u!54 &1010682794
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010682791}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1010682795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010682791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1014383972
 GameObject:
   m_ObjectHideFlags: 0
@@ -6837,6 +9793,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1034082500 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -327537446063685445, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1034082501 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9209376084716059424, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1034082502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034082500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_7
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1039797729
 GameObject:
   m_ObjectHideFlags: 0
@@ -6952,6 +10025,151 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1045832378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1045832379}
+  - component: {fileID: 1045832382}
+  - component: {fileID: 1045832381}
+  - component: {fileID: 1045832380}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_shoulder
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045832379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045832378}
+  m_LocalRotation: {x: -0.48553142, y: -0.19875976, z: 0.85049367, w: 0.0376071}
+  m_LocalPosition: {x: 0.06472089, y: -0.010974526, z: -0.012784429}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1178559174}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1045832380
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045832378}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06958326
+  m_Height: 0.25159597
+  m_Direction: 1
+  m_Center: {x: -0.0046867635, y: -0.0049361326, z: 0.001407437}
+--- !u!54 &1045832381
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045832378}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1045832382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045832378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1056975452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 948350685506768692, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_Name
+      value: MocopiSimpleReceiver
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751811721084492776, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: AvatarSettings.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751811721084492776, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: AvatarSettings.Array.data[0].Port
+      value: 12351
+      objectReference: {fileID: 0}
+    - target: {fileID: 1751811721084492776, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: AvatarSettings.Array.data[0].MocopiAvatar
+      value: 
+      objectReference: {fileID: 610008231}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5323756482005394770, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e38cf3fda1b081408c101d4bf849304, type: 3}
 --- !u!1 &1084795306
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,6 +10515,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1107149235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1107149236}
+  - component: {fileID: 1107149239}
+  - component: {fileID: 1107149238}
+  - component: {fileID: 1107149237}
+  m_Layer: 0
+  m_Name: Coll.human_low:_neck_1
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1107149236
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107149235}
+  m_LocalRotation: {x: -0.6235428, y: 0.6717656, z: -0.19082686, w: 0.35144073}
+  m_LocalPosition: {x: 0.00000021606684, y: 0.02668202, z: 0.016819736}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1292258724}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1107149237
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107149235}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.07411049
+  m_Height: 0.15194085
+  m_Direction: 1
+  m_Center: {x: 0.011340382, y: 0.004021656, z: 0.0025348477}
+--- !u!54 &1107149238
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107149235}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1107149239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1107149235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1114341472
 GameObject:
   m_ObjectHideFlags: 0
@@ -7527,6 +10821,199 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1146850421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1146850422}
+  - component: {fileID: 1146850425}
+  - component: {fileID: 1146850424}
+  - component: {fileID: 1146850423}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_up_leg
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146850422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146850421}
+  m_LocalRotation: {x: -0.00091356237, y: 0.026161004, z: 0.034887537, w: 0.9990484}
+  m_LocalPosition: {x: -0.023016963, y: -0.1784261, z: -0.032498248}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1774640866}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1146850423
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146850421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.104660735
+  m_Height: 0.4588195
+  m_Direction: 1
+  m_Center: {x: 0.008181043, y: -0.0028686672, z: -0.00023072585}
+--- !u!54 &1146850424
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146850421}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1146850425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146850421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1178559173 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2048838929689618075, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1178559174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8227417198978794273, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1178559175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178559173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_shoulder
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1180650485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7540,7 +11027,7 @@ GameObject:
   - component: {fileID: 1180650488}
   - component: {fileID: 1180650487}
   m_Layer: 3
-  m_Name: Cylinder.1
+  m_Name: obj_arooundGuardsman_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7555,7 +11042,7 @@ Transform:
   m_GameObject: {fileID: 1180650485}
   m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.9, z: 0}
-  m_LocalScale: {x: 1.1538461, y: 0.3846154, z: 1.1538461}
+  m_LocalScale: {x: 1, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 12524576}
@@ -7625,6 +11112,306 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1180650485}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1181519407 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3636928681032951595, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1181519409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181519407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_toes_End
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1213456274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8887008130827299604, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1213456276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213456274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_toes
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1233525281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1233525282}
+  - component: {fileID: 1233525285}
+  - component: {fileID: 1233525284}
+  - component: {fileID: 1233525283}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_6
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1233525282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233525281}
+  m_LocalRotation: {x: -0.6087383, y: -0.0069232257, z: 0.0053123785, w: 0.7933231}
+  m_LocalPosition: {x: 0.0011351742, y: 0.068746746, z: -0.044534244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1890777667}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1233525283
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233525281}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06849635
+  m_Height: 0.21567717
+  m_Direction: 0
+  m_Center: {x: -0.00027604774, y: 0.006697803, z: 0.00021136552}
+--- !u!54 &1233525284
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233525281}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1233525285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233525281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1242808168
 GameObject:
   m_ObjectHideFlags: 0
@@ -7855,6 +11642,82 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1248894859
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1248894860}
+  - component: {fileID: 1248894863}
+  - component: {fileID: 1248894862}
+  - component: {fileID: 1248894861}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_shoulder
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1248894860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248894859}
+  m_LocalRotation: {x: -0.57199043, y: -0.6239141, z: 0.20646517, w: 0.49084648}
+  m_LocalPosition: {x: -0.06599765, y: -0.011177838, z: -0.012573935}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 786758455}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1248894861
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248894859}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.06834313
+  m_Height: 0.2488471
+  m_Direction: 0
+  m_Center: {x: 0.0058781058, y: -0.0043419357, z: -0.0025109947}
+--- !u!54 &1248894862
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248894859}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1248894863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248894859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1250263600
 GameObject:
   m_ObjectHideFlags: 0
@@ -7970,6 +11833,316 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1253210533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6605907758753928431, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1253210534 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9067084529352645790, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1253210535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253210533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_up_arm
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1254775243 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4789563315816481404, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1254775244 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1014036865226340429, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1254775245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254775243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_foot
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1255675756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255675757}
+  - component: {fileID: 1255675760}
+  - component: {fileID: 1255675759}
+  - component: {fileID: 1255675758}
+  m_Layer: 0
+  m_Name: Coll.human_low:_l_up_leg
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1255675757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255675756}
+  m_LocalRotation: {x: 0.00871823, y: -0.00038064612, z: -0.043617725, w: 0.9990102}
+  m_LocalPosition: {x: 0.02213836, y: -0.17936629, z: -0.031913273}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 765727462}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1255675758
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255675756}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.1054545
+  m_Height: 0.45405558
+  m_Direction: 1
+  m_Center: {x: -0.009890895, y: -0.003548503, z: -0.003401257}
+--- !u!54 &1255675759
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255675756}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1255675760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255675756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1263959375
 GameObject:
   m_ObjectHideFlags: 0
@@ -8085,6 +12258,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1274620999 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7535629422739542345, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1274621000 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -2858380284959966580, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1274621001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274620999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_low_leg
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1287480460
 GameObject:
   m_ObjectHideFlags: 0
@@ -8346,6 +12636,199 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1292258723 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6595606667802088490, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1292258724 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7135769692745974387, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1292258725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292258723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_neck_1
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1311861053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1311861054}
+  - component: {fileID: 1311861057}
+  - component: {fileID: 1311861056}
+  - component: {fileID: 1311861055}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_hand
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1311861054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311861053}
+  m_LocalRotation: {x: -0.01683013, y: 0.03519327, z: -0.018048108, w: 0.9990759}
+  m_LocalPosition: {x: 0.0942373, y: -0.01544714, z: 0.019024065}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 288000239}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1311861055
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311861053}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.059135206
+  m_Height: 0.2604517
+  m_Direction: 0
+  m_Center: {x: 0.002075389, y: -0.0003187498, z: 0.0028171223}
+--- !u!54 &1311861056
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311861053}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1311861057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1311861053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1314099575
 GameObject:
   m_ObjectHideFlags: 0
@@ -8806,6 +13289,199 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1391989090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1391989091}
+  - component: {fileID: 1391989094}
+  - component: {fileID: 1391989093}
+  - component: {fileID: 1391989092}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_toes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1391989091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391989090}
+  m_LocalRotation: {x: -0.6128025, y: 0.26670036, z: 0.24373631, w: 0.7028063}
+  m_LocalPosition: {x: -0.0019104481, y: -0.0013797723, z: -0.0008985214}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 889159341}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1391989092
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391989090}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.005
+  m_Height: 0.01
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &1391989093
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391989090}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1391989094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391989090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1400571468 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -765102240873281180, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1400571469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -6628746906532442865, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1400571470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400571468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_up_arm
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1402439908
 GameObject:
   m_ObjectHideFlags: 0
@@ -8934,7 +13610,7 @@ GameObject:
   - component: {fileID: 1403879029}
   - component: {fileID: 1403879028}
   m_Layer: 3
-  m_Name: Cylinder
+  m_Name: obj_player_minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8948,12 +13624,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403879026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.1000004}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1698994601}
-  m_RootOrder: 1
+  m_Father: {fileID: 610008233}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1403879028
 CapsuleCollider:
@@ -10705,6 +15381,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1663479029 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2319411272453902094, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1663479030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2956143152009306030, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1663479031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663479029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_1
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1663906202
 GameObject:
   m_ObjectHideFlags: 0
@@ -10972,6 +15765,195 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1001 &1695527310
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8887008130827299604, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7952775134025031261, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -7298723178057648393, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -6605907758753928431, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -6279115753470716398, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -6237433015181546688, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -5654160351328499486, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -5007727553833610988, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -4789563315816481404, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -3465163782708396237, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -2202679967287707246, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -1883272426045645249, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -1123238382254880435, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -926617139895204465, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -857121334489560495, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -765102240873281180, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -366490308820414502, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -327537446063685445, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 706394974824440148, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 753353006057001261, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_Name
+      value: MocopiAvatar
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223537262638256611, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1282310373502587434, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2048838929689618075, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2259791135636897998, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319411272453902094, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3116313007087851529, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399587246256704828, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6595606667802088490, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6664827171826497680, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6952287790549269224, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003304923851646262, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8318787777377334173, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
 --- !u!1 &1698994597
 GameObject:
   m_ObjectHideFlags: 0
@@ -10993,7 +15975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1698994598
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11069,12 +16051,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 963194228}
-  - {fileID: 1403879027}
-  - {fileID: 411029248}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1698994603
 Rigidbody:
@@ -11809,6 +16788,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1774640865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1282310373502587434, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1774640866 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5432614144588738001, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1774640867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774640865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_up_leg
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1775901333
 GameObject:
   m_ObjectHideFlags: 0
@@ -12039,6 +17135,235 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1794111449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -857121334489560495, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794111451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794111449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_r_hand_End
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1796148045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1883272426045645249, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1796148046 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5760373029517652380, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1796148047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796148045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_hand
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1796403939
 GameObject:
   m_ObjectHideFlags: 0
@@ -12364,7 +17689,7 @@ RectTransform:
   - {fileID: 348708587}
   - {fileID: 206105129}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12486,6 +17811,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &1827191314 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6664827171826497680, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1827191315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4526934967059631464, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1827191316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827191314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_2
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1833481755
 GameObject:
   m_ObjectHideFlags: 0
@@ -12517,6 +17959,82 @@ Transform:
   m_Father: {fileID: 881569689}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1839393748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1839393749}
+  - component: {fileID: 1839393752}
+  - component: {fileID: 1839393751}
+  - component: {fileID: 1839393750}
+  m_Layer: 0
+  m_Name: Coll.human_low:_torso_3
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1839393749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839393748}
+  m_LocalRotation: {x: 0.01745174, y: 0.008725206, z: 0.00015229904, w: 0.9998096}
+  m_LocalPosition: {x: -0.0006744936, y: 0.03395319, z: -0.003285911}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 191832536}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1839393750
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839393748}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.10197081
+  m_Height: 0.24230947
+  m_Direction: 0
+  m_Center: {x: 0.0007827729, y: 0, z: -0.00020747259}
+--- !u!54 &1839393751
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839393748}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &1839393752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839393748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1840340956
 GameObject:
   m_ObjectHideFlags: 0
@@ -12849,6 +18367,240 @@ Transform:
   m_Father: {fileID: 2110718135}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1888628798 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -926617139895204465, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1888628799 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3460466925761682999, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1888628800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1888628798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_neck_2
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
+--- !u!1 &1890777666 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5654160351328499486, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1890777667 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4042928455494647818, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1890777668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890777666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_torso_6
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1891578394
 GameObject:
   m_ObjectHideFlags: 0
@@ -13061,6 +18813,118 @@ Transform:
   m_Father: {fileID: 2110718135}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1901458504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8003304923851646262, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1901458506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901458504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_l_hand_End1
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &1937964893
 GameObject:
   m_ObjectHideFlags: 0
@@ -13838,8 +19702,160 @@ Transform:
   - {fileID: 1263959379}
   - {fileID: 299592482}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2012335410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2012335411}
+  - component: {fileID: 2012335414}
+  - component: {fileID: 2012335413}
+  - component: {fileID: 2012335412}
+  m_Layer: 0
+  m_Name: Coll.human_low:_root
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2012335411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012335410}
+  m_LocalRotation: {x: -0.74748486, y: 0.01117266, z: 0.01117266, w: 0.664091}
+  m_LocalPosition: {x: -0.00033400208, y: -0.0050128996, z: -0.012892518}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2078144397}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2012335412
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012335410}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.12773007
+  m_Height: 0.3137552
+  m_Direction: 0
+  m_Center: {x: -0.00016532838, y: 0.0024544187, z: 0.006233167}
+--- !u!54 &2012335413
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012335410}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2012335414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2012335410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2015561331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2015561332}
+  - component: {fileID: 2015561335}
+  - component: {fileID: 2015561334}
+  - component: {fileID: 2015561333}
+  m_Layer: 0
+  m_Name: Coll.human_low:_r_low_arm
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2015561332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015561331}
+  m_LocalRotation: {x: -0.68226844, y: -0.0130358655, z: -0.025365325, w: 0.73054534}
+  m_LocalPosition: {x: 0.1194365, y: -0.011088908, z: -0.010220954}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 817434841}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2015561333
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015561331}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0420612
+  m_Height: 0.2526137
+  m_Direction: 0
+  m_Center: {x: -0.0010334998, y: -0.0017383248, z: -0.00061831996}
+--- !u!54 &2015561334
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015561331}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &2015561335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015561331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef2b87818a56064b926871454f01541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2039210284
 GameObject:
   m_ObjectHideFlags: 0
@@ -14070,6 +20086,118 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &2068844670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8318787777377334173, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2068844672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068844670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_head
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &2069092999
 GameObject:
   m_ObjectHideFlags: 0
@@ -14185,6 +20313,123 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!1 &2078144396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6237433015181546688, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2078144397 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6175384178897612272, guid: cccbbdb3cbdde464ba23dc13bf813538, type: 3}
+  m_PrefabInstance: {fileID: 1695527310}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2078144398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078144396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e9528926505fe24cadbacc32c6349ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 3
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  defaultName: human_low:_root
+  defaultBoneColliderProperty:
+    boneProperty:
+      recursivery: 0
+    splitProperty:
+      boneWeightType: 0
+      boneWeight2: 50
+      boneWeight3: 33
+      boneWeight4: 25
+      greaterBoneWeight: 1
+      boneTriangleExtent: 1
+    reducerProperty:
+      shapeType: 2
+      fitType: 0
+      meshType: 3
+      maxTriangles: 255
+      sliceMode: 0
+      scale: {x: 1, y: 1, z: 1}
+      scaleElementType: 0
+      minThickness: {x: 0.01, y: 0.01, z: 0.01}
+      minThicknessElementType: 0
+      optimizeRotation:
+        x: 1
+        y: 1
+        z: 1
+      optimizeRotationElementType: 0
+      colliderToChild: 0
+      offset: {x: 0, y: 0, z: 0}
+      thicknessA: {x: 0, y: 0, z: 0}
+      thicknessB: {x: 0, y: 0, z: 0}
+      viewAdvanced: 0
+    colliderProperty:
+      convex: 1
+      isTrigger: 0
+      material: {fileID: 0}
+      isCreateAsset: 0
+    rigidbodyProperty:
+      mass: 1
+      drag: 0
+      angularDrag: 0.05
+      isKinematic: 1
+      useGravity: 0
+      interpolation: 0
+      collisionDetectionMode: 0
+      isCreate: 1
+      viewAdvanced: 0
+    modifyNameEnabled: 0
+  modified: 0
+  modifiedChildren: 0
 --- !u!1 &2104282983
 GameObject:
   m_ObjectHideFlags: 0
@@ -14447,6 +20692,7 @@ Transform:
   - {fileID: 393133049}
   - {fileID: 1892042119}
   - {fileID: 76663773}
+  - {fileID: 316237843}
   - {fileID: 203793349}
   m_Father: {fileID: 0}
   m_RootOrder: 2
