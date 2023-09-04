@@ -1,5 +1,5 @@
 //プレイヤーの動き
-//前後移動と左右回転
+//前後移動と左右回転,しゃがむ代わりにオブジェクト小さく
 //デバッグ用
 //作成者つばさ
 using System.Collections;
@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     private float Rot = 0.0f;
     public int rotateSpeed = 0; //回転スピード
     public float PositionSpeed = 0.0f; //前後移動スピード
+    public Vector3 scale; //小さくした時の大きさ
+
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,16 @@ public class PlayerController : MonoBehaviour
         if (Rot < 0.0f)
         {
             transform.Rotate(new Vector3(0, Rot - rotateSpeed, 0));
+        }
+
+        //スペースキーを押したときに大きさ変わる
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            gameObject.transform.localScale = new Vector3(scale.x, scale.y, scale.z);
+        }
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            gameObject.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 }
