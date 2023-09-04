@@ -42,8 +42,8 @@ public partial class @A_JoyCon : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""3731bbbd-8333-4a1d-ad81-d3bc464a57ff"",
                     ""path"": ""<HID::Nintendo Wireless Gamepad>/hat"",
-                    ""interactions"": ""Press(behavior=2)"",
-                    ""processors"": """",
+                    ""interactions"": """",
+                    ""processors"": ""InvertVector2"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,
@@ -63,7 +63,7 @@ public partial class @A_JoyCon : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""up"",
                     ""id"": ""37f69d69-d355-4a21-9950-0eed62c40814"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -74,7 +74,7 @@ public partial class @A_JoyCon : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""down"",
                     ""id"": ""06abc274-1e7c-4dc8-92a6-2b3eaaaaa130"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -85,7 +85,7 @@ public partial class @A_JoyCon : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""left"",
                     ""id"": ""5117b835-8381-4402-af7c-f255640f7dcd"",
-                    ""path"": ""<Keyboard>/a"",
+                    ""path"": ""<Keyboard>/g"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -96,7 +96,7 @@ public partial class @A_JoyCon : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""right"",
                     ""id"": ""c0141d27-4b5e-4b3e-9867-67361ba5f2cb"",
-                    ""path"": ""<Keyboard>/d"",
+                    ""path"": ""<Keyboard>/t"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
