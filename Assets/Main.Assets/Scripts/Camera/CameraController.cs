@@ -1,11 +1,10 @@
+//カメラコントローラースクリプト
+//作成者：梅森茉優
+//上下120°左右限度無し
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
-
-//カメラコントローラースクリプト
-//作成者：梅森茉優
-//上下120°左右限度無し
 
 public class CameraController : MonoBehaviour
 {
@@ -17,41 +16,33 @@ public class CameraController : MonoBehaviour
      */
     private float moveX;
     private float moveY;
-    [SerializeField] float viewAngle;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
+    
     public void OnMove(InputValue moveValue)
     {
         var movementVector = moveValue.Get<Vector2>();
 
         moveX = movementVector.x;
         moveY = movementVector.y;
-      //  Debug.Log(moveX);
+
+        Debug.Log($"X={moveX}Y={moveY}");
     }
     void Update()
     {
-        Rotate(-moveY, -moveX, viewAngle);
+        if (moveX != 0 || moveY != 0)
+        {
+            Rotate(moveX, moveY);
+        }
     }
 
-    void Rotate(float inputX, float inputY, float limit)
+    void Rotate(float _inputX, float _inputY)
     {
-        float maxlimit = limit, minLimit = 360 - maxlimit;
-
         //X軸回転
         var localAngle = transform.localEulerAngles;
-        localAngle.x += inputY;
-        if (localAngle.x > maxlimit && localAngle.x < 180)
-            localAngle.x = maxlimit;
-        if (localAngle.x < minLimit && localAngle.x > 180)
-            localAngle.x = minLimit;
+        localAngle.x += _inputX;
         transform.localEulerAngles = localAngle;
         //Y軸回転
         var angle = transform.eulerAngles;
-        angle.y += inputX;
+        angle.y += _inputY;
         transform.eulerAngles = angle;
-
     }
 }
