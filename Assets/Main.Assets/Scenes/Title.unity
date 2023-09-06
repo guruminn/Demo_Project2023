@@ -1152,7 +1152,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 760944821}
         m_TargetAssemblyTypeName: TranstionScenes, Assembly-CSharp
-        m_MethodName: Trans_WayPlay
+        m_MethodName: Trans_Main
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

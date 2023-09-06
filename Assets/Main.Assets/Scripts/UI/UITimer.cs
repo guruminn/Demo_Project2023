@@ -23,7 +23,7 @@ public class UITimer : MonoBehaviour
     void Update()
     {
         //スライダーの現在値の設定
-        timeSlider.value = Time.time;
+        timeSlider.value += Time.deltaTime;
 
         if(timeSlider.value == maxTime)
         {
