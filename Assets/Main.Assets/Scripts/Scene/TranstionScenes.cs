@@ -1,18 +1,12 @@
-//担当者：山﨑晶
+// 担当者：山﨑晶
+// シーンの遷移処理
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
     
-// シーンの遷移処理
 public class TranstionScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // 『Title』シーンに遷移する
     public void Trans_Title()
     {
