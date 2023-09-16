@@ -3,20 +3,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FadeController : MonoBehaviour
 {
     AudioSource audioSource;
+    [Tooltip("ここにブザー音を入れる")]
     [SerializeField] AudioClip buzzerClip;
+    [Tooltip("いじらない")]
     [SerializeField] UITimer _timer;
+    [Tooltip("いじらない")]
     [SerializeField] AroundGuardsmanController _controller;
 
     // フェードインにかかる時間（秒）★変更可
+    [Tooltip("フェードインにかかる時間")]
     [SerializeField] const float fade_time = 1.0f;
 
     // ループ回数（0はエラー）★変更可
-    [SerializeField] const int loop_count = 50;
+    [Tooltip("ループ回数、数が多いと滑らかになる")]
+    [SerializeField] const int loop_count = 60;
 
+    public TextMeshProUGUI CountText;
+
+    float countdown = 4f;
+    int count;
 
     // Start is called before the first frame update
     void Start()
@@ -29,13 +39,12 @@ public class FadeController : MonoBehaviour
 
         //フェードインコルーチンスタート
         StartCoroutine("Color_FadeIn");
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        CountDown();
     }
 
     IEnumerator Color_FadeIn()
@@ -71,8 +80,34 @@ public class FadeController : MonoBehaviour
             new_color.a = alpha / 255.0f;
             fade.color = new_color;
         }
-        //UITimer,AroundGuardsmanControllerを再生する
-        _timer.enabled = true;
-        _controller.enabled = true;
+        
+        //while(countdown > 0)
+        //{
+        //    countdown -= Time.deltaTime;
+        //    count = (int)countdown;
+        //    CountText.text = count.ToString();
+        //}
+
+        //if (countdown <= 0)
+        //{
+        //    //UITimer,AroundGuardsmanControllerを再生する
+        //    _timer.enabled = true;
+        //    _controller.enabled = true;
+        //    CountText.enabled = false;
+        //}
+    }
+    void CountDown()
+    {
+        countdown -= Time.deltaTime;
+        count = (int)countdown;
+        CountText.text = count.ToString();
+
+        if (countdown <= 0)
+        {
+            //UITimer,AroundGuardsmanControllerを再生する
+            _timer.enabled = true;
+            _controller.enabled = true;
+            CountText.enabled = false;
+        }
     }
 }
