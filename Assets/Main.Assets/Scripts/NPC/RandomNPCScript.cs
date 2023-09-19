@@ -40,17 +40,17 @@ public class RandomNPCScript : MonoBehaviour
             // rangeAとrangeBのx座標の範囲内でランダムな数値を作成
             float x = Random.Range(rangeA.position.x, rangeB.position.x);
             // rangeAとrangeBのy座標の範囲内でランダムな数値を作成
-            //float y = Random.Range(rangeA.position.y, rangeB.position.y);
+            float y = Random.Range(rangeA.position.y, rangeB.position.y);
             // rangeAとrangeBのz座標の範囲内でランダムな数値を作成
             float z = Random.Range(rangeA.position.z, rangeB.position.z);
 
-            Vector3 pos = new Vector3(x, 3.0f, z);
+            Vector3 pos = new Vector3(x, y, z);
             Vector3 halfExtents = new Vector3(0.5f, 0.5f, 0.5f);
 
             if (!Physics.CheckBox(pos, halfExtents))
             {
                 // GameObjectを上記で決まったランダムな場所に生成
-                Instantiate(createPrefab, new Vector3(x, 3.0f, z), createPrefab.transform.rotation);
+                Instantiate(createPrefab, new Vector3(x, y, z), createPrefab.transform.rotation);
             }
             else
             {
