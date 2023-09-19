@@ -23,7 +23,9 @@ public class FadeController : MonoBehaviour
     [Tooltip("ƒ‹[ƒv‰ñ”A”‚ª‘½‚¢‚ÆŠŠ‚ç‚©‚É‚È‚é")]
     [SerializeField] const int loop_count = 60;
 
-    public TextMeshProUGUI CountText;
+    [SerializeField] TextMeshProUGUI countdownText;
+    [SerializeField] Image countdownImage;
+    [SerializeField] Image fadePanel;
 
     float countdown = 4f;
     int count;
@@ -34,6 +36,7 @@ public class FadeController : MonoBehaviour
         //UITimer,AroundGuardsmanController‚ğˆê’â~‚·‚é
         _timer.enabled = false;
         _controller.enabled = false;
+        fadePanel.enabled = true;
 
         audioSource = GetComponent<AudioSource>();
 
@@ -44,7 +47,7 @@ public class FadeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CountDown();
+
     }
 
     IEnumerator Color_FadeIn()
@@ -80,34 +83,29 @@ public class FadeController : MonoBehaviour
             new_color.a = alpha / 255.0f;
             fade.color = new_color;
         }
-        
-        //while(countdown > 0)
-        //{
-        //    countdown -= Time.deltaTime;
-        //    count = (int)countdown;
-        //    CountText.text = count.ToString();
-        //}
 
-        //if (countdown <= 0)
-        //{
-        //    //UITimer,AroundGuardsmanController‚ğÄ¶‚·‚é
-        //    _timer.enabled = true;
-        //    _controller.enabled = true;
-        //    CountText.enabled = false;
-        //}
-    }
-    void CountDown()
-    {
-        countdown -= Time.deltaTime;
-        count = (int)countdown;
-        CountText.text = count.ToString();
+        countdownText.gameObject.SetActive(true);
+        countdownImage.gameObject.SetActive(true);
 
-        if (countdown <= 0)
+        while (countdown > 0)
         {
-            //UITimer,AroundGuardsmanController‚ğÄ¶‚·‚é
-            _timer.enabled = true;
-            _controller.enabled = true;
-            CountText.enabled = false;
+            countdown -= Time.deltaTime;
+            countdownImage.fillAmount = countdown % 1.0f;
+            count = (int)countdown;
+            countdownText.text = count.ToString();
+
+            if (countdown <= 0)
+            {
+                //UITimer,AroundGuardsmanController‚ğÄ¶‚·‚é
+                _timer.enabled = true;
+                _controller.enabled = true;
+                countdownText.gameObject.SetActive(false);
+                countdownImage.gameObject.SetActive(false);
+
+                yield break;
+            }
+            yield return null;
         }
+
     }
 }
