@@ -38,9 +38,13 @@ public class AroundGuardsmanController : MonoBehaviour
             GotoNextPoint();
         }
 
-        if(flag == true)
+        if (flag == true)
         {
             agent.destination = target.transform.position;
+        }
+        if (flag == false)
+        {
+            agent.destination = points[destPoint].position;
         }
     }
 
@@ -57,6 +61,11 @@ public class AroundGuardsmanController : MonoBehaviour
 
         // 配列内の次の位置を目標地点に設定し必要ならば出発地点にもどる
         destPoint = (destPoint + 1) % points.Length;
+
+        if (destPoint == 4)
+        {
+            destPoint = 0;
+        }
     }
 
     //視界に入ったら追いかけてくる
@@ -64,7 +73,7 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("視界入った");
+            //Debug.Log("視界入った");
             flag = true;
             //agent.destination = target.transform.position;
         }
@@ -75,8 +84,7 @@ public class AroundGuardsmanController : MonoBehaviour
         {
             Debug.Log("視界でた");
             flag = false;
-            agent.destination = points[destPoint-1].position;
-
+            //agent.destination = points[destPoint - 1].position;
             //agent.destination = target.transform.position;
         }
     }
@@ -86,6 +94,9 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            // ゲームオーバーの判定をtrueにする
+            VariablesController.gameOverControl = true;
+
             Debug.Log("ゲームオーバー");
         }
     }

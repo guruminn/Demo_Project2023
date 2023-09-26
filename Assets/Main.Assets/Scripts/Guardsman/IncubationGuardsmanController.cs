@@ -22,6 +22,8 @@ public class IncubationGuardsmanController : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            // ゲームオーバーの判定をtrueにする
+            VariablesController.gameOverControl = true;
             Debug.Log("ゲームオーバー");
         }
     }

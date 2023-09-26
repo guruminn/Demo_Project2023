@@ -27,6 +27,8 @@ public class UITimer : MonoBehaviour
 
         if(timeSlider.value == maxTime)
         {
+            // ゲームオーバーの判定をtrueにする
+            VariablesController.gameOverControl = true;
             Debug.Log("時間です");
         }
     }
