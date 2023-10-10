@@ -1,69 +1,68 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.Events;
 
 // タイトル画面の演出処理を記述したスクリプト
 // 作成者：山﨑晶
 
 public class TitleUIManager : MonoBehaviour
 {
-    // フェードさせる画像を取得
-    [SerializeField] private Image fadePanel;
-    // フェードさせる画像をオブジェクトとして取得
-    [SerializeField] private GameObject fadePanelObj;
-
-    [Space(10)]
-
-    // タイトルロゴを取得
-    [SerializeField] private Image titleImage;
-
-    [Space(10)]
-
-    // ボタンをオブジェクトとして取得
-    [SerializeField] private GameObject[] buttonObj = new GameObject[2];
-
-    [Space(10)]
-
-    // フェードアウトをするスピードを保存する変数
-    [SerializeField, Range(0f, 1f)] private float _fadeSpeed;
-
-    [Space(10)]
-
+    [Header("画面表示の処理")]
     // 画像を表示する間隔の時間を保存する変数
-    [SerializeField] private float[] _waitTime = new float[2];
+    [SerializeField, Range(0f, 10f)] private float[] _waitTime = new float[2];
 
-    // フェードをする画像の透明度を保存する変数
-    private float _fadeAlpha;
+    [Space(10)]
 
-    // タイトルロゴの透明度を保存する変数
-    private float _titleAlpha;
+    //「FadeSystem」のインスタンスを生成。
+    [HideInInspector] public FadeManager _fadeSystem;
 
-    // フェードアウトの判定を管理する変数
-    private bool _isFadeOut;
+    //「ui_fadeImage」のコンポーネントを保存する変数
+    private Image fadeImage;
+    //「ui_titleImage」のコンポーネントを保存する変数
+    private Image titleImage;
+    // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして保存する変数
+    private GameObject[] buttonObj = new GameObject[2];
 
-    // フェードインの判定を管理する変数
-    private bool _isFadeIn;
+    //「TitleUI」を親オブジェクトとして保存する変数
+    private GameObject parent;
+
+
+    [Header("スタートボタン後の処理")]
+    [SerializeField, Range(0f, 10f)] private float _moveSpeed = 1f;
+
+    //「TranstionScenes」のインスタンスを生成
+    [HideInInspector] public TranstionScenes transSystem;
+
+    // カメラを動かすために「MainCamera」をゲームオブジェクトとして保存する変数
+    private GameObject cameraObj;
+
+    //「TitleCanvas」をゲームオブジェクトとして保存する変数
+    private GameObject titleCanvas;
+
+    // カメラの初期位置を保存する変数
+    private Vector3 _startPosition;
+    // カメラの移動先の位置を保存する変数
+    [SerializeField] private Vector3 _endPosition;
+
+    // 「_distance」は初期位置と移動先の距離を保存する変数
+    // 「_positionValue」は２点間の移動する位置の値を保存する変数
+    // 「time」は現在のゲーム時間を保存する変数
+    private float _distance, _positionValue, time;
+    
+    // スタートボタンが押されたかの判定を保存する変数
+    private bool _isClickButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        // 初期化
-        // フェードアウト/フェードインの判定を無効にする
-        _isFadeOut = false;
-        _isFadeIn = false;
+        // タイトル画面のUIの初期化
+        Initi_TitleUI();
 
-        // ボタンの表示を無効にする
-        for (int i = 0; i < buttonObj.Length; i++)
-        {
-            buttonObj[i].SetActive(false);
-        }
-
-        // フェードする画像の透明度を保存する
-        _fadeAlpha = fadePanel.color.a;
-        // タイトルロゴの透明度を保存する
-        _titleAlpha = titleImage.color.a;
+        // スタートボタンが押された処理関係の初期化 
+        Initi_TransFunction();
     }
 
     // Update is called once per frame
@@ -71,33 +70,35 @@ public class TitleUIManager : MonoBehaviour
     {
         // タイトル画面のUIの演出をするコルーチンを呼び出す
         StartCoroutine("Fade_UI");
+
+        if (_isClickButton)
+        {
+            Move_CameraObj();
+        }
     }
 
     // タイトル画面のUIの演出をするコルーチン
     private IEnumerator Fade_UI()
     {
         // 一番目に表示させる演出処理
-        if (!_isFadeOut && !_isFadeIn)
+        if (!FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // フェードインをする関数を呼び出す
-            FadeIn(fadePanel);
+            _fadeSystem.FadeIn(fadeImage, fadeImage.color.a);
         }
 
         // 二番目に表示させる演出処理
-        if (_isFadeIn && !_isFadeOut)
+        if (FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
-            // フェードする画像を非表示にする
-            fadePanelObj.SetActive(true);
-
             // 処理を待つ
             yield return new WaitForSeconds(_waitTime[0]);
 
             // フェードアウトをする関数を呼び出す
-            FadeOut(titleImage);
+            _fadeSystem.FadeOut(titleImage, titleImage.color.a);
         }
 
         // 三番目に表示させる演出処理
-        if (_isFadeIn && _isFadeOut)
+        if (FadeVariables.FadeIn && FadeVariables.FadeOut)
         {
             // 処理を待つ
             yield return new WaitForSeconds(_waitTime[1]);
@@ -109,49 +110,71 @@ public class TitleUIManager : MonoBehaviour
             }
         }
     }
-
-    // フェードアウトの演出をする関数
-    private void FadeOut(Image _fadeImage)
+    void Initi_TransFunction()
     {
-        // フェードアウトさせるパネルを表示する
-        _fadeImage.enabled = true;
+        // カメラの初期位置を変数に保存する
+        _startPosition = cameraObj.transform.position;
 
-        // 透明度を加算して上げる
-        _titleAlpha += _fadeSpeed * Time.deltaTime;
+        // 初期位置と移動先の位置同士の距離の長さを変数に保存する
+        _distance = Vector3.Distance(_startPosition, _endPosition);
 
-        // フェードアウトさせるパネルの透明度を設定する
-        _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _titleAlpha);
+        // スタートボタンが押された判定を無効にする
+        _isClickButton = false;
+    }
 
-        // パネルの透明度が指定した透明度の値になった時の処理
-        if (_titleAlpha >= 1)
+    void Initi_TitleUI()
+    {
+        //「TitleCanvas」を
+        titleCanvas = GameObject.Find("TitleCanvas").gameObject;
+
+        fadeImage = GameObject.Find("FadeSystem/ui_fadeImage").GetComponentInChildren<Image>();
+
+        parent = GameObject.FindWithTag("TitleUI");
+
+        titleImage = parent.GetComponentInChildren<Image>();
+
+        buttonObj[0] = parent.transform.GetChild(1).gameObject;
+
+        buttonObj[1] = parent.transform.GetChild(2).gameObject;
+
+        cameraObj = GameObject.Find("Main Camera").gameObject;
+
+        // ボタンの表示を無効にする
+        for (int i = 0; i < buttonObj.Length; i++)
         {
-            // パネルの透明度を固定する
-            _titleAlpha = 1;
-
-            // フェードアウトの判定を有効にする
-            _isFadeOut = true;
+            buttonObj[i].SetActive(false);
         }
     }
 
-    private void FadeIn(Image _fadeImage)
+    public void OnClick_StartButton()
     {
-        // フェードアウトさせるパネルを表示する
-        _fadeImage.enabled = true;
+        // タイトル画面のUI表示を非表示にする
+        titleCanvas.SetActive(false);
 
-        // 透明度を加算して上げる
-        _fadeAlpha -= _fadeSpeed * Time.deltaTime;
+        // スタートボタンが押された判定を有効にする
+        _isClickButton = true;
+        
+        // 現在のゲーム内の時間を変数に保存する
+        time = Time.time;
+    }
 
-        // フェードアウトさせるパネルの透明度を設定する
-        _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeAlpha);
+    private void Move_CameraObj()
+    {
+        // 初期位置と移動先の距離の割合を計算する処理
+        // 「(Time.time - time) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
+        _positionValue = ((Time.time - time) / _distance) * _moveSpeed;
 
-        // パネルの透明度が指定した透明度の値になった時の処理
-        if (_fadeAlpha <= 0)
+        // カメラの位置を動かす処理
+        cameraObj.transform.position = Vector3.Lerp(_startPosition, _endPosition, _positionValue);
+
+        // カメラの位置が指定した位置に来た場合
+        if (cameraObj.transform.position == _endPosition)
         {
-            // パネルの透明度を固定する
-            _fadeAlpha = 0;
+            // スタートボタンが押された判定を無効にする
+            _isClickButton = false;
 
-            // フェードインの判定を有効にする
-            _isFadeIn = true;
+            // チュートリアルのシーンに遷移する
+            transSystem.Trans_WayPlay();
         }
     }
 }
