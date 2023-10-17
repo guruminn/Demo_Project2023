@@ -17,7 +17,7 @@ public class TitleUIManager : MonoBehaviour
     [Space(10)]
 
     //「FadeSystem」のインスタンスを生成。
-    [HideInInspector] public FadeManager _fadeSystem;
+    private  FadeManager _fadeSystem=new FadeManager();
 
     //「ui_fadeImage」のコンポーネントを保存する変数
     private Image fadeImage;
@@ -54,6 +54,8 @@ public class TitleUIManager : MonoBehaviour
     // スタートボタンが押されたかの判定を保存する変数
     private bool _isClickButton;
 
+    public float fadeSpeed = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,7 +65,6 @@ public class TitleUIManager : MonoBehaviour
         // スタートボタンが押された処理関係の初期化 
         Initi_TransFunction();
 
-        Debug.Log("_fadeSystem : " + _fadeSystem);
     }
 
     // Update is called once per frame
@@ -129,7 +130,7 @@ public class TitleUIManager : MonoBehaviour
         titleCanvas = GameObject.Find("TitleCanvas").gameObject;
 
         //「ui_fadeImage」のコンポーネントを取得する
-        fadeImage = GameObject.Find("FadeSystem/ui_fadeImage").GetComponentInChildren<Image>();
+        fadeImage = GameObject.Find("ui_fadeImage").GetComponent<Image>();
 
         // タイトル画面のUIの親オブジェクト「TitleUI」をタグ検索から取得する
         parent = GameObject.FindWithTag("TitleUI");

@@ -13,7 +13,7 @@ using UnityEngine.UI;
 public class OutGameManager : MonoBehaviour
 {
     //「FadeSystem」のインスタンスを生成
-    public FadeManager fadeSystem;
+    private FadeManager fadeSystem=new FadeManager();
     //「TranstionScene」のインスタンスを生成
     public TranstionScenes transSystem;
 
