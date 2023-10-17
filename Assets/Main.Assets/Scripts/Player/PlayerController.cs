@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float Rot = 0.0f;
-    public int rotateSpeed = 0; //回転スピード
+    public float rotateSpeed = 0; //回転スピード
     public float PositionSpeed = 0.0f; //前後移動スピード
     public Vector3 scale; //小さくした時の大きさ
 
@@ -27,11 +27,12 @@ public class PlayerController : MonoBehaviour
         Rot = Input.GetAxis("Horizontal");
 
         //前後移動
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.JoystickButton2))
         {
             transform.position -= transform.forward * PositionSpeed;
+
         }
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.JoystickButton1))
         {
             transform.position += transform.forward * PositionSpeed;
         }
