@@ -7,47 +7,48 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
+// ゲームオーバーやゲームクリアの判定が有効になった場合に演出をするソースコード
+// 作成者：山﨑晶
+
 public class OutGameManager : MonoBehaviour
 {
-    // フェードアウトをするパネルをもmageとして取得
-    [SerializeField] Image fadePanel;
-
-    [Space(6)]
-
-    // フェードアウトする透明度の上限を保存する変数
-    [Range(0f, 1f)] public float constAlpha;
-    // フェードアウトをするスピードを保存する変数
-    [Range(0f, 1f)] public float fadeSpeed;
+    //「FadeSystem」のインスタンスを生成
+    public FadeManager fadeSystem;
+    //「TranstionScene」のインスタンスを生成
+    public TranstionScenes transSystem;
 
     [Space(10)]
 
+    // ゲーム終了時のUIの親オブジェクトとして保存する変数
+    private GameObject finishTag;
+    // ゲーム画面から暗くなる画像のコンポーネントを保存する変数
+    private Image splitImage;
+    // ゲーム終了時のテキストから暗くなる画像のコンポーネントを保存する変数
+    private Image fadeImage;
+
     // ゲームオーバー、ゲームクリアを表示するtextを取得
-    [SerializeField] TextMeshProUGUI titleText;
-
-    [Space(6)]
-
+    private TextMeshProUGUI titleText;
     // ゲームオーバーの時に表示させる文字を保存する変数
-    public string overText;
+    [SerializeField]private string overText;
     // ゲームクリアの時に表示させる文字を保存する変数
-    public string clearText;
+    [SerializeField] private string clearText;
 
     [Space(10)]
 
     // プレイヤーの移動とカメラを動かしているscriptを参照するため、オブジェクトを取得
-    public GameObject[] playerDontMove=new GameObject[2];
-    
-    // 警備員の移動を止めるため、オブジェクトを取得
-    public GameObject guardDontMove;
+    [SerializeField]private GameObject[] playerDontMove=new GameObject[2];
 
-    // フェードアウトをするパネルの透明度を保存する変数
-    private float _imageAlpha;
+    // 警備員の移動を止めるため、オブジェクトを取得
+    [SerializeField]private GameObject guardDontMove;
+
+    [Space(10)]
+
+    // ゲーム終了時のテキストから暗くなるまでの待ち時間を保存する変数
+    [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
 
     private void Start()
     {
-        // 初期化
-        fadePanel.color = new Color(0f, 0f, 0f, 0f);
-        fadePanel.enabled = false;
-        _imageAlpha = 0.0f;
+        Initi_UI();
     }
 
     private void Update()
@@ -58,24 +59,14 @@ public class OutGameManager : MonoBehaviour
             // プレイヤー、警備員の動きを止める
             DontMove_AntherScript();
 
-            // フェードアウトさせるパネルを表示する
-            fadePanel.enabled = true;
+            // フェードアウトの演出を呼び出す
+            fadeSystem.FadeOut(splitImage, splitImage.color.a, false);
 
-            // 透明度を加算して上げる
-            _imageAlpha += fadeSpeed;
-            Debug.Log("_imageAlpha : " + _imageAlpha);
-
-            // パネルに透明度を設定する 
-            fadePanel.color = new Color(0f, 0f, 0f, _imageAlpha);
-
-            // パネルの透明度が指定した透明度の値になった時の処理
-            if (_imageAlpha >= constAlpha)
+            // フェードアウトが終わった場合
+            if (FadeVariables.FadeOut)
             {
-                // パネルの透明度を固定する
-                _imageAlpha = constAlpha;
-
-                // ゲームオーバーのtextを表示する
-                Display_TitleText(overText);
+                // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
+                StartCoroutine(Display_TitleText(overText, 4));
             }
         }
 
@@ -85,58 +76,15 @@ public class OutGameManager : MonoBehaviour
             // プレイヤー、警備員の動きを止める
             DontMove_AntherScript();
 
-            // フェードアウトさせるパネルを表示する
-            fadePanel.enabled = true;
+            // フェードアウトの演出を呼び出す
+            fadeSystem.FadeOut(splitImage, splitImage.color.a, false);
 
-            // 透明度を加算して上げる
-            _imageAlpha += fadeSpeed;
-            Debug.Log("_imageAlpha : " + _imageAlpha);
-
-            // パネルに透明度を設定する 
-            fadePanel.color = new Color(0f, 0f, 0f, _imageAlpha);
-
-            // パネルの透明度が指定した透明度の値になった時の処理
-            if (_imageAlpha >= constAlpha)
+            // フェードアウトの演出を呼び出す
+            if (FadeVariables.FadeOut)
             {
-                // パネルの透明度を固定する
-                _imageAlpha = constAlpha;
-
-                // ゲームオーバーのtextを表示する
-                Display_TitleText(clearText);
+                // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
+                StartCoroutine(Display_TitleText(clearText,3));
             }
-        }
-
-        // debug
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            VariablesController.gameOverControl = true;
-            Debug.Log("ゲームオーバー入った");
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            VariablesController.gameOverControl = false;
-            fadePanel.enabled = false;
-            _imageAlpha = 0.0f;
-        }
-    }
-
-    // フェードアウトの演出をする関数
-    private void FadeOut()
-    {
-        // フェードアウトさせるパネルを表示する
-        fadePanel.enabled = true;
-
-        // 透明度を加算して上げる
-        _imageAlpha += fadeSpeed;
-
-        // フェードアウトさせるパネルの透明度を設定する
-        fadePanel.color = new Color(0f, 0f, 0f, _imageAlpha);
-
-        // パネルの透明度が指定した透明度の値になった時の処理
-        if (_imageAlpha >= constAlpha)
-        {
-            // パネルの透明度を固定する
-            _imageAlpha = constAlpha;
         }
     }
 
@@ -146,10 +94,27 @@ public class OutGameManager : MonoBehaviour
 
     }
 
-    // textを表示する関数
-    private void Display_TitleText(string textWord)
+    // テキストを表示して数秒経ったら画面を暗くする演出のコルーチン
+    private IEnumerator Display_TitleText(string textWord,int sceneNumber)
     {
+        // 指定したテキストを表示
         titleText.text = textWord;
+
+        //「FadeOut」の判定を無効にする
+        FadeVariables.FadeOut = false;
+
+        // 指定した秒数を待つ
+        yield return new WaitForSeconds(_waitTime);
+
+        //「FadeOut」を呼び出す。
+        fadeSystem.FadeOut(fadeImage,fadeImage.color.a, false);
+
+        // 画面が暗くなった場合
+        if (FadeVariables.FadeOut)
+        {
+            // 指定した番号のシーンに遷移する
+            transSystem.Trans_Scene(sceneNumber);
+        }
     }
 
     // プレイヤーの移動とカメラの動き、警備員の移動を止める処理の関数
@@ -169,5 +134,21 @@ public class OutGameManager : MonoBehaviour
 
         // 警備員の移動のAnimatorを無効にする
         guardDontMove.GetComponent<Animator>().enabled = false;
+    }
+
+    // UIのオブジェクトやコンポーネントを取得する関数
+    void Initi_UI()
+    {
+        // ゲーム終了時のUIの親オブジェクト「FinishCanvas」をタグ検索で取得する
+        finishTag = GameObject.FindWithTag("FinishUI");
+
+        // 「FinishCanvas」の子オブジェクト「ui_SplitImage」を指定し「Image」のコンポーネントを取得する
+        splitImage = finishTag.transform.GetChild(0).GetComponentInChildren<Image>();
+
+        //「FinishCanvas」の子オブジェクト「ui_TilteText」を指定し「TextMeshProUGI」のコンポーネントを取得する
+        titleText = finishTag.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
+
+        //「FinishCanvas」の子オブジェクト「ui_FadeImage」を指定し「Image」のコンポーネントを取得する
+        fadeImage = finishTag.transform.GetChild(2).GetComponentInChildren<Image>();
     }
 }

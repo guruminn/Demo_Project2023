@@ -29,7 +29,6 @@ public class TitleUIManager : MonoBehaviour
     //「TitleUI」を親オブジェクトとして保存する変数
     private GameObject parent;
 
-
     [Header("スタートボタン後の処理")]
     [SerializeField, Range(0f, 10f)] private float _moveSpeed = 1f;
 
@@ -63,6 +62,8 @@ public class TitleUIManager : MonoBehaviour
 
         // スタートボタンが押された処理関係の初期化 
         Initi_TransFunction();
+
+        Debug.Log("_fadeSystem : " + _fadeSystem);
     }
 
     // Update is called once per frame
@@ -124,19 +125,25 @@ public class TitleUIManager : MonoBehaviour
 
     void Initi_TitleUI()
     {
-        //「TitleCanvas」を
+        //「TitleCanvas」をタグ検索から取得する
         titleCanvas = GameObject.Find("TitleCanvas").gameObject;
 
+        //「ui_fadeImage」のコンポーネントを取得する
         fadeImage = GameObject.Find("FadeSystem/ui_fadeImage").GetComponentInChildren<Image>();
 
+        // タイトル画面のUIの親オブジェクト「TitleUI」をタグ検索から取得する
         parent = GameObject.FindWithTag("TitleUI");
 
+        // 「ui_titleImage」のコンポーネントを取得する
         titleImage = parent.GetComponentInChildren<Image>();
 
+        //「ui_startButton」をゲームオブジェクトして取得する
         buttonObj[0] = parent.transform.GetChild(1).gameObject;
 
+        //「ui_endButton」をゲームオブジェクトとして取得する
         buttonObj[1] = parent.transform.GetChild(2).gameObject;
 
+        //「MainCamera」をゲームオブジェクトとして保存する
         cameraObj = GameObject.Find("Main Camera").gameObject;
 
         // ボタンの表示を無効にする
@@ -174,7 +181,7 @@ public class TitleUIManager : MonoBehaviour
             _isClickButton = false;
 
             // チュートリアルのシーンに遷移する
-            transSystem.Trans_WayPlay();
+            transSystem.Trans_Scene(1);
         }
     }
 }

@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-    
+using UnityEngine.UI;
+
 // シーンの遷移処理
 public class TranstionScenes : MonoBehaviour
 {
@@ -13,22 +14,37 @@ public class TranstionScenes : MonoBehaviour
         
     }
 
-    // 『Title』シーンに遷移する
-    public void Trans_Title()
-    {
-        SceneManager.LoadScene(0);
-    }
+    //// 『Title』シーンに遷移する
+    //public void Trans_Title()
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
 
-    // 『WayOfPlaying』シーンに遷移する
-    public void Trans_WayPlay()
-    {
-        SceneManager.LoadScene(1);
-    }
+    //// 『WayOfPlaying』シーンに遷移する
+    //public void Trans_WayPlay()
+    //{
+    //    SceneManager.LoadScene(1);
+    //}
 
-    // 『Main』シーンに遷移する
-    public void Trans_Main()
+    //// 『Main』シーンに遷移する
+    //public void Trans_Main()
+    //{
+    //    SceneManager.LoadScene(2);
+    //}
+
+    //public void Trans_GameClear()
+    //{
+    //    SceneManager.LoadScene(3);
+    //}
+
+    //public void Trans_GameOver()
+    //{
+    //    SceneManager.LoadScene(4);
+    //}
+
+    public void Trans_Scene(int sceneIndex)
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     // 現在のシーンを再読み込みする

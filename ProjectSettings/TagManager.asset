@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - TitleUI
+  - FinishUI
+  - CinemachineTarget
+  - Idle
   layers:
   - Default
   - TransparentFX

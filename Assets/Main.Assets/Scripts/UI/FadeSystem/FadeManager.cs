@@ -10,69 +10,72 @@ public class FadeVariables
     public static bool FadeIn;
 }
 
-public class FadeManager : MonoBehaviour
+public class FadeManager
 {
     // フェードアウトをするスピードを保存する変数
-    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 1f;
-    [SerializeField, Range(0f, 10f)] private float _fadeInSpeed = 1f;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // 初期化
-        // フェードアウト/フェードインの判定を無効にする
-        FadeVariables.FadeOut = false;
-        FadeVariables.FadeIn = false;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public float _fadeOutSpeed = 0.1f;
+    public float _fadeInSpeed = 0.1f;
 
     // フェードアウトの演出をする関数
-    public void FadeOut(Image _fadeImage,float _fadeAlpha)
+    public void FadeOut(Image _fadeImage, float _fadeColor, bool fadeType = false, float _defaultValue = 1)
     {
         // フェードアウトさせるパネルを表示する
-        _fadeImage.enabled = true;
+        _fadeImage.gameObject.SetActive(true);
 
         // 透明度を加算して上げる
-        _fadeAlpha += _fadeOutSpeed * Time.deltaTime;
+        _fadeColor += _fadeOutSpeed * Time.deltaTime;
 
-        // フェードアウトさせるパネルの透明度を設定する
-        _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeAlpha);
+        switch (fadeType)
+        {
+            case false:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeColor);
+                break;
+            case true:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeColor, _fadeColor, _fadeColor, _fadeImage.color.a);
+                break;
+        }
 
         // パネルの透明度が指定した透明度の値になった時の処理
-        if (_fadeAlpha >= 1)
+        if (_fadeColor >= _defaultValue)
         {
             // パネルの透明度を固定する
-            _fadeAlpha = 1;
+            _fadeColor = _defaultValue;
 
             // フェードアウトの判定を有効にする
             FadeVariables.FadeOut = true;
         }
     }
 
-    public void FadeIn(Image _fadeImage,float _fadeAlpha)
+    public void FadeIn(Image _fadeImage, float _fadeColor, bool fadeType = false, float _defaultValue = 0)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.enabled = true;
 
         // 透明度を加算して上げる
-        _fadeAlpha -= _fadeInSpeed * Time.deltaTime;
+        _fadeColor += _fadeInSpeed * Time.deltaTime;
 
-        // フェードアウトさせるパネルの透明度を設定する
-        _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeAlpha);
+        switch (fadeType)
+        {
+            case false:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeColor);
+                break;
+            case true:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeColor, _fadeColor, _fadeColor, _fadeImage.color.a);
+                break;
+        }
 
         // パネルの透明度が指定した透明度の値になった時の処理
-        if (_fadeAlpha <= 0)
+        if (_fadeColor <= _defaultValue)
         {
             // パネルの透明度を固定する
-            _fadeAlpha = 0;
+            _fadeColor = _defaultValue;
 
             // フェードアウトさせるパネルを非表示する
-            _fadeImage.enabled = false;
+            _fadeImage.gameObject.SetActive(false);
 
             // フェードインの判定を有効にする
             FadeVariables.FadeIn = true;
