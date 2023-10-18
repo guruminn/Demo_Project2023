@@ -90,14 +90,14 @@ public class AroundGuardsmanController : MonoBehaviour
     }
 
     //プレイヤーに当たったらゲームオーバー
-    public void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            // ゲームオーバーの判定をtrueにする
-            VariablesController.gameOverControl = true;
+    //public void OnCollisionEnter(Collision other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        // ゲームオーバーの判定をtrueにする
+    //        VariablesController.gameOverControl = true;
 
-            Debug.Log("ゲームオーバー");
-        }
-    }
+    //        Debug.Log("ゲームオーバー");
+    //    }
+    //}
 }
