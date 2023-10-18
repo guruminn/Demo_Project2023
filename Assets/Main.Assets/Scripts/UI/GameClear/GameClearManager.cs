@@ -50,11 +50,15 @@ public class GameClearManager : MonoBehaviour
 
     public GameObject lastText;
 
+    public float changeSpeed;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Initi_UI();
+
+        FadeVariables.Initi_Fade();
     }
 
     // Update is called once per frame
@@ -72,11 +76,6 @@ public class GameClearManager : MonoBehaviour
         }
 
         _uiCount = 0;
-
-        backFade._fadeOutSpeed = backSpeed;
-
-        chekiFade._fadeOutSpeed=chekiSpeed;
-
     }
 
     private void direction_UI()
@@ -84,7 +83,7 @@ public class GameClearManager : MonoBehaviour
         switch (_uiCount)
         {
             case 0:
-                backFade.FadeOut(backImage, backImage.color.b,true);
+                backFade.FadeOut(backImage, backImage.color.b, backSpeed,true);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -96,7 +95,7 @@ public class GameClearManager : MonoBehaviour
                 {
                     chekiImage.gameObject.SetActive(true);
                 }
-                chekiFade.FadeOut(  chekiImage, chekiImage.color.a);
+                chekiFade.FadeOut(  chekiImage, chekiImage.color.a, chekiSpeed);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -115,7 +114,10 @@ public class GameClearManager : MonoBehaviour
                 CountDown_Text();
                 break;
             case 5:
-                backFade.FadeOut(fadeImage, fadeImage.color.a);
+                StartCoroutine(ShotPhoto());
+                break;
+            case 6:
+                backFade.FadeOut(fadeImage, fadeImage.color.a, backSpeed);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -158,10 +160,23 @@ public class GameClearManager : MonoBehaviour
 
         countText.text = (_countDownText+1).ToString();
 
-        if ((int)countDownTime <= 0)
+        if ((int)countDownTime < 0)
         {
             countText.enabled = false;
             _uiCount++;
         }
+    }
+
+    private IEnumerator ShotPhoto()
+    {
+        yield return new WaitForSeconds(changeSpeed);
+
+        if (_uiCount == 5)
+        {
+            _uiCount++;
+        }
+        
+
+        yield return null;
     }
 }

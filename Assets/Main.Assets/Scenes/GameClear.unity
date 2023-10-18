@@ -1368,13 +1368,14 @@ MonoBehaviour:
   endPosition:
   - {x: -500, y: 0}
   - {x: 500, y: 0}
-  _moveSpeed: 200
+  _moveSpeed: 500
   playerImage: {fileID: 1002979965}
   countDownTime: 3
   countText: {fileID: 385259341}
   backSpeed: 0.2
   chekiSpeed: 3
   lastText: {fileID: 1986274239}
+  changeSpeed: 0
 --- !u!4 &2073825501
 Transform:
   m_ObjectHideFlags: 0

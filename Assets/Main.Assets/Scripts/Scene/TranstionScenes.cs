@@ -50,7 +50,7 @@ public class TranstionScenes : MonoBehaviour
     // 現在のシーンを再読み込みする
     public void Trans_Retry()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(2);
     }
 
     // ゲームを終了させる

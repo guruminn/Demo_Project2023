@@ -1,6 +1,7 @@
 using Mocopi.Receiver;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,6 +10,20 @@ using UnityEngine.UI;
 
 // ゲームオーバーやゲームクリアの判定が有効になった場合に演出をするソースコード
 // 作成者：山﨑晶
+public class VariablesController
+{
+    // ゲームオーバーの判定を管理する変数
+    public static bool gameOverControl;
+
+    // ゲームクリアの判定を管理する変数
+    public static bool gameClearControl;
+
+    public static void Initi_Game()
+    {
+        gameOverControl = false;
+        gameClearControl = false;
+    }
+}
 
 public class OutGameManager : MonoBehaviour
 {
@@ -46,9 +61,19 @@ public class OutGameManager : MonoBehaviour
     // ゲーム終了時のテキストから暗くなるまでの待ち時間を保存する変数
     [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
 
+    // 画像のフェードの速さを保存する変数
+    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
+
+    // テキストのフェードの速さを保存する変数
+    [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
+
     private void Start()
     {
         Initi_UI();
+
+        FadeVariables.Initi_Fade();
+
+        VariablesController.Initi_Game();
     }
 
     private void Update()
@@ -56,42 +81,31 @@ public class OutGameManager : MonoBehaviour
         // ゲームオーバーの時の処理
         if (VariablesController.gameOverControl)
         {
-            // プレイヤー、警備員の動きを止める
-            DontMove_AntherScript();
-
-            // フェードアウトの演出を呼び出す
-            fadeSystem.FadeOut(splitImage, splitImage.color.a, false);
-
-            // フェードアウトが終わった場合
-            if (FadeVariables.FadeOut)
-            {
-                // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
-                StartCoroutine(Display_TitleText(overText, 4));
-            }
+            Direction_UI(overText, 4);
         }
 
         // ゲームクリアの時の処理
         if (VariablesController.gameClearControl)
         {
-            // プレイヤー、警備員の動きを止める
-            DontMove_AntherScript();
-
-            // フェードアウトの演出を呼び出す
-            fadeSystem.FadeOut(splitImage, splitImage.color.a, false);
-
-            // フェードアウトの演出を呼び出す
-            if (FadeVariables.FadeOut)
-            {
-                // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
-                StartCoroutine(Display_TitleText(clearText,3));
-            }
+            Direction_UI(clearText, 3);
         }
     }
 
-    // スプリットインの演出をする関数
-    private void SplitIn()
+    // UIの演出の処理をする関数
+    private void Direction_UI(string textWord, int sceneNumber)
     {
+        // プレイヤー、警備員の動きを止める
+        DontMove_AntherScript();
 
+        // フェードアウトの演出を呼び出す
+        fadeSystem.FadeOut(splitImage, splitImage.color.a, _fadeOutSpeed);
+
+        // フェードアウトが終わった場合
+        if (FadeVariables.FadeOut)
+        {
+            // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
+            StartCoroutine(Display_TitleText(textWord, sceneNumber));
+        }
     }
 
     // テキストを表示して数秒経ったら画面を暗くする演出のコルーチン
@@ -107,7 +121,7 @@ public class OutGameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
 
         //「FadeOut」を呼び出す。
-        fadeSystem.FadeOut(fadeImage,fadeImage.color.a, false);
+        fadeSystem.FadeOut(fadeImage,fadeImage.color.a, _textOutSpeed);
 
         // 画面が暗くなった場合
         if (FadeVariables.FadeOut)
@@ -122,6 +136,9 @@ public class OutGameManager : MonoBehaviour
     {
         // プレイヤーの移動のscriptを無効にする
         playerDontMove[0].GetComponent<MocopiAvatar>().enabled = false;
+
+        // プレイヤーのコントローラーの移動用のscriptを無効にする
+        playerDontMove[0].GetComponent<PlayerController>().enabled = false;
 
         // プレイヤーのカメラのscriptを無効にする
         playerDontMove[1].GetComponent<CameraController>().enabled = false;

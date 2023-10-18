@@ -2022,12 +2022,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc4ad348d3aeba4ba23c39d0bc563d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _waitTime:
-  - 1
-  - 1
-  _moveSpeed: 2
+  _intervalTIme:
+  - 0
+  - 0
+  _cameraMoveSpeed: 1
+  _endPosition: {x: 0, y: 5.5, z: -14}
+  _fadeInSpeed: 1
+  _fadeOutSpeed: 1
   transSystem: {fileID: 760944821}
-  _endPosition: {x: 0, y: 7, z: -14}
 --- !u!1 &1160810359
 GameObject:
   m_ObjectHideFlags: 0

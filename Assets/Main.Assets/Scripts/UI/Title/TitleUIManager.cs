@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Transactions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 // タイトル画面の演出処理を記述したスクリプト
@@ -10,51 +11,60 @@ using UnityEngine.UI;
 
 public class TitleUIManager : MonoBehaviour
 {
-    [Header("画面表示の処理")]
-    // 画像を表示する間隔の時間を保存する変数
-    [SerializeField, Range(0f, 10f)] private float[] _waitTime = new float[2];
+    // 画像を表示する間隔の時間を保存
+    [SerializeField, Range(0f, 10f)] private float[] _intervalTIme = new float[2];
 
     [Space(10)]
 
-    //「FadeSystem」のインスタンスを生成。
-    private  FadeManager _fadeSystem=new FadeManager();
+    // カメラが移動する速さを保存
+    [SerializeField, Range(0f, 10f)] private float _cameraMoveSpeed = 1f;
+   
+    // カメラの初期位置を保存
+    private Vector3 _startPosition;
+    // カメラの移動先の位置を保存
+    [SerializeField] private Vector3 _endPosition;
 
-    //「ui_fadeImage」のコンポーネントを保存する変数
-    private Image fadeImage;
-    //「ui_titleImage」のコンポーネントを保存する変数
-    private Image titleImage;
-    // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして保存する変数
-    private GameObject[] buttonObj = new GameObject[2];
+    [Space(10)]
 
-    //「TitleUI」を親オブジェクトとして保存する変数
-    private GameObject parent;
+    // フェードインの速さを保存
+    [SerializeField, Range(0f, 10f)] private float _fadeInSpeed = 0.1f;
 
-    [Header("スタートボタン後の処理")]
-    [SerializeField, Range(0f, 10f)] private float _moveSpeed = 1f;
+    // フェードアウトの速さを保存
+    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
 
+
+    //「FadeSystem」のインスタンスを生成
+    private FadeManager _fadeSystem = new FadeManager();
     //「TranstionScenes」のインスタンスを生成
     [HideInInspector] public TranstionScenes transSystem;
 
-    // カメラを動かすために「MainCamera」をゲームオブジェクトとして保存する変数
-    private GameObject cameraObj;
+    //「ui_fadeImage」のコンポーネントを保存
+    private Image _fadeImage;
+    //「ui_titleImage」のコンポーネントを保存
+    private Image _titleImage;
+    // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして保存
+    private GameObject[] _buttonObj = new GameObject[2];
+    //「TitleUI」を親オブジェクトとして保存
+    private GameObject _parent;
+    // カメラを動かすために「MainCamera」をゲームオブジェクトとして保存
+    private GameObject _cameraObj;
+    //「TitleCanvas」をゲームオブジェクトとして保存
+    private GameObject _titleCanvas;
 
-    //「TitleCanvas」をゲームオブジェクトとして保存する変数
-    private GameObject titleCanvas;
+    // 「_distance」は初期位置と移動先の距離を保存
+    // 「_positionValue」は２点間の移動する位置の値を保存
+    // 「&& _isInputButton」は現在のゲーム時間を保存
+    private float _distance, _positionValue, _time;
 
-    // カメラの初期位置を保存する変数
-    private Vector3 _startPosition;
-    // カメラの移動先の位置を保存する変数
-    [SerializeField] private Vector3 _endPosition;
+    // スタートボタンが押されたかの判定を保存
+    private bool _isClickButton = false;
 
-    // 「_distance」は初期位置と移動先の距離を保存する変数
-    // 「_positionValue」は２点間の移動する位置の値を保存する変数
-    // 「time」は現在のゲーム時間を保存する変数
-    private float _distance, _positionValue, time;
-    
-    // スタートボタンが押されたかの判定を保存する変数
-    private bool _isClickButton;
+    // ボタンの入力を受け付ける判定を保存
+    private bool _isInputButton = false;
 
-    public float fadeSpeed = 0.1f;
+    private bool _isStepScene = false;
+
+    private GameObject _saveButton;
 
     // Start is called before the first frame update
     void Start()
@@ -65,19 +75,40 @@ public class TitleUIManager : MonoBehaviour
         // スタートボタンが押された処理関係の初期化 
         Initi_TransFunction();
 
+        FadeVariables.Initi_Fade();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 選択中のボタンの情報を保存する
+        _saveButton = EventSystem.current.currentSelectedGameObject;
+
         // タイトル画面のUIの演出をするコルーチンを呼び出す
         StartCoroutine("Fade_UI");
 
-        if (_isClickButton)
+        if (_isClickButton&& _isInputButton)
         {
-            Move_CameraObj();
+            Move_CameraObj(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Joystick1Button3) )
+        {
+            _isStepScene = true;
+
+            // 現在のゲーム内の時間を変数に保存する
+            _time = Time.time;
+
+            // タイトル画面のUI表示を非表示にする
+            _titleCanvas.SetActive(false);
+        }
+
+        if (_isStepScene && _isInputButton)
+        {
+            Move_CameraObj(2);
         }
     }
+
 
     // タイトル画面のUIの演出をするコルーチン
     private IEnumerator Fade_UI()
@@ -86,36 +117,38 @@ public class TitleUIManager : MonoBehaviour
         if (!FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // フェードインをする関数を呼び出す
-            _fadeSystem.FadeIn(fadeImage, fadeImage.color.a);
+            _fadeSystem.FadeIn(_fadeImage, _fadeImage.color.a, _fadeInSpeed);
         }
 
         // 二番目に表示させる演出処理
         if (FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // 処理を待つ
-            yield return new WaitForSeconds(_waitTime[0]);
+            yield return new WaitForSeconds(_intervalTIme[0]);
 
             // フェードアウトをする関数を呼び出す
-            _fadeSystem.FadeOut(titleImage, titleImage.color.a);
+            _fadeSystem.FadeOut(_titleImage, _titleImage.color.a, _fadeOutSpeed);
         }
 
         // 三番目に表示させる演出処理
         if (FadeVariables.FadeIn && FadeVariables.FadeOut)
         {
             // 処理を待つ
-            yield return new WaitForSeconds(_waitTime[1]);
+            yield return new WaitForSeconds(_intervalTIme[1]);
 
             // ボタンを表示させる処理
-            for (int i = 0; i < buttonObj.Length; i++)
+            for (int i = 0; i < _buttonObj.Length; i++)
             {
-                buttonObj[i].SetActive(true);
+                _buttonObj[i].SetActive(true);
             }
+
+            _isInputButton = true;
         }
     }
     void Initi_TransFunction()
     {
         // カメラの初期位置を変数に保存する
-        _startPosition = cameraObj.transform.position;
+        _startPosition = _cameraObj.transform.position;
 
         // 初期位置と移動先の位置同士の距離の長さを変数に保存する
         _distance = Vector3.Distance(_startPosition, _endPosition);
@@ -127,62 +160,64 @@ public class TitleUIManager : MonoBehaviour
     void Initi_TitleUI()
     {
         //「TitleCanvas」をタグ検索から取得する
-        titleCanvas = GameObject.Find("TitleCanvas").gameObject;
+        _titleCanvas = GameObject.Find("TitleCanvas").gameObject;
 
         //「ui_fadeImage」のコンポーネントを取得する
-        fadeImage = GameObject.Find("ui_fadeImage").GetComponent<Image>();
+        _fadeImage = GameObject.Find("ui_fadeImage").GetComponent<Image>();
 
         // タイトル画面のUIの親オブジェクト「TitleUI」をタグ検索から取得する
-        parent = GameObject.FindWithTag("TitleUI");
+        _parent = GameObject.FindWithTag("TitleUI");
 
         // 「ui_titleImage」のコンポーネントを取得する
-        titleImage = parent.GetComponentInChildren<Image>();
+        _titleImage = _parent.GetComponentInChildren<Image>();
 
         //「ui_startButton」をゲームオブジェクトして取得する
-        buttonObj[0] = parent.transform.GetChild(1).gameObject;
+        _buttonObj[0] = _parent.transform.GetChild(1).gameObject;
 
         //「ui_endButton」をゲームオブジェクトとして取得する
-        buttonObj[1] = parent.transform.GetChild(2).gameObject;
+        _buttonObj[1] = _parent.transform.GetChild(2).gameObject;
 
         //「MainCamera」をゲームオブジェクトとして保存する
-        cameraObj = GameObject.Find("Main Camera").gameObject;
+        _cameraObj = GameObject.Find("Main Camera").gameObject;
 
         // ボタンの表示を無効にする
-        for (int i = 0; i < buttonObj.Length; i++)
+        for (int i = 0; i < _buttonObj.Length; i++)
         {
-            buttonObj[i].SetActive(false);
+            _buttonObj[i].SetActive(false);
         }
+
+        EventSystem.current.SetSelectedGameObject(_buttonObj[0]);
     }
 
     public void OnClick_StartButton()
     {
         // タイトル画面のUI表示を非表示にする
-        titleCanvas.SetActive(false);
+        _titleCanvas.SetActive(false);
 
         // スタートボタンが押された判定を有効にする
         _isClickButton = true;
-        
+
         // 現在のゲーム内の時間を変数に保存する
-        time = Time.time;
+        _time = Time.time;
     }
 
-    private void Move_CameraObj()
+    private void Move_CameraObj(int _seceneNumber)
     {
         // 初期位置と移動先の距離の割合を計算する処理
-        // 「(Time.time - time) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
-        _positionValue = ((Time.time - time) / _distance) * _moveSpeed;
+        // 「(&& _isInputButton.&& _isInputButton - && _isInputButton) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
+        _positionValue = ((Time.time-_time) / _distance) * _cameraMoveSpeed;
 
         // カメラの位置を動かす処理
-        cameraObj.transform.position = Vector3.Lerp(_startPosition, _endPosition, _positionValue);
+        _cameraObj.transform.position = Vector3.Lerp(_startPosition, _endPosition, _positionValue);
 
         // カメラの位置が指定した位置に来た場合
-        if (cameraObj.transform.position == _endPosition)
+        if (_cameraObj.transform.position == _endPosition)
         {
             // スタートボタンが押された判定を無効にする
             _isClickButton = false;
 
             // チュートリアルのシーンに遷移する
-            transSystem.Trans_Scene(1);
+            transSystem.Trans_Scene(_seceneNumber);
         }
     }
 }

@@ -8,22 +8,24 @@ public class FadeVariables
 {
     public static bool FadeOut;
     public static bool FadeIn;
+
+    public static void Initi_Fade()
+    {
+        FadeOut = false;
+        FadeIn = false;
+    }
 }
 
 public class FadeManager
 {
-    // フェードアウトをするスピードを保存する変数
-    public float _fadeOutSpeed = 0.1f;
-    public float _fadeInSpeed = 0.1f;
-
     // フェードアウトの演出をする関数
-    public void FadeOut(Image _fadeImage, float _fadeColor, bool fadeType = false, float _defaultValue = 1)
+    public void FadeOut(Image _fadeImage, float _fadeColor, float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.gameObject.SetActive(true);
 
         // 透明度を加算して上げる
-        _fadeColor += _fadeOutSpeed * Time.deltaTime;
+        _fadeColor += fadeSpeed * Time.deltaTime;
 
         switch (fadeType)
         {
@@ -48,13 +50,13 @@ public class FadeManager
         }
     }
 
-    public void FadeIn(Image _fadeImage, float _fadeColor, bool fadeType = false, float _defaultValue = 0)
+    public void FadeIn(Image _fadeImage, float _fadeColor, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.enabled = true;
 
-        // 透明度を加算して上げる
-        _fadeColor += _fadeInSpeed * Time.deltaTime;
+        // 透明度を減算して下げる
+        _fadeColor -= fadeSpeed * Time.deltaTime;
 
         switch (fadeType)
         {
