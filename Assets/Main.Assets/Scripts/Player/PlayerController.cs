@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float PositionSpeed = 0.0f; //前後移動スピード
     public Vector3 scale; //小さくした時の大きさ
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +25,14 @@ public class PlayerController : MonoBehaviour
     {
         //左右回転の数値取得
         Rot = Input.GetAxis("Horizontal");
-        
+
         //前後移動
-        if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.JoystickButton2))
         {
             transform.position -= transform.forward * PositionSpeed;
+
         }
-        if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.JoystickButton1))
         {
             transform.position += transform.forward * PositionSpeed;
         }

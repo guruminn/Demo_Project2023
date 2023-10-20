@@ -9,7 +9,6 @@ TagManager:
   - FinishUI
   - CinemachineTarget
   - Idle
-  - Stage
   layers:
   - Default
   - TransparentFX

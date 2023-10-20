@@ -28,7 +28,7 @@ public class VariablesController
 public class OutGameManager : MonoBehaviour
 {
     //「FadeSystem」のインスタンスを生成
-    private FadeManager fadeSystem;
+    private FadeManager fadeSystem=new FadeManager();
     //「TranstionScene」のインスタンスを生成
     public TranstionScenes transSystem;
 
@@ -61,11 +61,11 @@ public class OutGameManager : MonoBehaviour
     // ゲーム終了時のテキストから暗くなるまでの待ち時間を保存する変数
     [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
 
-    //// 画像のフェードの速さを保存する変数
-    //[SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
+    // 画像のフェードの速さを保存する変数
+    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
 
-    //// テキストのフェードの速さを保存する変数
-    //[SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
+    // テキストのフェードの速さを保存する変数
+    [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
 
     private void Start()
     {
@@ -98,7 +98,7 @@ public class OutGameManager : MonoBehaviour
         DontMove_AntherScript();
 
         // フェードアウトの演出を呼び出す
-        fadeSystem.FadeOut(splitImage, splitImage.color.a);
+        fadeSystem.FadeOut(splitImage, splitImage.color.a, _fadeOutSpeed);
 
         // フェードアウトが終わった場合
         if (FadeVariables.FadeOut)
@@ -121,7 +121,7 @@ public class OutGameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
 
         //「FadeOut」を呼び出す。
-        fadeSystem.FadeOut(fadeImage,fadeImage.color.a);
+        fadeSystem.FadeOut(fadeImage,fadeImage.color.a, _textOutSpeed);
 
         // 画面が暗くなった場合
         if (FadeVariables.FadeOut)

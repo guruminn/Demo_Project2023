@@ -26,15 +26,15 @@ public class TitleUIManager : MonoBehaviour
 
     [Space(10)]
 
-    //// フェードインの速さを保存
-    //[SerializeField, Range(0f, 10f)] private float _fadeSpeed = 0.1f;
+    // フェードインの速さを保存
+    [SerializeField, Range(0f, 10f)] private float _fadeInSpeed = 0.1f;
 
-    //// フェードアウトの速さを保存
-    //[SerializeField, Range(0f, 10f)] private float _logoFadeSpeed = 0.1f;
+    // フェードアウトの速さを保存
+    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
 
 
     //「FadeSystem」のインスタンスを生成
-    private FadeManager _fadeSystem ;
+    private FadeManager _fadeSystem = new FadeManager();
     //「TranstionScenes」のインスタンスを生成
     [HideInInspector] public TranstionScenes transSystem;
 
@@ -117,7 +117,7 @@ public class TitleUIManager : MonoBehaviour
         if (!FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // フェードインをする関数を呼び出す
-            _fadeSystem.FadeIn(_fadeImage, _fadeImage.color.a);
+            _fadeSystem.FadeIn(_fadeImage, _fadeImage.color.a, _fadeInSpeed);
         }
 
         // 二番目に表示させる演出処理
@@ -127,7 +127,7 @@ public class TitleUIManager : MonoBehaviour
             yield return new WaitForSeconds(_intervalTIme[0]);
 
             // フェードアウトをする関数を呼び出す
-            _fadeSystem.FadeOut(_titleImage, _titleImage.color.a);
+            _fadeSystem.FadeOut(_titleImage, _titleImage.color.a, _fadeOutSpeed);
         }
 
         // 三番目に表示させる演出処理

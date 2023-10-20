@@ -15,7 +15,7 @@ namespace Mocopi.Receiver
     {
         #region --Fields--
         /// <summary>
-        /// Mocopiのセンサーの骨情報の構造体：Table of mocopi sensor bone information
+        /// Table of mocopi sensor bone information
         /// </summary>
         public static readonly Dictionary<string, int> HUMAN_BONE_NAME_TO_MOCOPI_BONE_ID = new Dictionary<string, int>()
         {
@@ -996,7 +996,6 @@ namespace Mocopi.Receiver
             return -1;
         }
 
-        //　取得した位置情報をユニティ座標に変換
         /// <summary>
         /// Convert the obtained location information to Unity coordinates
         /// </summary>

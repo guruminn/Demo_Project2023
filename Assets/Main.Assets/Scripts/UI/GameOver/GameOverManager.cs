@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class GameOverManager : MonoBehaviour
 {
-    private FadeManager fadeSystem;
+    private FadeManager fadeSystem=new FadeManager();
 
     public Image fadeImage;
 
@@ -48,7 +48,7 @@ public class GameOverManager : MonoBehaviour
             _isButton = true;
         }
         else
-            fadeSystem.FadeIn(fadeImage, fadeImage.color.a);
+            fadeSystem.FadeIn(fadeImage, fadeImage.color.a, fadeSpeed);
 
         if (_isButton)
         {
