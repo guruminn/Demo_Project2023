@@ -92,7 +92,7 @@ public class TitleUIManager : MonoBehaviour
             Move_CameraObj(1);
         }
 
-        if (Input.GetKeyDown(KeyCode.Joystick1Button3) )
+        if (Input.GetKeyDown(KeyCode.JoystickButton3) )
         {
             _isStepScene = true;
 
