@@ -2025,10 +2025,10 @@ MonoBehaviour:
   _intervalTIme:
   - 0
   - 0
-  _cameraMoveSpeed: 1
+  _cameraMoveSpeed: 1.4
   _endPosition: {x: 0, y: 5.5, z: -14}
-  _fadeInSpeed: 1
-  _fadeOutSpeed: 1
+  _fadeSpeed: 1
+  _logoFadeSpeed: 1.2
   transSystem: {fileID: 760944821}
 --- !u!1 &1160810359
 GameObject:

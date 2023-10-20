@@ -12,9 +12,9 @@ using UnityEngine.Video;
 
 public class GameClearManager : MonoBehaviour
 {
-    public FadeManager backFade=new FadeManager();
+    public FadeManager backFade;
 
-    private FadeManager chekiFade=new FadeManager();
+    private FadeManager chekiFade;
 
     public TranstionScenes transSystem;
 
@@ -83,7 +83,7 @@ public class GameClearManager : MonoBehaviour
         switch (_uiCount)
         {
             case 0:
-                backFade.FadeOut(backImage, backImage.color.b, backSpeed,true);
+                backFade.FadeOut(backImage, backImage.color.b,FadeManager.FadeType.Color);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -95,7 +95,7 @@ public class GameClearManager : MonoBehaviour
                 {
                     chekiImage.gameObject.SetActive(true);
                 }
-                chekiFade.FadeOut(  chekiImage, chekiImage.color.a, chekiSpeed);
+                chekiFade.FadeOut(  chekiImage, chekiImage.color.a);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -117,7 +117,7 @@ public class GameClearManager : MonoBehaviour
                 StartCoroutine(ShotPhoto());
                 break;
             case 6:
-                backFade.FadeOut(fadeImage, fadeImage.color.a, backSpeed);
+                backFade.FadeOut(fadeImage, fadeImage.color.a);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;

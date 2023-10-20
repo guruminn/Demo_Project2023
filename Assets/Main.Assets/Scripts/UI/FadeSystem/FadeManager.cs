@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static FadeManager;
 
 
 public class FadeVariables
@@ -16,28 +17,28 @@ public class FadeVariables
     }
 }
 
+[System.Serializable]
 public class FadeManager
 {
+    public  enum FadeType
+    {
+        Alpha,
+        Color,
+    }
+
+    public float FadeOutSpeed;
+    public float FadeInSpeed;
+
     // フェードアウトの演出をする関数
-    public void FadeOut(Image _fadeImage, float _fadeColor, float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
+    public void FadeOut(Image _fadeImage, float _fadeColor, FadeType fadeType = FadeType.Alpha, float _defaultValue = 1)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.gameObject.SetActive(true);
 
         // 透明度を加算して上げる
-        _fadeColor += fadeSpeed * Time.deltaTime;
+        _fadeColor += FadeOutSpeed * Time.deltaTime;
 
-        switch (fadeType)
-        {
-            case false:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeColor);
-                break;
-            case true:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeColor, _fadeColor, _fadeColor, _fadeImage.color.a);
-                break;
-        }
+        _fadeImage.color = SetColor(fadeType, _fadeImage, _fadeColor);
 
         // パネルの透明度が指定した透明度の値になった時の処理
         if (_fadeColor >= _defaultValue)
@@ -50,25 +51,15 @@ public class FadeManager
         }
     }
 
-    public void FadeIn(Image _fadeImage, float _fadeColor, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
+    public void FadeIn(Image _fadeImage, float _fadeColor, FadeType fadeType = FadeType.Alpha, float _defaultValue = 0)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.enabled = true;
 
         // 透明度を減算して下げる
-        _fadeColor -= fadeSpeed * Time.deltaTime;
+        _fadeColor -= FadeInSpeed * Time.deltaTime;
 
-        switch (fadeType)
-        {
-            case false:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeColor);
-                break;
-            case true:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeColor, _fadeColor, _fadeColor, _fadeImage.color.a);
-                break;
-        }
+        _fadeImage.color = SetColor(fadeType, _fadeImage, _fadeColor);
 
         // パネルの透明度が指定した透明度の値になった時の処理
         if (_fadeColor <= _defaultValue)
@@ -81,6 +72,21 @@ public class FadeManager
 
             // フェードインの判定を有効にする
             FadeVariables.FadeIn = true;
+        }
+    }
+
+    private Color SetColor(FadeType fadeType, Image _fadeImage, float _fadeColor)
+    {
+        switch (fadeType)
+        {
+            case FadeType.Alpha:
+                // フェードアウトさせるパネルの透明度を設定する
+                return new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeColor);
+            case FadeType.Color:
+                // フェードアウトさせるパネルの透明度を設定する
+                return new Color(_fadeColor, _fadeColor, _fadeColor, _fadeImage.color.a);
+            default:
+                return Color.clear;
         }
     }
 }
