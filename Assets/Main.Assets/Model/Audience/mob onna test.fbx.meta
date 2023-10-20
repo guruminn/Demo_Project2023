@@ -24,7 +24,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -80,7 +80,42 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: mob onna test(Clone)
+      parentName: 
+      position: {x: -0, y: -0.55076903, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 6.867614, y: 6.867614, z: 6.867614}
+    - name: fuku
+      parentName: mob onna test(Clone)
+      position: {x: -0, y: 0.12577255, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 4.104746, y: 4.104746, z: 3.1486912}
+    - name: kao
+      parentName: mob onna test(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kami
+      parentName: mob onna test(Clone)
+      position: {x: -0, y: 0.17042036, z: 0.000041556857}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.4358691, y: 1.382403, z: 1.2552525}
+    - name: doutai
+      parentName: mob onna test(Clone)
+      position: {x: -0, y: 0.07530281, z: -0.0005025511}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: kutu_hidari
+      parentName: mob onna test(Clone)
+      position: {x: -0.010991067, y: 0.009377499, z: -0.0088486625}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8053068, y: 0.8053068, z: 0.8053068}
+    - name: kutu_migi
+      parentName: mob onna test(Clone)
+      position: {x: -0.010991067, y: 0.009377499, z: -0.0088486625}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8053068, y: 0.8053068, z: 0.8053068}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -97,7 +132,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

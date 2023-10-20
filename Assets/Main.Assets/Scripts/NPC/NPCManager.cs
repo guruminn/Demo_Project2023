@@ -7,7 +7,7 @@ public class NPCManager : MonoBehaviour
 {
     private Vector3 _pos;
     Vector3 velocity = Vector3.zero;
-    float smoothTime = 0.5f;
+    float smoothTime = 0.1f;
 
     // Start is called before the first frame update
     void Start()

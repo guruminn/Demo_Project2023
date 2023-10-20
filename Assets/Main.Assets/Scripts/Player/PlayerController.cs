@@ -25,14 +25,17 @@ public class PlayerController : MonoBehaviour
     {
         //左右回転の数値取得
         Rot = Input.GetAxis("Horizontal");
+        //Debug.Log(Rot);
 
         //前後移動
-        if (Input.GetKey(KeyCode.JoystickButton2))
+        //後ろ
+        if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.S))
         {
             transform.position -= transform.forward * PositionSpeed;
 
         }
-        if (Input.GetKey(KeyCode.JoystickButton1))
+        //前
+        if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.W))
         {
             transform.position += transform.forward * PositionSpeed;
         }
@@ -40,11 +43,11 @@ public class PlayerController : MonoBehaviour
         //これは回転
         if (Rot > 0.0f)
         {
-            transform.Rotate(new Vector3(0, Rot + rotateSpeed, 0));
+            transform.Rotate(new Vector3(0, -Rot - rotateSpeed, 0));
         }
         if (Rot < 0.0f)
         {
-            transform.Rotate(new Vector3(0, Rot - rotateSpeed, 0));
+            transform.Rotate(new Vector3(0, -(Rot + rotateSpeed), 0));
         }
 
         //スペースキーを押したときに大きさ変わる
