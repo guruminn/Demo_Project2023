@@ -44,6 +44,8 @@ public class TitleUIManager : MonoBehaviour
     private Image _titleImage;
     // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして保存
     private GameObject[] _buttonObj = new GameObject[2];
+    // 
+    private GameObject[] _selectButtonImage = new GameObject[2];
     //「TitleUI」を親オブジェクトとして保存
     private GameObject _parent;
     // カメラを動かすために「MainCamera」をゲームオブジェクトとして保存
@@ -83,6 +85,17 @@ public class TitleUIManager : MonoBehaviour
     {
         // 選択中のボタンの情報を保存する
         _saveButton = EventSystem.current.currentSelectedGameObject;
+
+        if (_saveButton == _buttonObj[0])
+        {
+            _selectButtonImage[0].SetActive(false);
+            _selectButtonImage[1].SetActive(true);
+        }
+        if( _saveButton == _buttonObj[1])
+        {
+            _selectButtonImage[1].SetActive(false);
+            _selectButtonImage[0].SetActive(true);
+        }
 
         // タイトル画面のUIの演出をするコルーチンを呼び出す
         StartCoroutine("Fade_UI");
@@ -180,10 +193,16 @@ public class TitleUIManager : MonoBehaviour
         //「MainCamera」をゲームオブジェクトとして保存する
         _cameraObj = GameObject.Find("Main Camera").gameObject;
 
+        _selectButtonImage[0] = _parent.transform.Find("ui_startButton/ui_startSelectImage").gameObject;
+        
+        _selectButtonImage[1]= _parent.transform.Find("ui_endButton/ui_endSelectImage").gameObject ;
+        
         // ボタンの表示を無効にする
         for (int i = 0; i < _buttonObj.Length; i++)
         {
             _buttonObj[i].SetActive(false);
+
+            _selectButtonImage[i].SetActive(false);
         }
 
         EventSystem.current.SetSelectedGameObject(_buttonObj[0]);

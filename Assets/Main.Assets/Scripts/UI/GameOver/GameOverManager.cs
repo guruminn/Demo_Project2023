@@ -20,9 +20,13 @@ public class GameOverManager : MonoBehaviour
 
     public GameObject backButton;
 
+    public GameObject[] _selectButton = new GameObject[2];
+
     public float fadeSpeed = 1f;
 
     private bool _isButton = false;
+
+    private GameObject _button;
 
     // Start is called before the first frame update
     void Start()
@@ -33,12 +37,20 @@ public class GameOverManager : MonoBehaviour
         idolImage.SetActive(false);
         audienceImage.SetActive(false);
         playerImage.SetActive(false);
+
+        foreach (GameObject selectImage in _selectButton)
+        {
+            selectImage.SetActive(false);
+        }
+
+        EventSystem.current.SetSelectedGameObject(returnButton);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        _button = EventSystem.current.currentSelectedGameObject;
+
         if (FadeVariables.FadeIn)
         {
             idolImage.SetActive(true);
@@ -47,13 +59,26 @@ public class GameOverManager : MonoBehaviour
 
             _isButton = true;
         }
-        else
+        else if(!FadeVariables.FadeIn)
+        {
             fadeSystem.FadeIn(fadeImage, fadeImage.color.a, fadeSpeed);
+        }
 
         if (_isButton)
         {
             returnButton.SetActive(true);
             backButton.SetActive(true);
+        }
+
+        if (_button == returnButton && _isButton)
+        {
+            _selectButton[0].SetActive(false);
+            _selectButton[1].SetActive(true);
+        }
+        if (_button == backButton && _isButton)
+        {
+            _selectButton[0].SetActive(true);
+            _selectButton[1].SetActive(false);
         }
     }
 }

@@ -1,0 +1,47 @@
+fileFormatVersion: 2
+guid: a85bb8ced2443cb4685c61e9930080c6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface12
+    second: {fileID: -6924254367524779037, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface13
+    second: {fileID: -2231738272434801136, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface2
+    second: {fileID: 5955844840416208063, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface4
+    second: {fileID: -2416719745063247026, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: aiStandardSurface6
+    second: {fileID: -7573661587976805087, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye_shadow
+    second: {fileID: -3091372210295967033, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: face
+    second: {fileID: 7952672690730763922, guid: 6857e6283e3dd4b40a4e07f692169ea8, type: 3}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: f66ead3390398f443aa127b741826ad9, type: 3}
+  MigrateToVrm1: 1
+  RenderPipeline: 0

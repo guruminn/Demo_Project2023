@@ -22,7 +22,7 @@ namespace Mocopi.Receiver
             { "Hips",           0 },
             { "Spine",          3 },
             { "Chest",          5 },
-            { "UpperChest",     6 },
+            //{ "UpperChest",     6 },//
             { "Neck",           8 },
             { "Head",           10 },
             { "LeftShoulder",   11 },
@@ -36,11 +36,11 @@ namespace Mocopi.Receiver
             { "LeftUpperLeg",   19 },
             { "LeftLowerLeg",   20 },
             { "LeftFoot",       21 },
-            { "LeftToeBase",    22 },
+            //{ "LeftToeBase",    22 },//
             { "RightUpperLeg",  23 },
             { "RightLowerLeg",  24 },
             { "RightFoot",      25 },
-            { "RightToeBase",   26 }
+            //{ "RightToeBase",   26 }//
         };
 
         /// <summary>
