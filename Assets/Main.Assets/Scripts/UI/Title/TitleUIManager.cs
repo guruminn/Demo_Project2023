@@ -107,6 +107,8 @@ public class TitleUIManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.JoystickButton3) )
         {
+            AudioManager.Instance.Play_SESound(SESoundData.SE.ClickButton);
+
             _isStepScene = true;
 
             // 現在のゲーム内の時間を変数に保存する
@@ -138,6 +140,11 @@ public class TitleUIManager : MonoBehaviour
         {
             // 処理を待つ
             yield return new WaitForSeconds(_intervalTIme[0]);
+
+            if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.bgmAudioSource))
+            {
+                AudioManager.Instance.Play_BGMSound(BGMSoundData.BGM.Title);
+            }
 
             // フェードアウトをする関数を呼び出す
             _fadeSystem.FadeOut(_titleImage, _titleImage.color.a, _fadeOutSpeed);
@@ -210,6 +217,8 @@ public class TitleUIManager : MonoBehaviour
 
     public void OnClick_StartButton()
     {
+        AudioManager.Instance.Play_SESound(SESoundData.SE.ClickButton);
+
         // タイトル画面のUI表示を非表示にする
         _titleCanvas.SetActive(false);
 
@@ -222,6 +231,14 @@ public class TitleUIManager : MonoBehaviour
 
     private void Move_CameraObj(int _seceneNumber)
     {
+        AudioManager.Instance.Change_BGMVolume(0.06f);
+
+        if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
+        {
+            //AudioManager.Instance.Play_SESound(SESoundData.SE.Audience);
+            AudioManager.Instance.Play_SESound(SESoundData.SE.Walk);
+        }
+
         // 初期位置と移動先の距離の割合を計算する処理
         // 「(&& _isInputButton.&& _isInputButton - && _isInputButton) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
         _positionValue = ((Time.time-_time) / _distance) * _cameraMoveSpeed;
@@ -234,6 +251,9 @@ public class TitleUIManager : MonoBehaviour
         {
             // スタートボタンが押された判定を無効にする
             _isClickButton = false;
+
+            AudioManager.Instance.Stop_Sound(AudioManager.Instance.seAudioSource);
+            AudioManager.Instance.Stop_Sound(AudioManager.Instance.bgmAudioSource);
 
             // チュートリアルのシーンに遷移する
             transSystem.Trans_Scene(_seceneNumber);

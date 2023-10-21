@@ -7,9 +7,10 @@ using TMPro;
 
 public class FadeController : MonoBehaviour
 {
-    AudioSource audioSource;
-    [Tooltip("ここにブザー音を入れる")]
-    [SerializeField] AudioClip buzzerClip;
+    // 不要なので消しました。by山﨑晶
+    //AudioSource audioSource;
+    //[Tooltip("ここにブザー音を入れる")]
+    //[SerializeField] AudioClip buzzerClip;
     [Tooltip("いじらない")]
     [SerializeField] UITimer _timer;
     [Tooltip("いじらない")]
@@ -38,7 +39,8 @@ public class FadeController : MonoBehaviour
         _controller.enabled = false;
         fadePanel.enabled = true;
 
-        audioSource = GetComponent<AudioSource>();
+        // 不要なので消しました。by山﨑晶
+        //audioSource = GetComponent<AudioSource>();
 
         //フェードインコルーチンスタート
         StartCoroutine("Color_FadeIn");
@@ -53,10 +55,13 @@ public class FadeController : MonoBehaviour
     IEnumerator Color_FadeIn()
     {
         //音楽を鳴らす
-        audioSource.PlayOneShot(buzzerClip);
+        // SEのブザー音を再生します。by山﨑晶
+        //audioSource.PlayOneShot(buzzerClip);
+        AudioManager.Instance.Play_SESound(SESoundData.SE.Buzzer);
 
         //終了まで待機
-        yield return new WaitWhile(() => audioSource.isPlaying);
+        // 曲が流れているかチェックする関数を呼び、曲が流れ終わったらこの関数は「false」の値を持つのでこの書き方にしています。by 山﨑晶
+        yield return new WaitWhile(() => (!AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource)));
 
         // 画面をフェードインさせるコールチン
 
@@ -101,6 +106,9 @@ public class FadeController : MonoBehaviour
                 _controller.enabled = true;
                 countdownText.gameObject.SetActive(false);
                 countdownImage.gameObject.SetActive(false);
+
+                // BGMを再生する by山﨑晶
+                AudioManager.Instance.Play_BGMSound(BGMSoundData.BGM.Main);
 
                 yield break;
             }

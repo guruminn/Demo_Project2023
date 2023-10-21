@@ -145,6 +145,7 @@ public class GameClearManager : MonoBehaviour
             // カメラの位置が指定した位置に来た場合
             if ((idolImage[0].anchoredPosition == endPosition[0]) && (idolImage[1].anchoredPosition == endPosition[1]))
             {
+                lastText.SetActive(false);
                 _uiCount++;
             }
         }
@@ -169,14 +170,20 @@ public class GameClearManager : MonoBehaviour
 
     private IEnumerator ShotPhoto()
     {
+        if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
+        {
+            AudioManager.Instance.Play_SESound(SESoundData.SE.Shutters);
+        }
+
         yield return new WaitForSeconds(changeSpeed);
+
+        lastText.SetActive(true);
 
         if (_uiCount == 5)
         {
             _uiCount++;
         }
         
-
         yield return null;
     }
 }

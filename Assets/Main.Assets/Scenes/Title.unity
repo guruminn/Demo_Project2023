@@ -2101,7 +2101,7 @@ MonoBehaviour:
   _intervalTIme:
   - 0
   - 1
-  _cameraMoveSpeed: 4
+  _cameraMoveSpeed: 2
   _endPosition: {x: 0, y: 5.5, z: -14}
   _fadeInSpeed: 2
   _fadeOutSpeed: 1
@@ -4347,3 +4347,64 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6862473402241400248, guid: ff023589f3a2a584b8dfc0f49487846c, type: 3}
   m_PrefabInstance: {fileID: 6862473401034785187}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7802592933832084544
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 88.02951
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -32.847885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 182.4498
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377230494871250557, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798795115440836357, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_Name
+      value: AudioSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}

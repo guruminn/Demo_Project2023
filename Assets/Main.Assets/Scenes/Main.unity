@@ -799,6 +799,63 @@ MonoBehaviour:
     modifyNameEnabled: 0
   modified: 0
   modifiedChildren: 0
+--- !u!1001 &25943716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_RootOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 88.02951
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -32.847885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 182.4498
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120289431487245481, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5798795115440836357, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
+      propertyPath: m_Name
+      value: AudioSystem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01511f1527ce04646afd74ba1cb7d4bd, type: 3}
 --- !u!1 &29187097
 GameObject:
   m_ObjectHideFlags: 0
@@ -18664,7 +18721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &889416452
 RectTransform:
   m_ObjectHideFlags: 0
@@ -18697,7 +18754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0334efb7d460d943ae702f2dcb631e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buzzerClip: {fileID: 8300000, guid: e0649b7e9cab50f419661590f27e281a, type: 3}
   _timer: {fileID: 733901945}
   _controller: {fileID: 5801677219947579385}
   countdownText: {fileID: 2002049877}
@@ -20597,7 +20653,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.06730903, y: 0.0000000036611514, z: -2.4698874e-10, w: 0.9977322}
+  m_LocalRotation: {x: 0.06730903, y: -0.000000004922528, z: 3.320837e-10, w: 0.9977322}
   m_LocalPosition: {x: 0, y: 2.02, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40403,7 +40459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862320047}
-  m_LocalRotation: {x: 0.06730903, y: 0.0000000036611514, z: -2.4698874e-10, w: 0.9977322}
+  m_LocalRotation: {x: 0.06730903, y: -0.000000004922528, z: 3.320837e-10, w: 0.9977322}
   m_LocalPosition: {x: 0, y: 2.02, z: -6.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -46226,6 +46282,7 @@ MonoBehaviour:
   _waitTime: 3
   _fadeOutSpeed: 1.2
   _textOutSpeed: 1
+  _fadeImageAlpha: 0.6
 --- !u!4 &2127622017
 Transform:
   m_ObjectHideFlags: 0
