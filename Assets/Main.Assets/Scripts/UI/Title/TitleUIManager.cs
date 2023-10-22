@@ -38,20 +38,18 @@ public class TitleUIManager : MonoBehaviour
     //「TranstionScenes」のインスタンスを生成
     [HideInInspector] public TranstionScenes transSystem;
 
-    //「ui_fadeImage」のコンポーネントを保存
-    private Image _fadeImage;
-    //「ui_titleImage」のコンポーネントを保存
-    private Image _titleImage;
-    // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして保存
-    private GameObject[] _buttonObj = new GameObject[2];
-    // 
-    private GameObject[] _selectButtonImage = new GameObject[2];
-    //「TitleUI」を親オブジェクトとして保存
-    private GameObject _parent;
+    // フェードをするImageを取得
+    [SerializeField] private Image _fadeImage;
+    // タイトルロゴのImageを取得
+    [SerializeField] private Image _titleImage;
+    // 「ui_startButton」と「ui_endButton」をゲームオブジェクトとして取得
+    [SerializeField]private GameObject[] _buttonObj = new GameObject[2];
+    // 選択されていないボタンを暗く表示するためのImageを取得
+    [SerializeField] private GameObject[] _selectButtonImage = new GameObject[2];
     // カメラを動かすために「MainCamera」をゲームオブジェクトとして保存
-    private GameObject _cameraObj;
-    //「TitleCanvas」をゲームオブジェクトとして保存
-    private GameObject _titleCanvas;
+    [SerializeField] private GameObject _cameraObj;
+    //「TitleCanvas」をゲームオブジェクトとして取得
+    [SerializeField] private GameObject _titleCanvas;
 
     // 「_distance」は初期位置と移動先の距離を保存
     // 「_positionValue」は２点間の移動する位置の値を保存
@@ -132,7 +130,7 @@ public class TitleUIManager : MonoBehaviour
         if (!FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // フェードインをする関数を呼び出す
-            _fadeSystem.FadeIn(_fadeImage, _fadeImage.color.a, _fadeInSpeed);
+            _fadeSystem.FadeIn(_fadeImage, _fadeInSpeed);
         }
 
         // 二番目に表示させる演出処理
@@ -147,7 +145,7 @@ public class TitleUIManager : MonoBehaviour
             }
 
             // フェードアウトをする関数を呼び出す
-            _fadeSystem.FadeOut(_titleImage, _titleImage.color.a, _fadeOutSpeed);
+            _fadeSystem.FadeOut(_titleImage, _fadeOutSpeed);
         }
 
         // 三番目に表示させる演出処理
@@ -179,31 +177,6 @@ public class TitleUIManager : MonoBehaviour
 
     void Initi_TitleUI()
     {
-        //「TitleCanvas」をタグ検索から取得する
-        _titleCanvas = GameObject.Find("TitleCanvas").gameObject;
-
-        //「ui_fadeImage」のコンポーネントを取得する
-        _fadeImage = GameObject.Find("ui_fadeImage").GetComponent<Image>();
-
-        // タイトル画面のUIの親オブジェクト「TitleUI」をタグ検索から取得する
-        _parent = GameObject.FindWithTag("TitleUI");
-
-        // 「ui_titleImage」のコンポーネントを取得する
-        _titleImage = _parent.GetComponentInChildren<Image>();
-
-        //「ui_startButton」をゲームオブジェクトして取得する
-        _buttonObj[0] = _parent.transform.GetChild(1).gameObject;
-
-        //「ui_endButton」をゲームオブジェクトとして取得する
-        _buttonObj[1] = _parent.transform.GetChild(2).gameObject;
-
-        //「MainCamera」をゲームオブジェクトとして保存する
-        _cameraObj = GameObject.Find("Main Camera").gameObject;
-
-        _selectButtonImage[0] = _parent.transform.Find("ui_startButton/ui_startSelectImage").gameObject;
-        
-        _selectButtonImage[1]= _parent.transform.Find("ui_endButton/ui_endSelectImage").gameObject ;
-        
         // ボタンの表示を無効にする
         for (int i = 0; i < _buttonObj.Length; i++)
         {
@@ -229,9 +202,19 @@ public class TitleUIManager : MonoBehaviour
         _time = Time.time;
     }
 
+    public void OnClick_EndButton()
+    {
+        AudioManager.Instance.Play_SESound(SESoundData.SE.ClickButton);
+
+        if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
+        {
+            transSystem.Trans_EndGame();
+        }
+    }
+
     private void Move_CameraObj(int _seceneNumber)
     {
-        AudioManager.Instance.Change_BGMVolume(0.06f);
+        AudioManager.Instance.Change_BGMVolume(0.01f);
 
         if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
         {
