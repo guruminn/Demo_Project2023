@@ -67,6 +67,8 @@ public class OutGameManager : MonoBehaviour
     // テキストのフェードの速さを保存する変数
     [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
 
+    [SerializeField, Range(0f, 1f)] private float _fadeImageAlpha;
+
     private void Start()
     {
         Initi_UI();
@@ -81,12 +83,14 @@ public class OutGameManager : MonoBehaviour
         // ゲームオーバーの時の処理
         if (VariablesController.gameOverControl)
         {
+            AudioManager.Instance.Stop_Sound(AudioManager.Instance.bgmAudioSource);
             Direction_UI(overText, 4);
         }
 
         // ゲームクリアの時の処理
         if (VariablesController.gameClearControl)
         {
+            AudioManager.Instance.Stop_Sound(AudioManager.Instance.bgmAudioSource);
             Direction_UI(clearText, 3);
         }
     }
@@ -98,7 +102,7 @@ public class OutGameManager : MonoBehaviour
         DontMove_AntherScript();
 
         // フェードアウトの演出を呼び出す
-        fadeSystem.FadeOut(splitImage, splitImage.color.a, _fadeOutSpeed);
+        fadeSystem.FadeOut(splitImage, splitImage.color.a, _fadeOutSpeed,_defaultValue: _fadeImageAlpha);
 
         // フェードアウトが終わった場合
         if (FadeVariables.FadeOut)
