@@ -1,6 +1,5 @@
 //プレイヤーの動き
 //前後移動と左右回転,しゃがむ代わりにオブジェクト小さく
-//デバッグ用
 //作成者つばさ
 using System.Collections;
 using System.Collections.Generic;

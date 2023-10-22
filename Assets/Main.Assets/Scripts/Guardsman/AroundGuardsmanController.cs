@@ -76,18 +76,18 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Ž‹ŠE“ü‚Á‚½");
+            //Debug.Log("Ž‹ŠE“ü‚Á‚½");
             flag = true;
-            haken.enabled = true;
+            haken.gameObject.SetActive(true);
         }
     }
     public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Ž‹ŠE‚Å‚½");
+            //Debug.Log("Ž‹ŠE‚Å‚½");
             flag = false;
-            haken.enabled = false;
+            haken.gameObject.SetActive(false);
         }
     }
 
