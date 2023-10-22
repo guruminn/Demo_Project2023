@@ -62,7 +62,7 @@ public class OutGameManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
 
     // 画像のフェードの速さを保存する変数
-    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
+    //[SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
 
     // テキストのフェードの速さを保存する変数
     [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
@@ -102,7 +102,7 @@ public class OutGameManager : MonoBehaviour
         DontMove_AntherScript();
 
         // フェードアウトの演出を呼び出す
-        fadeSystem.FadeOut(splitImage, splitImage.color.a, _fadeOutSpeed,_defaultValue: _fadeImageAlpha);
+        fadeSystem.FadeOut(splitImage,_defaultValue: _fadeImageAlpha);
 
         // フェードアウトが終わった場合
         if (FadeVariables.FadeOut)
@@ -125,7 +125,7 @@ public class OutGameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
 
         //「FadeOut」を呼び出す。
-        fadeSystem.FadeOut(fadeImage,fadeImage.color.a, _textOutSpeed);
+        fadeSystem.FadeOut(fadeImage, _textOutSpeed);
 
         // 画面が暗くなった場合
         if (FadeVariables.FadeOut)

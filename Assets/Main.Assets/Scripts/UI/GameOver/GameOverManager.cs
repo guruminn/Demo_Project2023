@@ -61,7 +61,7 @@ public class GameOverManager : MonoBehaviour
         }
         else if(!FadeVariables.FadeIn)
         {
-            fadeSystem.FadeIn(fadeImage, fadeImage.color.a, fadeSpeed);
+            fadeSystem.FadeIn(fadeImage, fadeSpeed);
         }
 
         if (_isButton)
