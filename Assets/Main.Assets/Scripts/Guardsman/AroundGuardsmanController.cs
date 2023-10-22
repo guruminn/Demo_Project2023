@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class AroundGuardsmanController : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class AroundGuardsmanController : MonoBehaviour
     public GameObject target;
 
     private bool flag = false;
+
+    public Image haken;
 
     // Start is called before the first frame update
     void Start()
@@ -73,9 +76,9 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Ž‹ŠE“ü‚Á‚½");
+            Debug.Log("Ž‹ŠE“ü‚Á‚½");
             flag = true;
-            //agent.destination = target.transform.position;
+            haken.enabled = true;
         }
     }
     public void OnTriggerExit(Collider other)
@@ -84,8 +87,7 @@ public class AroundGuardsmanController : MonoBehaviour
         {
             Debug.Log("Ž‹ŠE‚Å‚½");
             flag = false;
-            //agent.destination = points[destPoint - 1].position;
-            //agent.destination = target.transform.position;
+            haken.enabled = false;
         }
     }
 
