@@ -18,10 +18,8 @@ public class FadeVariables
 
 public class FadeManager
 {
-    private float _fadeOutColor = 0;
-    private float _fadeInColor = 1;
     // フェードアウトの演出をする関数
-    public void FadeOut(Image _fadeImage, float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
+    public void FadeOut(Image _fadeImage, float _fadeOutColor,float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.gameObject.SetActive(true);
@@ -52,7 +50,7 @@ public class FadeManager
         }
     }
 
-    public void FadeIn(Image _fadeImage, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
+    public void FadeIn(Image _fadeImage, float _fadeInColor, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
     {
         // フェードアウトさせるパネルを表示する
         _fadeImage.enabled = true;

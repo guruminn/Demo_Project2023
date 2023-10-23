@@ -326,7 +326,7 @@ MonoBehaviour:
     volume: 1
   - se: 2
     audioClip: {fileID: 8300000, guid: e0649b7e9cab50f419661590f27e281a, type: 3}
-    volume: 1
+    volume: 2
   - se: 3
     audioClip: {fileID: 8300000, guid: 3a980fe32cba218478eacf237cad22f1, type: 3}
     volume: 1

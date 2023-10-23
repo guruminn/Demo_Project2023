@@ -35,14 +35,14 @@ public class OutGameManager : MonoBehaviour
     [Space(10)]
 
     // ゲーム終了時のUIの親オブジェクトとして保存する変数
-    private GameObject finishTag;
+    //[SerializeField]private GameObject finishTag;
     // ゲーム画面から暗くなる画像のコンポーネントを保存する変数
-    private Image splitImage;
+    [SerializeField] private Image splitImage;
     // ゲーム終了時のテキストから暗くなる画像のコンポーネントを保存する変数
-    private Image fadeImage;
+    [SerializeField] private Image fadeImage;
 
     // ゲームオーバー、ゲームクリアを表示するtextを取得
-    private TextMeshProUGUI titleText;
+    [SerializeField] private TextMeshProUGUI titleText;
     // ゲームオーバーの時に表示させる文字を保存する変数
     [SerializeField]private string overText;
     // ゲームクリアの時に表示させる文字を保存する変数
@@ -62,7 +62,7 @@ public class OutGameManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
 
     // 画像のフェードの速さを保存する変数
-    //[SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
+    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
 
     // テキストのフェードの速さを保存する変数
     [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
@@ -71,8 +71,6 @@ public class OutGameManager : MonoBehaviour
 
     private void Start()
     {
-        Initi_UI();
-
         FadeVariables.Initi_Fade();
 
         VariablesController.Initi_Game();
@@ -101,8 +99,10 @@ public class OutGameManager : MonoBehaviour
         // プレイヤー、警備員の動きを止める
         DontMove_AntherScript();
 
+        Debug.Log("動き留めた");
+
         // フェードアウトの演出を呼び出す
-        fadeSystem.FadeOut(splitImage,_defaultValue: _fadeImageAlpha);
+        fadeSystem.FadeOut(splitImage, splitImage.color.a,_fadeOutSpeed, _defaultValue: _fadeImageAlpha);
 
         // フェードアウトが終わった場合
         if (FadeVariables.FadeOut)
@@ -125,11 +125,12 @@ public class OutGameManager : MonoBehaviour
         yield return new WaitForSeconds(_waitTime);
 
         //「FadeOut」を呼び出す。
-        fadeSystem.FadeOut(fadeImage, _textOutSpeed);
+        fadeSystem.FadeOut(fadeImage, fadeImage.color.a, _textOutSpeed);
 
         // 画面が暗くなった場合
         if (FadeVariables.FadeOut)
         {
+            Debug.Log("fadeOut");
             // 指定した番号のシーンに遷移する
             transSystem.Trans_Scene(sceneNumber);
         }
@@ -155,21 +156,5 @@ public class OutGameManager : MonoBehaviour
 
         // 警備員の移動のAnimatorを無効にする
         guardDontMove.GetComponent<Animator>().enabled = false;
-    }
-
-    // UIのオブジェクトやコンポーネントを取得する関数
-    void Initi_UI()
-    {
-        // ゲーム終了時のUIの親オブジェクト「FinishCanvas」をタグ検索で取得する
-        finishTag = GameObject.FindWithTag("FinishUI");
-
-        // 「FinishCanvas」の子オブジェクト「ui_SplitImage」を指定し「Image」のコンポーネントを取得する
-        splitImage = finishTag.transform.GetChild(0).GetComponentInChildren<Image>();
-
-        //「FinishCanvas」の子オブジェクト「ui_TilteText」を指定し「TextMeshProUGI」のコンポーネントを取得する
-        titleText = finishTag.transform.GetChild(1).GetComponentInChildren<TextMeshProUGUI>();
-
-        //「FinishCanvas」の子オブジェクト「ui_FadeImage」を指定し「Image」のコンポーネントを取得する
-        fadeImage = finishTag.transform.GetChild(2).GetComponentInChildren<Image>();
     }
 }
