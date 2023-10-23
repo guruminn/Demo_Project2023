@@ -24,7 +24,7 @@ public class CameraController : MonoBehaviour
         moveX = movementVector.x;
         moveY = movementVector.y;
 
-        Debug.Log($"X={moveX}Y={moveY}");
+        //Debug.Log($"X={moveX}Y={moveY}");
     }
     void Update()
     {

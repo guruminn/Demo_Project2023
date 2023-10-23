@@ -15,7 +15,18 @@ public class GuardsmanCollision : MonoBehaviour
     {
         
     }
-    public void OnCollisionEnter(Collision other)
+    //public void OnTriggerEnter(Collision other)
+    //{
+    //    if (other.gameObject.tag == "Player")
+    //    {
+    //        // ゲームオーバーの判定をtrueにする
+    //        VariablesController.gameOverControl = true;
+
+    //        Debug.Log("ゲームオーバー");
+    //    }
+    //}
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
         {
@@ -25,5 +36,4 @@ public class GuardsmanCollision : MonoBehaviour
             Debug.Log("ゲームオーバー");
         }
     }
-
 }
