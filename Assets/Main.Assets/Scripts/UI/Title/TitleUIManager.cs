@@ -130,7 +130,7 @@ public class TitleUIManager : MonoBehaviour
         if (!FadeVariables.FadeIn && !FadeVariables.FadeOut)
         {
             // フェードインをする関数を呼び出す
-            _fadeSystem.FadeIn(_fadeImage, _fadeInSpeed);
+            _fadeSystem.FadeIn(_fadeImage, _fadeImage.color.a, _fadeInSpeed);
         }
 
         // 二番目に表示させる演出処理
@@ -145,7 +145,7 @@ public class TitleUIManager : MonoBehaviour
             }
 
             // フェードアウトをする関数を呼び出す
-            _fadeSystem.FadeOut(_titleImage, _fadeOutSpeed);
+            _fadeSystem.FadeOut(_titleImage, _titleImage.color.a, _fadeOutSpeed);
         }
 
         // 三番目に表示させる演出処理

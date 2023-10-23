@@ -83,7 +83,7 @@ public class GameClearManager : MonoBehaviour
         switch (_uiCount)
         {
             case 0:
-                backFade.FadeOut(backImage, backSpeed,true);
+                backFade.FadeOut(backImage, backImage.color.b, backSpeed,true);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -95,7 +95,7 @@ public class GameClearManager : MonoBehaviour
                 {
                     chekiImage.gameObject.SetActive(true);
                 }
-                chekiFade.FadeOut(  chekiImage,  chekiSpeed);
+                chekiFade.FadeOut(  chekiImage, chekiImage.color.a,  chekiSpeed);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;
@@ -117,7 +117,7 @@ public class GameClearManager : MonoBehaviour
                 StartCoroutine(ShotPhoto());
                 break;
             case 6:
-                backFade.FadeOut(fadeImage,backSpeed);
+                backFade.FadeOut(fadeImage, fadeImage.color.a,backSpeed);
                 if (FadeVariables.FadeOut)
                 {
                     FadeVariables.FadeOut = false;

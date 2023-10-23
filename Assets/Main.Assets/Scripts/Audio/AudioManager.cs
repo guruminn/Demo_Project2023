@@ -108,5 +108,5 @@ public class SESoundData
 
     public SE se;
     public AudioClip audioClip;
-    [Range(0f, 1f)]public float volume = 1;
+    [Range(0f, 2f)]public float volume = 1;
 }

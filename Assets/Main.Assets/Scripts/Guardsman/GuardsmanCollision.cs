@@ -19,10 +19,10 @@ public class GuardsmanCollision : MonoBehaviour
     //{
     //    if (other.gameObject.tag == "Player")
     //    {
-    //        // ƒQ[ƒ€ƒI[ƒo[‚Ì”»’è‚ğtrue‚É‚·‚é
+    //        // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½Ì”ï¿½ï¿½ï¿½ï¿½trueï¿½É‚ï¿½ï¿½ï¿½
     //        VariablesController.gameOverControl = true;
 
-    //        Debug.Log("ƒQ[ƒ€ƒI[ƒo[");
+    //        Debug.Log("ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[");
     //    }
     //}
 
@@ -30,10 +30,10 @@ public class GuardsmanCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            // ƒQ[ƒ€ƒI[ƒo[‚Ì”»’è‚ğtrue‚É‚·‚é
+            // ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½Ì”ï¿½ï¿½ï¿½ï¿½trueï¿½É‚ï¿½ï¿½ï¿½
             VariablesController.gameOverControl = true;
 
-            Debug.Log("ƒQ[ƒ€ƒI[ƒo[");
+            Debug.Log("ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[");
         }
     }
 }
