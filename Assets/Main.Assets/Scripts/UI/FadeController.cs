@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
 
@@ -28,16 +29,22 @@ public class FadeController : MonoBehaviour
     [SerializeField] Image countdownImage;
     [SerializeField] Image fadePanel;
 
+    public NavMeshAgent guardsman;
+
     float countdown = 4f;
     int count;
 
     // Start is called before the first frame update
     void Start()
     {
+        guardsman = guardsman.GetComponent<NavMeshAgent>();
+
         //UITimer,AroundGuardsmanControllerを一時停止する
         _timer.enabled = false;
         _controller.enabled = false;
         fadePanel.enabled = true;
+        guardsman.enabled = false;
+
 
         // 不要なので消しました。by山﨑晶
         //audioSource = GetComponent<AudioSource>();
@@ -104,6 +111,8 @@ public class FadeController : MonoBehaviour
                 //UITimer,AroundGuardsmanControllerを再生する
                 _timer.enabled = true;
                 _controller.enabled = true;
+                guardsman.enabled = true;
+
                 countdownText.gameObject.SetActive(false);
                 countdownImage.gameObject.SetActive(false);
 
