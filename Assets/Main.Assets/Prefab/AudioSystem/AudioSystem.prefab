@@ -310,35 +310,35 @@ MonoBehaviour:
   bgmSoundDatas:
   - bgm: 0
     audioClip: {fileID: 8300000, guid: f4529717f0bae1346a443dfd57682dff, type: 3}
-    volume: 0.1
+    volume: 1
   - bgm: 2
     audioClip: {fileID: 8300000, guid: 0768bcebec9149044b8a2ea91ded54f8, type: 3}
-    volume: 0.1
+    volume: 1
   - bgm: 1
     audioClip: {fileID: 8300000, guid: 19b6d909e783dda46ada7e685174f988, type: 3}
-    volume: 0.1
+    volume: 1
   seSoundDatas:
   - se: 0
     audioClip: {fileID: 8300000, guid: 7f078330dee4c9d4b9c5613e50a2d6f6, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 1
     audioClip: {fileID: 8300000, guid: 6393ccc5daf1db841afea32a2b0b8748, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 2
     audioClip: {fileID: 8300000, guid: e0649b7e9cab50f419661590f27e281a, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 3
     audioClip: {fileID: 8300000, guid: 3a980fe32cba218478eacf237cad22f1, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 4
     audioClip: {fileID: 8300000, guid: b778228fa1e01524b831a58efa67d8ae, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 5
     audioClip: {fileID: 8300000, guid: d69f30b7dfafcd84fbc373d2400d58b2, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 6
     audioClip: {fileID: 8300000, guid: 4df05138901ebcd499ae608c70cd74aa, type: 3}
-    volume: 0.1
+    volume: 1
   - se: 7
     audioClip: {fileID: 8300000, guid: cd0e3a8166b623d40bc4063859b3c81a, type: 3}
-    volume: 0.1
+    volume: 1
