@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 15446677}
   m_Layer: 0
   m_Name: Coll.Ring Proximal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9043,7 +9043,7 @@ GameObject:
   - component: {fileID: 332072254}
   m_Layer: 0
   m_Name: Coll.Thumb Distal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9986,7 +9986,7 @@ GameObject:
   - component: {fileID: 351455050}
   m_Layer: 0
   m_Name: Coll.Middle Distal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12327,8 +12327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e779844d5a3fd4c43ac370eeb2e12402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 1
-  PositionSpeed: 0.05
+  rotateSpeed: 1
+  positionSpeed: 0.1
 --- !u!114 &453349637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13606,7 +13606,7 @@ GameObject:
   - component: {fileID: 492288793}
   m_Layer: 0
   m_Name: Coll.Ring Proximal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14586,7 +14586,7 @@ GameObject:
   - component: {fileID: 518916552}
   m_Layer: 0
   m_Name: Coll.Ring Distal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15263,7 +15263,7 @@ GameObject:
   - component: {fileID: 534074561}
   m_Layer: 0
   m_Name: Coll.Thumb Distal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17381,7 +17381,7 @@ GameObject:
   - component: {fileID: 615470634}
   m_Layer: 0
   m_Name: Coll.Index Intermediate.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17533,7 +17533,7 @@ GameObject:
   - component: {fileID: 620119291}
   m_Layer: 0
   m_Name: Coll.Middle Proximal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20058,7 +20058,7 @@ GameObject:
   - component: {fileID: 709226707}
   m_Layer: 0
   m_Name: Coll.Thumb Distal.R.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20290,7 +20290,7 @@ GameObject:
   - component: {fileID: 723335962}
   m_Layer: 0
   m_Name: Coll.Thumb Proximal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20608,8 +20608,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e779844d5a3fd4c43ac370eeb2e12402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
-  PositionSpeed: 0.05
+  rotateSpeed: 0
+  positionSpeed: 0
 --- !u!114 &732783438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21192,7 +21192,7 @@ GameObject:
   - component: {fileID: 769589255}
   m_Layer: 0
   m_Name: Coll.Rittle Intermediate.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21716,7 +21716,7 @@ GameObject:
   - component: {fileID: 786133005}
   m_Layer: 0
   m_Name: Coll.Index Distal.R.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24772,7 +24772,7 @@ GameObject:
   - component: {fileID: 878741883}
   m_Layer: 0
   m_Name: Coll.Index Distal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24999,9 +24999,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timer: {fileID: 733901945}
   _controller: {fileID: 1080505148}
-  countdownText: {fileID: 2002049877}
-  countdownImage: {fileID: 1784922659}
-  fadePanel: {fileID: 889416454}
+  _countdownText: {fileID: 0}
+  _countdownImage: {fileID: 0}
+  _fadePanel: {fileID: 0}
   guardsman: {fileID: 1080505149}
 --- !u!114 &889416454
 MonoBehaviour:
@@ -25380,8 +25380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e779844d5a3fd4c43ac370eeb2e12402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
-  PositionSpeed: 0.05
+  rotateSpeed: 0
+  positionSpeed: 0
 --- !u!54 &900131197
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25975,7 +25975,7 @@ GameObject:
   - component: {fileID: 917627094}
   m_Layer: 0
   m_Name: Coll.hand.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26338,7 +26338,7 @@ GameObject:
   - component: {fileID: 928274666}
   m_Layer: 0
   m_Name: Coll.Thumb Distal.L.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27534,8 +27534,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17779925, y: 0.000000032071835, z: -0.0000000057946763, w: 0.9840668}
-  m_LocalPosition: {x: 0, y: 1.35, z: -14.9}
+  m_LocalRotation: {x: 0.17779928, y: -7.1728007e-10, z: 1.2959644e-10, w: 0.9840668}
+  m_LocalPosition: {x: 0, y: 2.55, z: -14.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30012,7 +30012,7 @@ GameObject:
   - component: {fileID: 1058143208}
   m_Layer: 0
   m_Name: Coll.Middle Distal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30226,7 +30226,7 @@ GameObject:
   - component: {fileID: 1064257275}
   m_Layer: 0
   m_Name: Coll.Thumb Intermediate.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32595,7 +32595,7 @@ GameObject:
   - component: {fileID: 1176881404}
   m_Layer: 0
   m_Name: Coll.Little Distal.L.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33566,7 +33566,7 @@ GameObject:
   - component: {fileID: 1199303059}
   m_Layer: 0
   m_Name: Coll.Middle Intermediate.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33897,7 +33897,7 @@ GameObject:
   - component: {fileID: 1209621705}
   m_Layer: 0
   m_Name: Coll.Index Proximal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34090,7 +34090,7 @@ GameObject:
   - component: {fileID: 1214078866}
   m_Layer: 0
   m_Name: Coll.Ring Intermediate.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35213,7 +35213,7 @@ GameObject:
   - component: {fileID: 1252155625}
   m_Layer: 0
   m_Name: Coll.Thumb Intermediate.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37383,7 +37383,7 @@ GameObject:
   - component: {fileID: 1353885543}
   m_Layer: 0
   m_Name: Coll.Index Intermediate.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38758,7 +38758,7 @@ GameObject:
   - component: {fileID: 1392042686}
   m_Layer: 0
   m_Name: Coll.Index Distal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41341,7 +41341,7 @@ GameObject:
   - component: {fileID: 1488925882}
   m_Layer: 0
   m_Name: Coll.Middle Proximal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41435,7 +41435,7 @@ GameObject:
   - component: {fileID: 1492714690}
   m_Layer: 0
   m_Name: Coll.Little Distal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41649,7 +41649,7 @@ GameObject:
   - component: {fileID: 1494699827}
   m_Layer: 0
   m_Name: Coll.Ring Intermediate.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43186,7 +43186,7 @@ GameObject:
   - component: {fileID: 1550513433}
   m_Layer: 0
   m_Name: Coll.Index Distal.L.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46906,8 +46906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e779844d5a3fd4c43ac370eeb2e12402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
-  PositionSpeed: 0.05
+  rotateSpeed: 0
+  positionSpeed: 0
 --- !u!1 &1648159741 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2468246006270508674, guid: fda18f722adf50443a1f11f6f1952e40, type: 3}
@@ -47538,7 +47538,7 @@ GameObject:
   - component: {fileID: 1672525058}
   m_Layer: 0
   m_Name: Coll.Rittle Distal.R.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47680,7 +47680,7 @@ GameObject:
   - component: {fileID: 1675193885}
   m_Layer: 0
   m_Name: Coll.hand.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48747,7 +48747,7 @@ GameObject:
   - component: {fileID: 1719009897}
   m_Layer: 0
   m_Name: Coll.Rittle Distal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49092,7 +49092,7 @@ GameObject:
   - component: {fileID: 1726944690}
   m_Layer: 0
   m_Name: Coll.Middle Distal.L.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49497,7 +49497,7 @@ GameObject:
   - component: {fileID: 1749207932}
   m_Layer: 0
   m_Name: Coll.Rittle Proximal.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49690,7 +49690,7 @@ GameObject:
   - component: {fileID: 1753681151}
   m_Layer: 0
   m_Name: Coll.Little Intermediate.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50397,7 +50397,7 @@ GameObject:
   - component: {fileID: 1772269505}
   m_Layer: 0
   m_Name: Coll.Middle Distal.R.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50590,7 +50590,7 @@ GameObject:
   - component: {fileID: 1777065063}
   m_Layer: 0
   m_Name: Coll.Thumb Proximal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51637,7 +51637,7 @@ GameObject:
   - component: {fileID: 1817352194}
   m_Layer: 0
   m_Name: Coll.Ring Distal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52840,8 +52840,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1862320047}
-  m_LocalRotation: {x: 0.17779925, y: 0.000000032071835, z: -0.0000000057946763, w: 0.9840668}
-  m_LocalPosition: {x: 0, y: 1.35, z: -14.9}
+  m_LocalRotation: {x: 0.17779928, y: -7.1728007e-10, z: 1.2959644e-10, w: 0.9840668}
+  m_LocalPosition: {x: 0, y: 2.55, z: -14.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -53335,7 +53335,7 @@ GameObject:
   - component: {fileID: 1890079770}
   m_Layer: 0
   m_Name: Coll.Little Proximal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55169,7 +55169,7 @@ GameObject:
   - component: {fileID: 1948212404}
   m_Layer: 0
   m_Name: Coll.Index Proximal.L
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56525,7 +56525,7 @@ GameObject:
   - component: {fileID: 2014361520}
   m_Layer: 0
   m_Name: Coll.Ring Distal.R.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -57775,7 +57775,7 @@ GameObject:
   - component: {fileID: 2043944572}
   m_Layer: 0
   m_Name: Coll.Ring Distal.L.001
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58360,7 +58360,7 @@ GameObject:
   - component: {fileID: 2059157986}
   m_Layer: 0
   m_Name: Coll.Middle Intermediate.R
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59291,8 +59291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e779844d5a3fd4c43ac370eeb2e12402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotateSpeed: 0
-  PositionSpeed: 0.05
+  rotateSpeed: 0
+  positionSpeed: 0
 --- !u!1 &2087145804 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8716696373277586248, guid: 61a3c3b1c527dc340a9b796ffa09fd21, type: 3}
@@ -62176,7 +62176,7 @@ GameObject:
   - component: {fileID: 3998095065295412454}
   m_Layer: 0
   m_Name: Middle Intermediate.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62307,7 +62307,7 @@ GameObject:
   - component: {fileID: 6954688525524983158}
   m_Layer: 0
   m_Name: Middle Proximal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62757,7 +62757,7 @@ GameObject:
   - component: {fileID: 7260945015297754007}
   m_Layer: 0
   m_Name: hand.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62881,7 +62881,7 @@ GameObject:
   - component: {fileID: 8368149068659388190}
   m_Layer: 0
   m_Name: Index Proximal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -63715,7 +63715,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132149613181563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: -13}
+  m_LocalPosition: {x: 0, y: 1.3, z: -13}
   m_LocalScale: {x: 0.015, y: 0.015, z: 0.015}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -63753,7 +63753,7 @@ GameObject:
   - component: {fileID: 4513117771581039521}
   m_Layer: 0
   m_Name: Middle Distal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65162,7 +65162,7 @@ GameObject:
   - component: {fileID: 6802811299617222745}
   m_Layer: 0
   m_Name: Middle Intermediate.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -66994,7 +66994,7 @@ GameObject:
   - component: {fileID: 7455561481490124448}
   m_Layer: 0
   m_Name: Thumb Intermediate.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67537,7 +67537,7 @@ GameObject:
   - component: {fileID: 3325073921568091569}
   m_Layer: 0
   m_Name: Little Distal.L.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67924,7 +67924,7 @@ GameObject:
   - component: {fileID: 2655368110780349441}
   m_Layer: 0
   m_Name: Thumb Proximal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68137,7 +68137,7 @@ GameObject:
   - component: {fileID: 2721253475742741003}
   m_Layer: 0
   m_Name: Thumb Intermediate.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70101,7 +70101,7 @@ GameObject:
   - component: {fileID: 4495526447619990508}
   m_Layer: 0
   m_Name: Middle Distal.R.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70166,7 +70166,7 @@ GameObject:
   - component: {fileID: 8939692213364126375}
   m_Layer: 0
   m_Name: Middle Proximal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70279,7 +70279,7 @@ GameObject:
   - component: {fileID: 3774507764207741602}
   m_Layer: 0
   m_Name: Little Proximal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70563,7 +70563,7 @@ GameObject:
   - component: {fileID: 2588580513749129198}
   m_Layer: 0
   m_Name: Rittle Distal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70793,7 +70793,7 @@ GameObject:
   - component: {fileID: 6840688807669463071}
   m_Layer: 0
   m_Name: hand.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76073,7 +76073,7 @@ GameObject:
   - component: {fileID: 4029611004355723794}
   m_Layer: 0
   m_Name: Rittle Distal.R.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77035,9 +77035,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 788608593}
     - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _haken
+      value: 
+      objectReference: {fileID: 788608593}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1647872738}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 919132149613181563}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _points.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
       propertyPath: points.Array.data[0]
       value: 
@@ -77052,6 +77064,22 @@ PrefabInstance:
       objectReference: {fileID: 9129696049076289143}
     - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
       propertyPath: points.Array.data[3]
+      value: 
+      objectReference: {fileID: 9129696048563004684}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _points.Array.data[0]
+      value: 
+      objectReference: {fileID: 9129696047733483879}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _points.Array.data[1]
+      value: 
+      objectReference: {fileID: 9129696047789120645}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _points.Array.data[2]
+      value: 
+      objectReference: {fileID: 9129696049076289143}
+    - target: {fileID: 4318484755915421608, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
+      propertyPath: _points.Array.data[3]
       value: 
       objectReference: {fileID: 9129696048563004684}
     - target: {fileID: 4318484755915421609, guid: b6dc1f06d8a0029489a2c3675301fe3f, type: 3}
@@ -77244,7 +77272,7 @@ GameObject:
   - component: {fileID: 6431125661173146887}
   m_Layer: 0
   m_Name: Rittle Proximal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78359,7 +78387,7 @@ GameObject:
   - component: {fileID: 4579543377774535125}
   m_Layer: 0
   m_Name: Little Distal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79743,7 +79771,7 @@ GameObject:
   - component: {fileID: 4912534820494341903}
   m_Layer: 0
   m_Name: Ring Proximal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80399,7 +80427,7 @@ GameObject:
   - component: {fileID: 6466919387032946117}
   m_Layer: 0
   m_Name: Rittle Intermediate.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81256,7 +81284,7 @@ GameObject:
   - component: {fileID: 5271383859785983938}
   m_Layer: 0
   m_Name: Index Distal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82636,7 +82664,7 @@ GameObject:
   - component: {fileID: 5637381460650968162}
   m_Layer: 0
   m_Name: Index Intermediate.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83101,7 +83129,7 @@ GameObject:
   - component: {fileID: 5694504775059038080}
   m_Layer: 0
   m_Name: Little Intermediate.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83355,7 +83383,7 @@ GameObject:
   - component: {fileID: 5770258810790634521}
   m_Layer: 0
   m_Name: Middle Distal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83603,7 +83631,7 @@ GameObject:
   - component: {fileID: 5800081497163440330}
   m_Layer: 0
   m_Name: Index Intermediate.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83779,13 +83807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1b5929b19bb0084c82d895283807d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  points:
-  - {fileID: 9129696047733483879}
-  - {fileID: 9129696047789120645}
-  - {fileID: 9129696049076289143}
-  - {fileID: 9129696048563004684}
-  target: {fileID: 732783436}
-  haken: {fileID: 0}
+  _points: []
+  _target: {fileID: 0}
+  _haken: {fileID: 0}
 --- !u!65 &5801677219947579386
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -84246,7 +84270,7 @@ GameObject:
   - component: {fileID: 5894171802827192784}
   m_Layer: 0
   m_Name: Ring Distal.R.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85319,7 +85343,7 @@ GameObject:
   - component: {fileID: 6164394906342995973}
   m_Layer: 0
   m_Name: Ring Distal.L.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86709,7 +86733,7 @@ GameObject:
   - component: {fileID: 6565368286490329472}
   m_Layer: 0
   m_Name: Thumb Distal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87527,7 +87551,7 @@ GameObject:
   - component: {fileID: 6738047522877831212}
   m_Layer: 0
   m_Name: Index Distal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -88190,7 +88214,7 @@ GameObject:
   - component: {fileID: 6808243011065506239}
   m_Layer: 0
   m_Name: Index Distal.L.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89799,7 +89823,7 @@ GameObject:
   - component: {fileID: 7260223887076378487}
   m_Layer: 0
   m_Name: Thumb Distal.R.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90343,7 +90367,7 @@ GameObject:
   - component: {fileID: 7329513325736177181}
   m_Layer: 0
   m_Name: Index Proximal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -90983,7 +91007,7 @@ GameObject:
   - component: {fileID: 7545953163641973014}
   m_Layer: 0
   m_Name: Thumb Distal.L.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91479,10 +91503,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5d671c94b6fc04bb8600e9affad6df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  createPrefab: {fileID: 6351650472415766143, guid: 28c41caa511594f419bc6b4b6f7c1975, type: 3}
-  rangeA: {fileID: 7574776266376587000}
-  rangeB: {fileID: 7574776266852989449}
-  pieces: 100
+  _createPrefab: {fileID: 0}
+  _rangeA: {fileID: 0}
+  _rangeB: {fileID: 0}
+  _pieces: 0
 --- !u!1 &7574776267541642532
 GameObject:
   m_ObjectHideFlags: 0
@@ -93330,7 +93354,7 @@ GameObject:
   - component: {fileID: 8107071112809053759}
   m_Layer: 0
   m_Name: Ring Intermediate.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94343,7 +94367,7 @@ GameObject:
   - component: {fileID: 8436779019739224795}
   m_Layer: 0
   m_Name: Ring Proximal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94887,7 +94911,7 @@ GameObject:
   - component: {fileID: 8546971395447655844}
   m_Layer: 0
   m_Name: Middle Distal.L.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95340,7 +95364,7 @@ GameObject:
   - component: {fileID: 8615128880430330658}
   m_Layer: 0
   m_Name: Ring Distal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95522,7 +95546,7 @@ GameObject:
   - component: {fileID: 8650255202900363901}
   m_Layer: 0
   m_Name: Ring Distal.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96229,7 +96253,7 @@ GameObject:
   - component: {fileID: 9053226941398998960}
   m_Layer: 0
   m_Name: Thumb Proximal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96653,7 +96677,7 @@ GameObject:
   - component: {fileID: 8920499654797949316}
   m_Layer: 0
   m_Name: Index Distal.R.001
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97114,7 +97138,7 @@ GameObject:
   - component: {fileID: 8954086279713064302}
   m_Layer: 0
   m_Name: Ring Intermediate.R
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97316,7 +97340,7 @@ GameObject:
   - component: {fileID: 8980018346510063914}
   m_Layer: 0
   m_Name: Thumb Distal.L
-  m_TagString: Player
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

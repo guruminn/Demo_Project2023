@@ -9,30 +9,31 @@ using UnityEngine.UI;  // UI関連に必要
 
 public class AroundGuardsmanController : MonoBehaviour
 {
-    // 
-    int destPoint = 0;
+    // なんかいれる
+    int _destPoint = 0;
     // GuardsmanのNavMeshAgent取得
-    NavMeshAgent agent;
+    NavMeshAgent _agent;
 
     // 警備員の中継ポイント
-    [SerializeField] Transform[] points;
+    [SerializeField] Transform[] _points;
 
     [Tooltip("Playerのオブジェクト入れる")]
-    [SerializeField] GameObject target;
+    [SerializeField] GameObject _target;
 
-    bool flag = false;
+    bool _flag = false;
 
-    [SerializeField] Image haken;
+    [Tooltip("見つかった時のUI")]
+    [SerializeField] Image _haken;
 
     // Start is called before the first frame update
     void Start()
     {
         //NavMeshAgent取得
-        agent = GetComponent<NavMeshAgent>();
+        _agent = GetComponent<NavMeshAgent>();
 
         //autoBraking を無効にすると目標地点の間を継続的に移動
         //つまり、エージェントは目標地点に近づいても速度を落とさない
-        agent.autoBraking = false;
+        _agent.autoBraking = false;
 
         GotoNextPoint();
     }
@@ -41,38 +42,38 @@ public class AroundGuardsmanController : MonoBehaviour
     void Update()
     {
         //エージェントが現目標地点に近づいてきたら次の目標地点を選択
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!_agent.pathPending && _agent.remainingDistance < 0.5f)
         {
             GotoNextPoint();
         }
 
-        if (flag == true)
+        if (_flag == true)
         {
-            agent.destination = target.transform.position;
+            _agent.destination = _target.transform.position;
         }
-        if (flag == false)
+        if (_flag == false)
         {
-            agent.destination = points[destPoint].position;
+            _agent.destination = _points[_destPoint].position;
         }
     }
 
     void GotoNextPoint()
     {
         //地点がなにも設定されていないときに返す
-        if (points.Length == 0)
+        if (_points.Length == 0)
         {
             return;
         }
 
         //エージェントが現在設定された目標地点に行くように設定
-        agent.destination = points[destPoint].position;
+        _agent.destination = _points[_destPoint].position;
 
         // 配列内の次の位置を目標地点に設定し必要ならば出発地点にもどる
-        destPoint = (destPoint + 1) % points.Length;
+        _destPoint = (_destPoint + 1) % _points.Length;
 
-        if (destPoint == 4)
+        if (_destPoint == 4)
         {
-            destPoint = 0;
+            _destPoint = 0;
         }
     }
 
@@ -82,8 +83,8 @@ public class AroundGuardsmanController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Debug.Log("視界入った");
-            flag = true;
-            haken.gameObject.SetActive(true);
+            _flag = true;
+            _haken.gameObject.SetActive(true);
         }
     }
     public void OnTriggerExit(Collider other)
@@ -91,20 +92,8 @@ public class AroundGuardsmanController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Debug.Log("視界でた");
-            flag = false;
-            haken.gameObject.SetActive(false);
+            _flag = false;
+            _haken.gameObject.SetActive(false);
         }
     }
-
-    //プレイヤーに当たったらゲームオーバー
-    //public void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.tag == "Player")
-    //    {
-    //        // ゲームオーバーの判定をtrueにする
-    //        VariablesController.gameOverControl = true;
-
-    //        Debug.Log("ゲームオーバー");
-    //    }
-    //}
 }

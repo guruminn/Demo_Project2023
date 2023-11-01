@@ -20,20 +20,20 @@ public class FadeController : MonoBehaviour
 
     // フェードインにかかる時間（秒）★変更可
     [Tooltip("フェードインにかかる時間")]
-    [SerializeField] const float fade_time = 1.0f;
+    [SerializeField] const float _fadeTime = 1.0f;
 
     // ループ回数（0はエラー）★変更可
     [Tooltip("ループ回数、数が多いと滑らかになる")]
-    [SerializeField] const int loop_count = 60;
+    [SerializeField] const int _loopCount = 60;
 
-    [SerializeField] TextMeshProUGUI countdownText;
-    [SerializeField] Image countdownImage;
-    [SerializeField] Image fadePanel;
+    [SerializeField] TextMeshProUGUI _countdownText;
+    [SerializeField] Image _countdownImage;
+    [SerializeField] Image _fadePanel;
 
     public NavMeshAgent guardsman;
 
-    float countdown = 4f;
-    int count;
+    float _countdown = 4f;
+    int _count;
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +43,7 @@ public class FadeController : MonoBehaviour
         //UITimer,AroundGuardsmanControllerを一時停止する
         _timer.enabled = false;
         _controller.enabled = false;
-        fadePanel.enabled = true;
+        _fadePanel.enabled = true;
         guardsman.enabled = false;
 
 
@@ -80,10 +80,10 @@ public class FadeController : MonoBehaviour
         fade.color = new Color((0.0f / 255.0f), (0.0f / 255.0f), (0.0f / 0.0f), (255.0f / 255.0f));
 
         // ウェイト時間算出
-        float wait_time = fade_time / loop_count;
+        float wait_time = _fadeTime / _loopCount;
 
         // 色の間隔を算出
-        float alpha_interval = 255.0f / loop_count;
+        float alpha_interval = 255.0f / _loopCount;
 
         // 色を徐々に変えるループ
         for (float alpha = 255.0f; alpha >= 0.0f; alpha -= alpha_interval)
@@ -97,25 +97,25 @@ public class FadeController : MonoBehaviour
             fade.color = new_color;
         }
 
-        countdownText.gameObject.SetActive(true);
-        countdownImage.gameObject.SetActive(true);
+        _countdownText.gameObject.SetActive(true);
+        _countdownImage.gameObject.SetActive(true);
 
-        while (countdown > 0)
+        while (_countdown > 0)
         {
-            countdown -= Time.deltaTime;
-            countdownImage.fillAmount = countdown % 1.0f;
-            count = (int)countdown;
-            countdownText.text = count.ToString();
+            _countdown -= Time.deltaTime;
+            _countdownImage.fillAmount = _countdown % 1.0f;
+            _count = (int)_countdown;
+            _countdownText.text = _count.ToString();
 
-            if (countdown <= 0)
+            if (_countdown <= 0)
             {
                 //UITimer,AroundGuardsmanControllerを再生する
                 _timer.enabled = true;
                 _controller.enabled = true;
                 guardsman.enabled = true;
 
-                countdownText.gameObject.SetActive(false);
-                countdownImage.gameObject.SetActive(false);
+                _countdownText.gameObject.SetActive(false);
+                _countdownImage.gameObject.SetActive(false);
 
                 // BGMを再生する by山﨑晶
                 AudioManager.Instance.Play_BGMSound(BGMSoundData.BGM.Main);
