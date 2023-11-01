@@ -10,21 +10,25 @@ public class NPCManager : MonoBehaviour
     // このオブジェクトの座標を取得
     Vector3 _pos;
     // Vector3(0, 0, 0) を取得
-    Vector3 velocity = Vector3.zero;
+    Vector3 _velocity = Vector3.zero;
     // _posへ到達するまでのおおよその時間の変数
+    [Tooltip("値が小さいほど速くなる")]
     public float smoothTime = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
         _pos = this.transform.position;
+        var _rb = GetComponent<Rigidbody>();
+
+        //_rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 current = transform.position;
-        // SmoothDamp(現在位置, 目的地, 現在の速度, target へ到達するまでのおおよその時間。値が小さいほど、target に速く到達)
-        transform.position = Vector3.SmoothDamp(current, _pos, ref velocity, smoothTime);
+        Vector3 _current = transform.position;
+        // SmoothDamp(現在位置, 目的地, 現在の速度, _target へ到達するまでのおおよその時間。値が小さいほど、_target に速く到達)
+        transform.position = Vector3.SmoothDamp(_current, _pos, ref _velocity, smoothTime);
     }
 }

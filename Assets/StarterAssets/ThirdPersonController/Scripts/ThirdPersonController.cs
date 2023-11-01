@@ -60,7 +60,7 @@ namespace StarterAssets
         public LayerMask GroundLayers;
 
         [Header("Cinemachine")]
-        [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
+        [Tooltip("The follow _target set in the Cinemachine Virtual Camera that the camera will follow")]
         public GameObject CinemachineCameraTarget;
 
         [Tooltip("How far in degrees can you move the camera up")]
@@ -206,29 +206,29 @@ namespace StarterAssets
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
-            // Cinemachine will follow this target
+            // Cinemachine will follow this _target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
         }
 
         private void Move()
         {
-            // set target speed based on move speed, sprint speed and if sprint is pressed
+            // set _target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is no input, set the target speed to 0
+            // if there is no input, set the _target speed to 0
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-            // a reference to the players current horizontal velocity
+            // a reference to the players current horizontal _velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            // accelerate or decelerate to target speed
+            // accelerate or decelerate to _target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
                 currentHorizontalSpeed > targetSpeed + speedOffset)
             {
@@ -293,7 +293,7 @@ namespace StarterAssets
                     _animator.SetBool(_animIDFreeFall, false);
                 }
 
-                // stop our velocity dropping infinitely when grounded
+                // stop our _velocity dropping infinitely when grounded
                 if (_verticalVelocity < 0.0f)
                 {
                     _verticalVelocity = -2f;
@@ -302,7 +302,7 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    // the square root of H * -2 * G = how much _velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
                     // update animator if using character

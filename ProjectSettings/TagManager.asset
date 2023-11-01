@@ -9,6 +9,7 @@ TagManager:
   - FinishUI
   - CinemachineTarget
   - Idle
+  - Hand
   layers:
   - Default
   - TransparentFX
