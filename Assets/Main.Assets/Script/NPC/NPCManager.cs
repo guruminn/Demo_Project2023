@@ -15,12 +15,15 @@ public class NPCManager : MonoBehaviour
     [Tooltip("値が小さいほど速くなる")]
     public float smoothTime = 0.1f;
 
+    Rigidbody _rb;
+
     // Start is called before the first frame update
     void Start()
     {
         _pos = this.transform.position;
         var _rb = GetComponent<Rigidbody>();
 
+        //constraintをオンにする
         //_rb.constraints = RigidbodyConstraints.FreezeAll;
     }
 
@@ -31,4 +34,13 @@ public class NPCManager : MonoBehaviour
         // SmoothDamp(現在位置, 目的地, 現在の速度, _target へ到達するまでのおおよその時間。値が小さいほど、_target に速く到達)
         transform.position = Vector3.SmoothDamp(_current, _pos, ref _velocity, smoothTime);
     }
+
+    //public void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.tag == "Hand")
+    //    {
+    //        Debug.Log("当たった");
+    //        _rb.constraints = RigidbodyConstraints.None;
+    //    }
+    //}
 }

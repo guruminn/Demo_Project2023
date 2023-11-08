@@ -13,34 +13,42 @@ public class PlayerController : MonoBehaviour
     public float rotateSpeed = 0.0f;
     // 前後移動スピードを取得する変数
     [Tooltip("前後スピード数字が大きいほど速くなる")]
-    public float positionSpeed = 0.5f; 
+    public float positionSpeed = 0.5f;
+
+    public Rigidbody _rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        _rb.velocity = new Vector3(0, 0, 0);
+        _rb.AddForce(new Vector3(0, 0, 0));
         // 左右回転の数値取得
         _rot = Input.GetAxis("Horizontal");
         //Debug.Log(_rot);
 
         // 回転
-        transform.Rotate(new Vector3(0, _rot * rotateSpeed, 0));
+        transform.Rotate(new Vector3(0, _rot * -rotateSpeed, 0));
 
         // 前後移動
         // 前
         if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.forward * positionSpeed;
+            _rb.AddForce(transform.forward * positionSpeed);
+            //_rb.velocity = transform.forward * positionSpeed;
+            //transform.position += transform.forward * positionSpeed;
         }
         // 後ろ
         if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.S))
         {
-            transform.position -= transform.forward * positionSpeed;
+            _rb.AddForce(-transform.forward * positionSpeed);
+            //_rb.velocity = -transform.forward * positionSpeed;
+            //transform.position -= transform.forward * positionSpeed;
         }
     }
 }
