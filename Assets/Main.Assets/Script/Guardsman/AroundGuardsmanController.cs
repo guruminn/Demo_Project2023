@@ -82,7 +82,7 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //Debug.Log("Ž‹ŠE“ü‚Á‚½");
+            Debug.Log("Ž‹ŠE“ü‚Á‚½");
             _flag = true;
             _haken.gameObject.SetActive(true);
         }
