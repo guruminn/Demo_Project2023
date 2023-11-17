@@ -21,10 +21,8 @@ public class NPCManager : MonoBehaviour
     void Start()
     {
         _pos = this.transform.position;
-        var _rb = GetComponent<Rigidbody>();
-
-        //constraintをオンにする
-        //_rb.constraints = RigidbodyConstraints.FreezeAll;
+        //Rigidbodyを取得
+        _rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -33,14 +31,13 @@ public class NPCManager : MonoBehaviour
         Vector3 _current = transform.position;
         // SmoothDamp(現在位置, 目的地, 現在の速度, _target へ到達するまでのおおよその時間。値が小さいほど、_target に速く到達)
         transform.position = Vector3.SmoothDamp(_current, _pos, ref _velocity, smoothTime);
-    }
+        //移動も回転もしないようにする
+        _rb.constraints = RigidbodyConstraints.FreezeAll;
 
-    //public void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.tag == "Hand")
-    //    {
-    //        Debug.Log("当たった");
-    //        _rb.constraints = RigidbodyConstraints.None;
-    //    }
-    //}
+        if(Input.GetKey(KeyCode.JoystickButton14))
+        {
+            _rb.constraints = RigidbodyConstraints.FreezeRotation
+           | RigidbodyConstraints.FreezePositionY;
+        }
+    }
 }
