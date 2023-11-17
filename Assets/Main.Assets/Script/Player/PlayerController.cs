@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _rb = gameObject.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -39,14 +39,14 @@ public class PlayerController : MonoBehaviour
         // ‘O
         if (Input.GetKey(KeyCode.JoystickButton1) || Input.GetKey(KeyCode.W))
         {
-            _rb.AddForce(transform.forward * positionSpeed);
-            //transform.position += transform.forward * positionSpeed;
+            //_rb.AddForce(transform.forward * positionSpeed);
+            transform.position += transform.forward * positionSpeed;
         }
         // Œã‚ë
         if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.S))
         {
-            _rb.AddForce(-transform.forward * positionSpeed);
-            //transform.position -= transform.forward * positionSpeed;
+            //_rb.AddForce(-transform.forward * positionSpeed);
+            transform.position -= transform.forward * positionSpeed;
         }
     }
 }
