@@ -17,6 +17,14 @@ public class NPCManager : MonoBehaviour
 
     Rigidbody _rb;
 
+    [SerializeField] GameObject _head;
+    [SerializeField] GameObject _rhand;
+
+    public float _attackRange;
+
+    float _distance;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +36,9 @@ public class NPCManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _distance = _head.transform.position.y - _rhand.transform.position.y;
+
+
         Vector3 _current = transform.position;
         // SmoothDamp(現在位置, 目的地, 現在の速度, _target へ到達するまでのおおよその時間。値が小さいほど、_target に速く到達)
         transform.position = Vector3.SmoothDamp(_current, _pos, ref _velocity, smoothTime);
@@ -36,8 +47,19 @@ public class NPCManager : MonoBehaviour
 
         if(Input.GetKey(KeyCode.JoystickButton14))
         {
-            _rb.constraints = RigidbodyConstraints.FreezeRotation
-           | RigidbodyConstraints.FreezePositionY;
+            Attack();
         }
+        if (_distance < _attackRange)
+        {
+            Attack();
+        }
+    }
+
+    public void Attack()
+    {
+        _rb.constraints = RigidbodyConstraints.FreezeRotation
+                        | RigidbodyConstraints.FreezePositionY;
+
+        //Debug.Log("攻撃");
     }
 }
