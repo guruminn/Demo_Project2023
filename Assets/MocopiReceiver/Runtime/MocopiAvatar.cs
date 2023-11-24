@@ -22,7 +22,7 @@ namespace Mocopi.Receiver
             { "Hips",           0 },
             { "Spine",          3 },
             { "Chest",          5 },
-            //{ "UpperChest",     6 },//
+            { "UpperChest",     6 },
             { "Neck",           8 },
             { "Head",           10 },
             { "LeftShoulder",   11 },
@@ -36,11 +36,11 @@ namespace Mocopi.Receiver
             { "LeftUpperLeg",   19 },
             { "LeftLowerLeg",   20 },
             { "LeftFoot",       21 },
-            //{ "LeftToeBase",    22 },//
+            { "LeftToeBase",    22 },
             { "RightUpperLeg",  23 },
             { "RightLowerLeg",  24 },
             { "RightFoot",      25 },
-            //{ "RightToeBase",   26 }//
+            { "RightToeBase",   26 }
         };
 
         /// <summary>
@@ -346,15 +346,35 @@ namespace Mocopi.Receiver
         )
         {
             this.skeletonData.FrameId = frameId;
+            //Debug.Log("this.skeletonData.FrameId : " + this.skeletonData.FrameId + "  frameId :" + frameId);
+
             this.skeletonData.Timestamp = timestamp;
+            //Debug.Log("this.skeletonData.Timestamp : " + this.skeletonData.Timestamp + "  timestamp :" + timestamp);
+
             this.skeletonData.BoneIds = boneIds;
+            //Debug.Log("this.skeletonData.Timestamp : " + this.skeletonData.Timestamp + "  timestamp :" + timestamp);
+
             this.skeletonData.RotationsX = rotationsX;
+            //Debug.Log("this.skeletonData.RotationsX : " + this.skeletonData.RotationsX + "  rotationsX :" + rotationsX);
+
             this.skeletonData.RotationsY = rotationsY;
+            //Debug.Log("this.skeletonData.RotationsY : " + this.skeletonData.RotationsY + "  rotationsY :" + rotationsY);
+
             this.skeletonData.RotationsZ = rotationsZ;
+            //Debug.Log("this.skeletonData.RotationsZ : " + this.skeletonData.RotationsZ + "  rotationsZ :" + rotationsZ);
+
             this.skeletonData.RotationsW = rotationsW;
+            //Debug.Log("this.skeletonData.RotationsW : " + this.skeletonData.RotationsW + "  rotationsW :" + rotationsW);
+
             this.skeletonData.PositionsX = positionsX;
+            //Debug.Log("this.skeletonData.PositionsX : " + this.skeletonData.PositionsX + "  positionsX :" + positionsX);
+
             this.skeletonData.PositionsY = positionsY;
+            //Debug.Log("this.skeletonData.PositionsY : " + this.skeletonData.PositionsY + "  positionsY :" + positionsY);
+
             this.skeletonData.PositionsZ = positionsZ;
+            //Debug.Log("this.skeletonData.PositionsZ : " + this.skeletonData.PositionsZ + "  positionsZ :" + positionsZ);
+
 
             this.isSkeletonUpdated = true;
 
@@ -716,6 +736,7 @@ namespace Mocopi.Receiver
             for (int i = 0; i < this.skeletonData.BoneIds.Length; i++)
             {
                 MocopiBone bone = this.bones.Find(_ => _.Id == this.skeletonData.BoneIds[i]);
+
                 if (bone == null)
                 {
                     continue;
@@ -727,6 +748,7 @@ namespace Mocopi.Receiver
                     this.skeletonData.PositionsY[i],
                     this.skeletonData.PositionsZ[i]
                 );
+
                 Quaternion rotation = this.ConvertPluginDataToQuaternion(
                     this.skeletonData.RotationsX[i],
                     this.skeletonData.RotationsY[i],
@@ -740,7 +762,8 @@ namespace Mocopi.Receiver
                 }
 
                 this.boneRotations[bone] = rotation;
-            }
+
+            }          
         }
 
         /// <summary>
