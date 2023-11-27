@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 
 // 作成者：地引翼
+// メイン画面のフェードイン
 
 public class FadeController : MonoBehaviour
 {

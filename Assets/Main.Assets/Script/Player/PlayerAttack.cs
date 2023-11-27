@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 作成者：地引翼
+// mocopiでかきわけないで前に進むことを防止
+
 public class PlayerAttack : MonoBehaviour
 {
     public GameObject _head;

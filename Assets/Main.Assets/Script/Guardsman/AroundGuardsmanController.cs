@@ -11,6 +11,8 @@ public class AroundGuardsmanController : MonoBehaviour
 {
     // ‚È‚ñ‚©‚¢‚ê‚é
     int _destPoint = 0;
+    // ‹ŠE“ü‚Á‚Ä‚é‚©“ü‚Á‚Ä‚È‚¢‚©”»’è‚·‚é•Ï”
+    bool _targetFlag = false;
     // Guardsman‚ÌNavMeshAgentæ“¾
     NavMeshAgent _agent;
 
@@ -19,8 +21,6 @@ public class AroundGuardsmanController : MonoBehaviour
 
     [Tooltip("Player‚ÌƒIƒuƒWƒFƒNƒg“ü‚ê‚é")]
     [SerializeField] GameObject _target;
-
-    bool _flag = false;
 
     [Tooltip("Œ©‚Â‚©‚Á‚½‚ÌUI")]
     [SerializeField] Image _haken;
@@ -47,11 +47,11 @@ public class AroundGuardsmanController : MonoBehaviour
             GotoNextPoint();
         }
 
-        if (_flag == true)
+        if (_targetFlag == true)
         {
             _agent.destination = _target.transform.position;
         }
-        if (_flag == false)
+        if (_targetFlag == false)
         {
             _agent.destination = _points[_destPoint].position;
         }
@@ -82,8 +82,8 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("‹ŠE“ü‚Á‚½");
-            _flag = true;
+            //Debug.Log("‹ŠE“ü‚Á‚½");
+            _targetFlag = true;
             _haken.gameObject.SetActive(true);
         }
     }
@@ -92,7 +92,7 @@ public class AroundGuardsmanController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             //Debug.Log("‹ŠE‚Å‚½");
-            _flag = false;
+            _targetFlag = false;
             _haken.gameObject.SetActive(false);
         }
     }

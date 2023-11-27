@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // 作成者：地引翼
+// プレイヤーの動き
 
 public class PlayerController : MonoBehaviour
 {
