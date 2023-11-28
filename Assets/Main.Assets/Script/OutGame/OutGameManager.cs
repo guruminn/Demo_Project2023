@@ -1,160 +1,184 @@
+using Cinemachine;
 using Mocopi.Receiver;
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 // ゲームオーバーやゲームクリアの判定が有効になった場合に演出をするソースコード
 // 作成者：山﨑晶
-public class VariablesController
-{
-    // ゲームオーバーの判定を管理する変数
-    public static bool gameOverControl;
-
-    // ゲームクリアの判定を管理する変数
-    public static bool gameClearControl;
-
-    public static void Initi_Game()
-    {
-        gameOverControl = false;
-        gameClearControl = false;
-    }
-}
 
 public class OutGameManager : MonoBehaviour
 {
-    //「FadeSystem」のインスタンスを生成
-    private FadeManager fadeSystem=new FadeManager();
-    //「TranstionScene」のインスタンスを生成
-    public TranstionScenes transSystem;
+    #region ---Fields---
+
+    /// <summary>
+    /// ゲームオーバーの判定を保存する変数
+    /// </summary>
+    public static bool gameOver;
+
+    /// <summary>
+    /// ゲームクリアの判定を保存する変数
+    /// </summary>
+    public static bool gameClear;
+
+    /// <summary>
+    /// 「FadeSystem」のインスタンスを生成
+    /// </summary>
+    private FadeManager _fadeSystem;
+
+    /// <summary>
+    /// ゲームクリア・オーバー画面に入った時のフェードアウトを設定
+    /// </summary>
+    private FadeManager.FadeSetting _blackFadeOut;
+
+    /// <summary>
+    /// 画面終了時のフェードアウトの設定
+    /// </summary>
+    private FadeManager.FadeSetting _endFadeOut;
+
+    /// <summary>
+    /// 「TranstionScene」のインスタンスを生成
+    /// </summary>
+    private TranstionScenes _transSystem;
+
+    /// <summary>
+    /// ゲームオーバー、ゲームクリアを表示するtextを取得
+    /// </summary>
+    [SerializeField] 
+    private TextMeshProUGUI _logoText;
+
+    /// <summary>
+    /// ゲームオーバーの時に表示させる文字を保存する変数
+    /// </summary>
+    [SerializeField]
+    private string _overText;
+
+    /// <summary>
+    /// ゲームクリアの時に表示させる文字を保存する変数
+    /// </summary>
+    [SerializeField] 
+    private string _clearText;
 
     [Space(10)]
 
-    // ゲーム終了時のUIの親オブジェクトとして保存する変数
-    //[SerializeField]private GameObject finishTag;
-    // ゲーム画面から暗くなる画像のコンポーネントを保存する変数
-    [SerializeField] private Image splitImage;
-    // ゲーム終了時のテキストから暗くなる画像のコンポーネントを保存する変数
-    [SerializeField] private Image fadeImage;
+    /// <summary>
+    /// プレイヤーのコンポーネントを参照するため、オブジェクトを取得
+    /// </summary>
+    [SerializeField]
+    private GameObject _playerObj;
 
-    // ゲームオーバー、ゲームクリアを表示するtextを取得
-    [SerializeField] private TextMeshProUGUI titleText;
-    // ゲームオーバーの時に表示させる文字を保存する変数
-    [SerializeField]private string overText;
-    // ゲームクリアの時に表示させる文字を保存する変数
-    [SerializeField] private string clearText;
+    /// <summary>
+    /// カメラのコンポーネントを参照するため、オブジェクトを取得
+    /// </summary>
+    [SerializeField]
+    private GameObject _cameraObj;
 
-    [Space(10)]
-
-    // プレイヤーの移動とカメラを動かしているscriptを参照するため、オブジェクトを取得
-    [SerializeField]private GameObject[] playerDontMove=new GameObject[2];
-
-    // 警備員の移動を止めるため、オブジェクトを取得
-    [SerializeField]private GameObject guardDontMove;
+    /// <summary>
+    /// 警備員のコンポーネントを参照するため、オブジェクトを取得
+    /// </summary>
+    [SerializeField]
+    private GameObject _guardObj;
 
     [Space(10)]
 
     // ゲーム終了時のテキストから暗くなるまでの待ち時間を保存する変数
-    [SerializeField, Range(0f, 10f)] private int _waitTime = 3;
+    [SerializeField, Range(0f, 10f)]
+    private int _waitTime = 3;
 
-    // 画像のフェードの速さを保存する変数
-    [SerializeField, Range(0f, 10f)] private float _fadeOutSpeed = 0.1f;
+    #endregion ---Fields---
 
-    // テキストのフェードの速さを保存する変数
-    [SerializeField, Range(0f, 10f)] private float _textOutSpeed=0.1f;
-
-    [SerializeField, Range(0f, 1f)] private float _fadeImageAlpha;
+    #region ---Methods---
 
     private void Start()
     {
-        FadeVariables.Initi_Fade();
 
-        VariablesController.Initi_Game();
     }
 
     private void Update()
     {
         // ゲームオーバーの時の処理
-        if (VariablesController.gameOverControl)
+        if (gameOver)
         {
-            AudioManager.Instance.Stop_Sound(AudioManager.Instance.bgmAudioSource);
-            Direction_UI(overText, 4);
+            AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
+            Direction_UI(_overText, 4);
         }
 
         // ゲームクリアの時の処理
-        if (VariablesController.gameClearControl)
+        if (gameClear)
         {
-            AudioManager.Instance.Stop_Sound(AudioManager.Instance.bgmAudioSource);
-            Direction_UI(clearText, 3);
+            AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
+            Direction_UI(_clearText, 3);
         }
     }
 
-    // UIの演出の処理をする関数
-    private void Direction_UI(string textWord, int sceneNumber)
+    /// <summary>
+    /// UIの演出の処理をする関数
+    /// </summary>
+    /// <param name="textWord"> 表示するテキスト </param>
+    /// <param name="sceneNumber"> 遷移したいシーンの番号 </param>
+    /// <returns> 待ち時間 </returns>
+    private IEnumerator Direction_UI(string textWord, int sceneNumber)
     {
         // プレイヤー、警備員の動きを止める
         DontMove_AntherScript();
 
-        Debug.Log("動き留めた");
-
         // フェードアウトの演出を呼び出す
-        fadeSystem.FadeOut(splitImage, splitImage.color.a,_fadeOutSpeed, _defaultValue: _fadeImageAlpha);
+        _fadeSystem.FadeOut(_blackFadeOut);
 
         // フェードアウトが終わった場合
-        if (FadeVariables.FadeOut)
+        if (FadeManager.fadeOut)
         {
             // テキストを表示してからのシーン遷移をするコルーチンを呼び出す
-            StartCoroutine(Display_TitleText(textWord, sceneNumber));
+            // 指定したテキストを表示
+            _logoText.text = textWord;
+
+            //「FadeOut」の判定を無効にする
+            FadeManager.fadeOut = false;
+
+            // 指定した秒数を待つ
+            yield return new WaitForSeconds(_waitTime);
+
+            //「FadeOut」を呼び出す。
+            _fadeSystem.FadeOut(_endFadeOut);
+
+            // 画面が暗くなった場合
+            if (FadeManager.fadeOut)
+            {
+                // 指定した番号のシーンに遷移する
+                _transSystem.Trans_Scene(sceneNumber);
+            }
         }
     }
 
-    // テキストを表示して数秒経ったら画面を暗くする演出のコルーチン
-    private IEnumerator Display_TitleText(string textWord,int sceneNumber)
-    {
-        // 指定したテキストを表示
-        titleText.text = textWord;
-
-        //「FadeOut」の判定を無効にする
-        FadeVariables.FadeOut = false;
-
-        // 指定した秒数を待つ
-        yield return new WaitForSeconds(_waitTime);
-
-        //「FadeOut」を呼び出す。
-        fadeSystem.FadeOut(fadeImage, fadeImage.color.a, _textOutSpeed);
-
-        // 画面が暗くなった場合
-        if (FadeVariables.FadeOut)
-        {
-            Debug.Log("fadeOut");
-            // 指定した番号のシーンに遷移する
-            transSystem.Trans_Scene(sceneNumber);
-        }
-    }
-
-    // プレイヤーの移動とカメラの動き、警備員の移動を止める処理の関数
+    /// <summary>
+    /// プレイヤーの移動とカメラの動き、警備員の移動を止める処理の関数
+    /// </summary>
     private void DontMove_AntherScript()
     {
         // プレイヤーの移動のscriptを無効にする
-        playerDontMove[0].GetComponent<MocopiAvatar>().enabled = false;
+        _playerObj.GetComponent<MocopiAvatar>().enabled = false;
 
         // プレイヤーのコントローラーの移動用のscriptを無効にする
-        playerDontMove[0].GetComponent<PlayerController>().enabled = false;
+        _playerObj.GetComponent<PlayerController>().enabled = false;
+
+        // プレイヤーのMocopiの移動用スクリプトを無効にする
+        _playerObj.GetComponent<PlayerWalkManager>().enabled = false;
 
         // プレイヤーのカメラのscriptを無効にする
-        playerDontMove[1].GetComponent<CameraController>().enabled = false;
+        _cameraObj.GetComponent<CinemachineBrain>().enabled = false;
 
         // 警備員の移動のscriptを無効にする
-        guardDontMove.GetComponent<AroundGuardsmanController>().enabled = false;
+        _guardObj.GetComponent<AroundGuardsmanController>().enabled = false;
 
         // 警備員の移動のNavMeshAgentを無効にする
-        guardDontMove.GetComponent<NavMeshAgent>().enabled = false;
+        _guardObj.GetComponent<NavMeshAgent>().enabled = false;
 
         // 警備員の移動のAnimatorを無効にする
-        guardDontMove.GetComponent<Animator>().enabled = false;
+        _guardObj.GetComponent<Animator>().enabled = false;
     }
+
+    #endregion ---Methods---
 }

@@ -37,7 +37,7 @@ namespace Mocopi.Receiver.Core
         /// </summary>
         public ReceiveFrameDataEvent OnReceiveFrameData = new ReceiveFrameDataEvent(
             (
-                int frameId, float timestamp,
+                int frameId, float timestamp, double unixTime,
                 int[] boneIds,
                 float[] rotationsX, float[] rotationsY, float[] rotationsZ, float[] rotationsW,
                 float[] positionsX, float[] positionsY, float[] positionsZ
@@ -123,6 +123,7 @@ namespace Mocopi.Receiver.Core
         /// </summary>
         /// <param name="frameId">Frame Id</param>
         /// <param name="timestamp">Timestamp</param>
+        /// <param name="unixTime">Unix time when sensor sent data</param>
         /// <param name="boneIds">Id of bones</param>
         /// <param name="rotationsX">rotations in the X direction</param>
         /// <param name="rotationsY">rotations in the Y direction</param>
@@ -132,7 +133,7 @@ namespace Mocopi.Receiver.Core
         /// <param name="positionsY">Y coordinate of position</param>
         /// <param name="positionsZ">Z coordinate of position</param>
         public delegate void ReceiveFrameDataEvent(
-            int frameId, float timestamp,
+            int frameId, float timestamp, double unixTime,
             int[] boneIds,
             float[] rotationsX, float[] rotationsY, float[] rotationsZ, float[] rotationsW,
             float[] positionsX, float[] positionsY, float[] positionsZ
@@ -330,6 +331,7 @@ namespace Mocopi.Receiver.Core
                     out int senderPort,
                     out int frameid,
                     out float timestamp,
+                    out double unixTime,
                     out int size,
                     out IntPtr ptrBoneIds,
                     out IntPtr ptrRotationsX,
@@ -346,6 +348,7 @@ namespace Mocopi.Receiver.Core
                         senderPort,
                         frameid,
                         timestamp,
+                        unixTime,
                         PointerToArray<int>(ptrBoneIds, size),
                         PointerToArray<float>(ptrRotationsX, size),
                         PointerToArray<float>(ptrRotationsY, size),
@@ -394,6 +397,7 @@ namespace Mocopi.Receiver.Core
         /// <param name="senderPort">Sender port number</param>
         /// <param name="frameid">Frame Id</param>
         /// <param name="timestamp">Timestamp</param>
+        /// <param name="unixTime">Unix time when sensor sent data</param>
         /// <param name="boneIds">Id of bones</param>
         /// <param name="rotationsX">rotations in the X direction</param>
         /// <param name="rotationsY">rotations in the Y direction</param>
@@ -404,14 +408,14 @@ namespace Mocopi.Receiver.Core
         /// <param name="positionsZ">Z coordinate of position</param>
         private void SetSkeletonData(
             string senderIp, int senderPort,
-            int frameid, float timestamp,
+            int frameid, float timestamp,double unixTime,
             int[] boneIds,
             float[] rotationsX, float[] rotationsY, float[] rotationsZ, float[] rotationsW,
             float[] positionsX, float[] positionsY, float[] positionsZ
         )
         {
             this.OnReceiveFrameData?.Invoke(
-                frameid, timestamp,
+                frameid, timestamp, unixTime,
                 boneIds,
                 rotationsX, rotationsY, rotationsZ, rotationsW,
                 positionsX, positionsY, positionsZ

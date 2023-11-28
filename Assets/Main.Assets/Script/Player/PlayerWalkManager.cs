@@ -7,33 +7,53 @@ using UnityEngine;
 
 public class PlayerWalkManager : MonoBehaviour
 {
+    #region ---Fields---
+    /// <summary>
+    /// Rigidbodyを取得する変数
+    /// </summary>
     private Rigidbody _rb;
 
-    [SerializeField,Range(0,100)]
-    private float _moveSpeed;
-
+    /// <summary>
+    /// カメラのオブジェクトを取得する
+    /// </summary>
     [SerializeField]
     private GameObject _playerCamera;
+
+    #endregion ---Fields---
+
+    #region ---Methods---
 
     // Start is called before the first frame update
     void Start()
     {
+        // Rigidbodyを参照する
         _rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Vector3 cameraForward = Vector3.Scale(_playerCamera.transform.forward, new Vector3(1, 0, 1)).normalized;
+        // 進む動力を保存する
+        float moveSpeed = StandStill.powerSource;
 
-        //Vector3 move = cameraForward * StandStill.powerSource;
+        // スティックの入力を保存する
+        float stickHorizontal = Input.GetAxis("Horizontal");
 
-        _rb.velocity = transform.forward * 1 * _moveSpeed;
+        // カメラの方向から、X-Z平面の単位ベクトルを取得
+        Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
-        Debug.Log("PlayerWalkManager._rb.velocity : "+_rb.velocity);
+        // 方向キーの入力値とカメラの向きから、移動方向を決定
+        Vector3 moveForward = cameraForward * stickHorizontal;
 
-        //transform.position += transform.forward * StandStill.powerSource * _moveSpeed;
+        // 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+        _rb.velocity = moveForward * moveSpeed + new Vector3(0, _rb.velocity.y, 0);
 
-        //Debug.Log("transform.position : " + transform.position);
+        // キャラクターの向きを進行方向に
+        if (moveForward != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(moveForward);
+        }
     }
+
+    #endregion ---Methods---
 }
