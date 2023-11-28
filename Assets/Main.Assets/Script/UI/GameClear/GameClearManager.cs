@@ -1,64 +1,120 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-using UnityEngine.Video;
+
+//  ? ?F R    
+//  Q [   N   A ??   \ [ X R [ h
 
 public class GameClearManager : MonoBehaviour
 {
-    public FadeManager backFade=new FadeManager();
+    #region ---Fields---
 
-    private FadeManager chekiFade=new FadeManager();
+    /// <summary>
+    ///  uFadeManager v   Q  
+    /// </summary>
+    private FadeManager _fadeManager;
 
-    public TranstionScenes transSystem;
+    /// <summary>
+    ///  uTranstionScenes v   Q  
+    /// </summary>
+    private TranstionScenes _transSystem;
 
-    public Image backImage;
+    /// <summary>
+    ///  w i ?t F [ h A E g ?? 
+    /// </summary>
+    [SerializeField]
+    private FadeManager.FadeSetting _backGroundFadeOut;
 
-    public Image fadeImage;
+    /// <summary>
+    ///  ` F L ?t F [ h A E g ?? 
+    /// </summary>
+    [SerializeField]
+    private FadeManager.FadeSetting _chekiFadeOut;
 
-    public Image chekiImage;
+    /// <summary>
+    ///   ?I     ?t F [ h A E g ?? 
+    /// </summary>
+    [SerializeField]
+    private FadeManager.FadeSetting _endFadeOut;
 
-    public RectTransform[] idolImage = new RectTransform[2];
+    /// <summary>
+    ///  A C h   ??  ?     ? 
+    /// </summary>
+    [SerializeField]
+    private RectTransform[] _idolImage = new RectTransform[2];
 
-    public Vector2[] endPosition = new Vector2[2];
-
+    /// <summary>
+    ///  A C h   ? ?    ?u  ?     ? 
+    /// </summary>
     private Vector2[] _startPosition = new Vector2[2];
 
+    /// <summary>
+    ///  A C h   ? ??    ?     ? 
+    /// </summary>
+    [SerializeField]
+    private Vector2[] _endPosition = new Vector2[2];
+
+    /// <summary>
+    ///  A C h   ? ?    ?u ??   ?     ?     ? 
+    /// </summary>
     private float[] _distance = new float[2];
 
+    /// <summary>
+    ///    ? ?     ? 
+    /// </summary>
     private float _time;
 
-    public float _moveSpeed;
+    /// <summary>
+    ///  A C h   ? ??         ?     ? 
+    /// </summary>
+    [SerializeField, Range(0f, 100f)]
+    private float _moveSpeed;
 
-    public GameObject playerImage;
+    /// <summary>
+    ///  v   C   [ ??   擾    ? 
+    /// </summary>
+    [SerializeField]
+    private GameObject _playerImage;
 
-    public float countDownTime;
+    /// <summary>
+    ///  J E   g _ E   ?  ? ?     ? 
+    /// </summary>
+    [SerializeField, Range(0, 10f)]
+    private float _countDownTime;
 
-    public TextMeshProUGUI countText;
+    /// <summary>
+    ///  J E   g _ E    \      e L X g I u W F N g   擾    ? 
+    /// </summary>
+    [SerializeField]
+    private TextMeshProUGUI _countText;
 
+    /// <summary>
+    ///  J E   g _ E   ?  ? int ^ ??     ? 
+    /// </summary>
     private int _uiCount;
 
-    public float backSpeed;
+    /// <summary>
+    ///  I ??\      e L X g ?I u W F N g   擾    ? 
+    /// </summary>
+    [SerializeField]
+    private GameObject _lastText;
 
-    public float chekiSpeed;
+    /// <summary>
+    ///  ` F L   B      ??@   ? ?     ? 
+    /// </summary>
+    [SerializeField, Range(0f, 10f)]
+    private float _changeSpeed;
 
-    public GameObject lastText;
+    #endregion ---Fields---
 
-    public float changeSpeed;
-
+    #region ---Methods---
 
     // Start is called before the first frame update
     void Start()
     {
         Initi_UI();
-
-        FadeVariables.Initi_Fade();
     }
 
     // Update is called once per frame
@@ -67,61 +123,78 @@ public class GameClearManager : MonoBehaviour
         direction_UI();
     }
 
+    /// <summary>
+    ///      ?? 
+    /// </summary>
     private void Initi_UI()
     {
-        for (int i = 0; i < idolImage.Length; i++)
+        //  A C h   ??u        
+        for (int i = 0; i < _idolImage.Length; i++)
         {
-            _startPosition[i] = idolImage[i].anchoredPosition;
-            _distance[i] = Vector2.Distance(_startPosition[i], endPosition[i]);
+            _startPosition[i] = _idolImage[i].anchoredPosition;
+            _distance[i] = Vector2.Distance(_startPosition[i], _endPosition[i]);
         }
 
+        //  J E   g _ E          
         _uiCount = 0;
     }
 
+    /// <summary>
+    /// UI ?  o ? 
+    /// </summary>
     private void direction_UI()
     {
         switch (_uiCount)
         {
+            //  w i ?   t F [ h    
             case 0:
-                backFade.FadeOut(backImage, backImage.color.b, backSpeed,true);
-                if (FadeVariables.FadeOut)
+                _fadeManager.FadeOut(_backGroundFadeOut);
+                if (FadeManager.fadeOut)
                 {
-                    FadeVariables.FadeOut = false;
+                    FadeManager.fadeOut = false;
                     _uiCount++;
                 }
                 break;
-            case 1:               
-                if (!chekiImage.gameObject.activeSelf)
+
+            //  ` F L   t F [ h    
+            case 1:
+                _fadeManager.FadeOut(_chekiFadeOut);
+                if (FadeManager.fadeOut)
                 {
-                    chekiImage.gameObject.SetActive(true);
-                }
-                chekiFade.FadeOut(  chekiImage, chekiImage.color.a,  chekiSpeed);
-                if (FadeVariables.FadeOut)
-                {
-                    FadeVariables.FadeOut = false;
+                    FadeManager.fadeOut = false;
                     _time = Time.time;
                     _uiCount++;
                 }
                 break;
-            case 2:               
+
+            //  A C h   ?     ?X   C h    
+            case 2:
                 Move_IdolImage();
                 break;
+
+            //  v   C   [ ?  \      
             case 3:
-                playerImage.SetActive(true);
+                _playerImage.SetActive(true);
                 _uiCount++;
                 break;
+
+            //  J E   g _ E    \      
             case 4:
                 CountDown_Text();
                 break;
+
+            //  ` F L   B e    
             case 5:
                 StartCoroutine(ShotPhoto());
                 break;
+
+            //   ?I     ?t F [ h    
             case 6:
-                backFade.FadeOut(fadeImage, fadeImage.color.a,backSpeed);
-                if (FadeVariables.FadeOut)
+                _fadeManager.FadeOut(_endFadeOut);
+                if (FadeManager.fadeOut)
                 {
-                    FadeVariables.FadeOut = false;
-                    transSystem.Trans_Scene(0);
+                    FadeManager.fadeOut = false;
+                    _transSystem.Trans_Scene(0);
                 }
                 break;
             default:
@@ -129,61 +202,83 @@ public class GameClearManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    ///  A C h   ? ??    ? 
+    /// </summary>
     private void Move_IdolImage()
     {
         float _positionValue;
 
-        for (int i = 0; i < idolImage.Length; i++)
+        for (int i = 0; i < _idolImage.Length; i++)
         {
-            // 初期位置と移動先の距離の割合を計算する処理
-            // 「(Time.time - time) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
+            //      ?u ??   ?    ?      v Z   鏈  
+            //  u(Time.time - time) / _distance v ?    ?     100 ?  ?  ?  ?o ??    ?        邱 ??Q _ ??        w ?  l     ? B
             _positionValue = ((Time.time - _time) / _distance[i]) * _moveSpeed;
 
-            // カメラの位置を動かす処理
-            idolImage[i].anchoredPosition = Vector2.Lerp(_startPosition[i], endPosition[i], _positionValue);
+            //  A C h   ? ??u ??       
+            _idolImage[i].anchoredPosition = Vector2.Lerp(_startPosition[i], _endPosition[i], _positionValue);
 
-            // カメラの位置が指定した位置に来た場合
-            if ((idolImage[0].anchoredPosition == endPosition[0]) && (idolImage[1].anchoredPosition == endPosition[1]))
+            //  A C h   ? ??u   w ?   ?u ?    ?
+            if ((_idolImage[0].anchoredPosition == _endPosition[0]) && (_idolImage[1].anchoredPosition == _endPosition[1]))
             {
-                lastText.SetActive(false);
+                _lastText.SetActive(false);
                 _uiCount++;
             }
         }
     }
 
+    /// <summary>
+    ///  J E   g _ E       o    ? 
+    /// </summary>
     private void CountDown_Text()
     {
+        //    ? ?     ? 
         int _countDownText;
 
-        countDownTime -= Time.deltaTime;
-        
-        _countDownText = (int)countDownTime;
+        //    ? ?     
+        _countDownTime -= Time.deltaTime;
 
-        countText.text = (_countDownText+1).ToString();
+        //      t   ?  ???  ??     
+        _countDownText = (int)_countDownTime;
 
-        if ((int)countDownTime < 0)
+        //  J E   g _ E   ?  ? \  
+        _countText.text = (_countDownText + 1).ToString();
+
+        //  J E   g _ E   ?  ?  O  ?     ?    ?
+        if ((int)_countDownTime < 0)
         {
-            countText.enabled = false;
+            _countText.enabled = false;
             _uiCount++;
         }
     }
 
+    /// <summary>
+    ///  ` F L   B 鉉 o ?? 
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator ShotPhoto()
     {
-        if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
+        // SE   ?  ?  ?      ?
+        if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource))
         {
-            AudioManager.Instance.Play_SESound(SESoundData.SE.Shutters);
+            AudioManager.audioManager.Play_SESound(SESoundData.SE.Shutters);
         }
 
-        yield return new WaitForSeconds(changeSpeed);
+        //  ?     
+        yield return new WaitForSeconds(_changeSpeed);
 
-        lastText.SetActive(true);
+        //  e L X g  \      
+        _lastText.SetActive(true);
 
+        // UI ?J E   g  i ? 
         if (_uiCount == 5)
         {
             _uiCount++;
         }
-        
+
+        //  I  
         yield return null;
     }
+
+    #endregion ---Methods---
 }

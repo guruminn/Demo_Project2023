@@ -3,84 +3,117 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//  ? ?F R    
+//  t F [ h ??   \ [ X R [ h
 
-public class FadeVariables
+public class FadeManager : MonoBehaviour
 {
-    public static bool FadeOut;
-    public static bool FadeIn;
+    #region ---Fields---
 
-    public static void Initi_Fade()
+    /// <summary>
+    ///  t F [ h A E g ?    ?     ? 
+    /// </summary>
+    public static bool fadeOut;
+
+    /// <summary>
+    ///  t F [ h C   ?    ?     ? 
+    /// </summary>
+    public static bool fadeIn;
+
+    #endregion ---Fields---
+
+    #region ---Methods---
+
+    /// <summary>
+    ///  t F [ h A E g ?  o      ? 
+    /// </summary>
+    /// <param name="fade">  t F [ h  ??  \     </param>
+    public void FadeOut(FadeSetting fade)
     {
-        FadeOut = false;
-        FadeIn = false;
-    }
-}
+        float fadeColor = fade.fadeImage.color.a;
 
-public class FadeManager
-{
-    // フェードアウトの演出をする関数
-    public void FadeOut(Image _fadeImage, float _fadeOutColor,float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
-    {
-        // フェードアウトさせるパネルを表示する
-        _fadeImage.gameObject.SetActive(true);
+        //  t F [ h A E g      p l    \      
+        fade.fadeImage.enabled = true;
 
-        // 透明度を加算して上げる
-        _fadeOutColor += fadeSpeed * Time.deltaTime;
+        //      x     Z   ?グ  
+        fadeColor += fade.fadeSpeed * Time.deltaTime;
 
-        switch (fadeType)
+        //  t F [ h A E g      p l   ?    x  ??  
+        fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
+
+        //  p l   ?    x   w ?       x ?l ??      ?   
+        if (fadeColor >= fade.fadeAlpha)
         {
-            case false:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeOutColor);
-                break;
-            case true:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeOutColor, _fadeOutColor, _fadeOutColor, _fadeImage.color.a);
-                break;
-        }
+            //  p l   ?    x   ??  
+            fadeColor = fade.fadeAlpha;
 
-        // パネルの透明度が指定した透明度の値になった時の処理
-        if (_fadeOutColor >= _defaultValue)
-        {
-            // パネルの透明度を固定する
-            _fadeOutColor = _defaultValue;
-
-            // フェードアウトの判定を有効にする
-            FadeVariables.FadeOut = true;
-        }
-    }
-
-    public void FadeIn(Image _fadeImage, float _fadeInColor, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
-    {
-        // フェードアウトさせるパネルを表示する
-        _fadeImage.enabled = true;
-
-        // 透明度を減算して下げる
-        _fadeInColor -= fadeSpeed * Time.deltaTime;
-
-        switch (fadeType)
-        {
-            case false:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeInColor);
-                break;
-            case true:
-                // フェードアウトさせるパネルの透明度を設定する
-                _fadeImage.color = new Color(_fadeInColor, _fadeInColor, _fadeInColor, _fadeImage.color.a);
-                break;
-        }
-
-        // パネルの透明度が指定した透明度の値になった時の処理
-        if (_fadeInColor <= _defaultValue)
-        {
-            // パネルの透明度を固定する
-            _fadeInColor = _defaultValue;
-
-            // フェードアウトさせるパネルを非表示する
-            _fadeImage.gameObject.SetActive(false);
-
-            // フェードインの判定を有効にする
-            FadeVariables.FadeIn = true;
+            //  t F [ h A E g ?    L   ?   
+            fadeOut = true;
         }
     }
+
+    /// <summary>
+    ///  t F [ h C       o    ? 
+    /// </summary>
+    /// <param name="fade">  t F [ h  ??  \     </param>
+    public void FadeIn(FadeSetting fade)
+    {
+        float fadeColor = fade.fadeImage.color.a;
+
+        //  t F [ h A E g      p l    \      
+        fade.fadeImage.enabled = true;
+
+        //      x     Z   ?     
+        fadeColor -= fade.fadeSpeed * Time.deltaTime;
+
+        //  t F [ h A E g      p l   ?    x  ??  
+        fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
+
+        //  p l   ?    x   w ?       x ?l ??      ?   
+        if (fadeColor <= fade.fadeAlpha)
+        {
+            //  p l   ?    x   ??  
+            fadeColor = fade.fadeAlpha;
+
+            //  t F [ h A E g      p l     \      
+            fade.fadeImage.enabled = false;
+
+            //  t F [ h C   ?    L   ?   
+            fadeIn = true;
+        }
+    }
+
+    #endregion ---Methods---
+
+    #region ---Struct---
+
+    /// <summary>
+    ///  t F [ h  ??  \    
+    /// </summary>
+    public struct FadeSetting
+    {
+        /// <summary>
+        ///  t F [ h ?     
+        /// </summary>
+        public string fadeName;
+
+        /// <summary>
+        ///  t F [ h      ?
+        /// </summary>
+        public Image fadeImage;
+
+        /// <summary>
+        ///  t F [ h ?   
+        /// </summary>
+        [Range(0f, 10f)]
+        public float fadeSpeed;
+
+        /// <summary>
+        ///  t F [ h ?    x
+        /// </summary>
+        [Range(0f, 1f)]
+        public float fadeAlpha;
+    }
+
+    #endregion ---Struct---
 }

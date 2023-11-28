@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// プレイヤーが最前列に行ったときにクリア判定にする処理
-// 作成者：山﨑晶
+//  作成者：山﨑晶 
+// ステージの最善にあるゲートと接触したときにゲームクリアにする処理
 
 public class ClaerManager : MonoBehaviour
 {
-    // プレイヤーに当たった時の判定の処理
+    //  クリア判定と当たった場合
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            // ゲームクリアの判定をtrueにする
-            VariablesController.gameClearControl = true;
-            Debug.Log("クリアになったよ");
+            //  ゲームクリアの判定をする
+            OutGameManager.gameClear = true;
+
+            //Debug.Log("クリアになった");
         }
     }
 }
