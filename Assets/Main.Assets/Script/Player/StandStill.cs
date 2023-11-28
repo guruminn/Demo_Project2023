@@ -1,41 +1,41 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-// ì¬ÒFRú±»
-// ‘«“¥‚İ‚µ‚Ä‚¢‚é‚©‚ğ”»’è‚·‚éƒ\[ƒXƒR[ƒh
+// ä½œæˆè€…ï¼šå±±ï¨‘æ™¶
+// è¶³è¸ã¿ã—ã¦ã„ã‚‹ã‹ã‚’åˆ¤å®šã™ã‚‹ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰
 public class StandStill : MonoBehaviour
 {
     #region --- Fields ---
 
     /// <summary>
-    /// ‰E‘«‚ÌƒIƒuƒWƒFƒNƒg‚ğæ“¾‚·‚é•Ï” 
+    /// å³è¶³ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—ã™ã‚‹å¤‰æ•° 
     /// </summary>
     [SerializeField]
     private GameObject _footObj;
 
     /// <summary>
-    /// ‰E‘«‚Ì\‘¢‘Ì‚ğéŒ¾‚Æ‰Šú‰»
+    /// å³è¶³ã®æ§‹é€ ä½“ã‚’å®£è¨€ã¨åˆæœŸåŒ–
     /// </summary>
     private FootPosition _foot;
 
     /// <summary>
-    /// •à‚­”»’è‚ğ‚·‚é‹——£‚Ì·‚Ì’l
+    /// æ­©ãåˆ¤å®šã‚’ã™ã‚‹è·é›¢ã®å·®ã®å€¤
     /// </summary>
     [SerializeField, Range(0f, 1f)]
     private float _reactionValume = 0.1f;
 
     /// <summary>
-    /// •à‚©‚¹‚é‹­‚³‚ğ•Û‘¶‚·‚é•Ï”
+    /// æ­©ã‹ã›ã‚‹å¼·ã•ã‚’ä¿å­˜ã™ã‚‹å¤‰æ•°
     /// </summary>
     [NonSerialized]
     public static float powerSource = 0f;
 
     /// <summary>
-    /// ‘«‚ª“®‚¢‚Ä‚¢‚é‚©‚Ì”»’è‚ğ‚·‚é•Ï”
+    /// è¶³ãŒå‹•ã„ã¦ã„ã‚‹ã‹ã®åˆ¤å®šã‚’ã™ã‚‹å¤‰æ•°
     /// </summary>
     private bool _moveFoot = false;
 
@@ -46,7 +46,7 @@ public class StandStill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ‰E‘«‚Ì‰ŠúˆÊ’u‚ğ•Û‘¶‚·‚é
+        // å³è¶³ã®åˆæœŸä½ç½®ã‚’ä¿å­˜ã™ã‚‹
         _foot = new FootPosition(_footObj.transform.position, _footObj.transform.position, 0);
         //Debug.Log("StandStill  initiFoot : " + _foot);
     }
@@ -54,7 +54,7 @@ public class StandStill : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // “ñ“_‚Ì‹——£‚ğ•Û‘¶‚·‚é
+        // äºŒç‚¹ã®è·é›¢ã‚’ä¿å­˜ã™ã‚‹
         _foot.distance = FuncDistance(_footObj.transform.position, _foot.initiPosition);
         //Debug.Log("StandStill  distancce : " + _foot.distance);
 
@@ -62,28 +62,28 @@ public class StandStill : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰ŠúˆÊ’u‚ğ•Û‘¶‚·‚éŠÖ”
+    /// åˆæœŸä½ç½®ã‚’ä¿å­˜ã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="initiPosition"> ‰ŠúˆÊ’u‚ğ•Û‘¶‚·‚é‚½‚ß‚Ì•Ï” </param>
-    /// <param name="obj"> ƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u </param>
+    /// <param name="initiPosition"> åˆæœŸä½ç½®ã‚’ä¿å­˜ã™ã‚‹ãŸã‚ã®å¤‰æ•° </param>
+    /// <param name="obj"> ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½® </param>
     void InitialPosition(out Vector3 initiPosition, GameObject obj)
     {
         initiPosition = obj.transform.position;
     }
 
     /// <summary>
-    /// “ñ“_‚Ì‹——£‚Ì·‚ğ‹‚ß‚é
+    /// äºŒç‚¹ã®è·é›¢ã®å·®ã‚’æ±‚ã‚ã‚‹
     /// </summary>
-    /// <param name="obj"> Œ»İ‚ÌƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u </param>
-    /// <param name="initi"> ‰Šú‚ÌƒIƒuƒWƒFƒNƒg‚ÌˆÊ’u </param>
-    /// <returns> “ñ“_‚Ì‹——£‚Ì•Ô‚· </returns>
+    /// <param name="obj"> ç¾åœ¨ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½® </param>
+    /// <param name="initi"> åˆæœŸã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ä½ç½® </param>
+    /// <returns> äºŒç‚¹ã®è·é›¢ã®è¿”ã™ </returns>
     float FuncDistance(Vector3 obj, Vector3 initi)
     {
         return Vector3.Distance(obj, initi);
     }
 
     /// <summary>
-    /// •à‚­‚½‚ß‚Ì“®—Í‚ğ•Û‘¶‚·‚éŠÖ”
+    /// æ­©ããŸã‚ã®å‹•åŠ›ã‚’ä¿å­˜ã™ã‚‹é–¢æ•°
     /// </summary>
     void WalkPower()
     {
@@ -94,37 +94,37 @@ public class StandStill : MonoBehaviour
     }
 
     /// <summary>
-    /// ’n–Ê‚É‚Â‚¢‚Ä‚¢‚é‚Æ‚«‚Ì”»’è—pŠÖ”
+    /// åœ°é¢ã«ã¤ã„ã¦ã„ã‚‹ã¨ãã®åˆ¤å®šç”¨é–¢æ•°
     /// </summary>
-    /// <param name="collision"> “–‚½‚Á‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg </param>
+    /// <param name="collision"> å½“ãŸã£ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ </param>
     private void OnCollisionStay(Collision collision)
     {
-        // “–‚½‚Á‚½ƒIƒuƒWƒFƒNƒg‚Ìƒ^ƒO‚ªGround‚¾‚Á‚½ê‡
+        // å½“ãŸã£ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚¿ã‚°ãŒGroundã ã£ãŸå ´åˆ
         if (collision.gameObject.tag == "Ground")
         {
-            // “®‚¢‚Ä‚¢‚È‚¢”»’è‚É‚·‚é
+            // å‹•ã„ã¦ã„ãªã„åˆ¤å®šã«ã™ã‚‹
             _moveFoot = false;
 
-            // “®—Í‚ğ‚O‚É‚·‚é
+            // å‹•åŠ›ã‚’ï¼ã«ã™ã‚‹
             powerSource = 0;
 
-            //Debug.Log("StandStill  “ü‚Á‚Ä‚¢‚éB");
+            //Debug.Log("StandStill  å…¥ã£ã¦ã„ã‚‹ã€‚");
         }
     }
 
     /// <summary>
-    /// ’n–Ê‚©‚ç—£‚ê‚½‚Æ‚«‚Ì”»’è—pŠÖ”
+    /// åœ°é¢ã‹ã‚‰é›¢ã‚ŒãŸã¨ãã®åˆ¤å®šç”¨é–¢æ•°
     /// </summary>
-    /// <param name="collision"> “–‚½‚Á‚Ä‚¢‚éƒIƒuƒWƒFƒNƒg </param>
+    /// <param name="collision"> å½“ãŸã£ã¦ã„ã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ </param>
     private void OnCollisionExit(Collision collision)
     {
-        // “–‚½‚Á‚Ä‚¢‚È‚¢
+        // å½“ãŸã£ã¦ã„ãªã„
         if (collision.gameObject.tag == "Ground")
         {
-            // “®‚¢‚Ä‚¢‚é”»’è‚É‚·‚é
+            // å‹•ã„ã¦ã„ã‚‹åˆ¤å®šã«ã™ã‚‹
             _moveFoot = true;
 
-            //Debug.Log("StandStill  ”²‚¯‚½B");
+            //Debug.Log("StandStill  æŠœã‘ãŸã€‚");
         }
     }
 
@@ -133,25 +133,25 @@ public class StandStill : MonoBehaviour
     #region --- Structs ---
 
     /// <summary>
-    /// ‘«‚ÌÀ•W‚ğ•Û‘¶‚·‚é\‘¢‘Ì
+    /// è¶³ã®åº§æ¨™ã‚’ä¿å­˜ã™ã‚‹æ§‹é€ ä½“
     /// </summary>
     private struct FootPosition
     {
-        // ‰ŠúˆÊ’u‚ğ•Û‘¶‚·‚é•Ï”
+        // åˆæœŸä½ç½®ã‚’ä¿å­˜ã™ã‚‹å¤‰æ•°
         public Vector3 initiPosition;
 
-        // Œ»İˆÊ’u‚ğ•Û‘¶‚·‚é•Ï”
+        // ç¾åœ¨ä½ç½®ã‚’ä¿å­˜ã™ã‚‹å¤‰æ•°
         public Vector3 nowPosition;
 
-        // ‰ŠúˆÊ’u‚ÆŒ»İ‚ÌˆÊ’u‚Ì‹——£‚ğ•Û‘¶‚·‚é•Ï”
+        // åˆæœŸä½ç½®ã¨ç¾åœ¨ã®ä½ç½®ã®è·é›¢ã‚’ä¿å­˜ã™ã‚‹å¤‰æ•°
         public float distance;
 
         /// <summary>
-        /// \‘¢‘Ì‚Ì‰Šú‰»
+        /// æ§‹é€ ä½“ã®åˆæœŸåŒ–
         /// </summary>
-        /// <param name="initi"> ‰ŠúˆÊ’u‚Ì•Ï” </param>
-        /// <param name="now"> Œ»İˆÊ’u‚Ì•Ï” </param>
-        /// <param name="length"> 2“_ŠÔ‚Ì‹——£‚Ì•Ï” </param>
+        /// <param name="initi"> åˆæœŸä½ç½®ã®å¤‰æ•° </param>
+        /// <param name="now"> ç¾åœ¨ä½ç½®ã®å¤‰æ•° </param>
+        /// <param name="length"> 2ç‚¹é–“ã®è·é›¢ã®å¤‰æ•° </param>
         public FootPosition(Vector3 initi, Vector3 now, float length)
         {
             initiPosition = initi;

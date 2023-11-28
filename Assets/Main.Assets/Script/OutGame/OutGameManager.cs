@@ -1,4 +1,4 @@
-using Cinemachine;
+﻿using Cinemachine;
 using Mocopi.Receiver;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,57 +8,57 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-//  �Q�[�����Q�[���I�[�o�[�E�N���A�ɂȂ������̏���
-//  �쐬�ҁF�R����
+//  ゲームがゲームオーバー・クリアになった時の処理
+//  作成者：山﨑晶
 
 public class OutGameManager : MonoBehaviour
 {
     #region ---Fields---
 
     /// <summary>
-    ///  Q [   I [ o [ ?    ?     ? 
+    /// ゲームオーバーの判定を保存する変数
     /// </summary>
     public static bool gameOver;
 
     /// <summary>
-    ///  Q [   N   A ?    ?     ? 
+    /// ゲームクリアの判定を保存する変数
     /// </summary>
     public static bool gameClear;
 
     /// <summary>
-    ///  uFadeSystem v ?C   X ^   X ?? 
+    /// 「FadeSystem」を参照する変数
     /// </summary>
     private FadeManager _fadeSystem;
 
     /// <summary>
-    ///  Q [   N   A E I [ o [  ??        ?t F [ h A E g  ? 
+    /// 背景画像のフェードの設定
     /// </summary>
     private FadeManager.FadeSetting _blackFadeOut;
 
     /// <summary>
-    ///   ?I     ?t F [ h A E g ?? 
+    /// シーン遷移時のフェードの設定
     /// </summary>
     private FadeManager.FadeSetting _endFadeOut;
 
     /// <summary>
-    ///  uTranstionScene v ?C   X ^   X ?? 
+    /// 「TranstionScene」を参照する変数
     /// </summary>
     private TranstionScenes _transSystem;
 
     /// <summary>
-    ///  Q [   I [ o [ A Q [   N   A  \      text   ��
+    ///  テキストを取得する変数
     /// </summary>
     [SerializeField]
     private TextMeshProUGUI _logoText;
 
     /// <summary>
-    ///  Q [   I [ o [ ?  ?\       ?    ?     ? 
+    /// ゲームオーバー時に表示する文字を保存する変数
     /// </summary>
     [SerializeField]
     private string _overText;
 
     /// <summary>
-    ///  Q [   N   A ?  ?\       ?    ?     ? 
+    /// ゲームクリア時に表示する文字を保存する変数
     /// </summary>
     [SerializeField]
     private string _clearText;
@@ -66,27 +66,28 @@ public class OutGameManager : MonoBehaviour
     [Space(10)]
 
     /// <summary>
-    ///  v   C   [ ?R   | [ l   g   Q ?  ? ?A I u W F N g   ��
+    /// プレイヤーのオブジェクトを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject _playerObj;
 
-    //  v   C   [ ??  ?J     ??    ?   script   Q ?  ? ?A I u W F N g   ��
-    [SerializeField] private GameObject[] playerDontMove = new GameObject[2];
     /// <summary>
-    ///  J     ?R   | [ l   g   Q ?  ? ?A I u W F N g   ��
+    /// カメラのオブジェクトを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject _cameraObj;
 
     /// <summary>
-    ///  x     ?R   | [ l   g   Q ?  ? ?A I u W F N g   ��
+    /// 警備員のオブジェクトを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject _guardObj;
 
     [Space(10)]
 
+    /// <summary>
+    /// テキストを表示してからシーン遷移するまでの待ち時間を保存する変数
+    /// </summary>
     [SerializeField, Range(0f, 10f)]
     private int _waitTime = 3;
 
@@ -101,83 +102,83 @@ public class OutGameManager : MonoBehaviour
 
     private void Update()
     {
-        //  Q [   I [ o [ ?  ?   
+        // ゲームオーバー時の処理  
         if (gameOver)
         {
             AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
-            Direction_UI(_overText, 4);
+            StartCoroutine(Direction_UI(_overText, 4));
         }
 
-        //  Q [   N   A ?  ?   
+        // ゲームクリア時の処理
         if (gameClear)
         {
             AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
-            Direction_UI(_clearText, 3);
+            StartCoroutine(Direction_UI(_clearText, 3));
         }
     }
 
     /// <summary>
-    /// UI ?  o ?         ? 
+    /// UI演出の関数
     /// </summary>
-    /// <param name="textWord">  \      e L X g </param>
-    /// <param name="sceneNumber">  J ?      V [   ??  </param>
+    /// <param name="textWord"> 表示したい文字 </param>
+    /// <param name="sceneNumber"> 遷移したいシーンの番号  </param>
     /// <returns>  ?      </returns>
     private IEnumerator Direction_UI(string textWord, int sceneNumber)
     {
-        //  v   C   [ A x     ?      ~ ? 
+        // プレイヤーと警備員の動きを止める関数の呼び出し
         DontMove_AntherScript();
 
-        //  t F [ h A E g ?  o   ?��o  
+        // 背景画像をフェードをする
         _fadeSystem.FadeOut(_blackFadeOut);
 
-        //  t F [ h A E g   I      ?
+        // フェードが終わった場合
         if (FadeManager.fadeOut)
         {
-            //  w ?   e L X g  \  
+            // テキストを表示
             _logoText.text = textWord;
 
-            // uFadeOut v ?   ??  ?   
+            // フェードの判定をオフにする
             FadeManager.fadeOut = false;
 
-            //  w ?   b    ? 
+            // 待ち時間
             yield return new WaitForSeconds(_waitTime);
 
-            // uFadeOut v   ?��o   B
+            // シーン遷移のフェードをする
             _fadeSystem.FadeOut(_endFadeOut);
 
-            //   ?  ?  ?    ?
+            // フェードが終わった場合
             if (FadeManager.fadeOut)
             {
-                //  w ?   ?  ?V [   ?J ?   
+                // シーンを遷移する
                 _transSystem.Trans_Scene(sceneNumber);
             }
         }
     }
 
     /// <summary>
-    ///  v   C   [ ??  ?J     ?    A x     ??    ~ ?�Y   ?? 
+    ///  オブジェクトの動きを止める関数
     /// </summary>
     private void DontMove_AntherScript()
     {
-        //  v   C   [ ??   script ??  ?   
+        //  プレイヤーのMocopiを止める
         _playerObj.GetComponent<MocopiAvatar>().enabled = false;
 
-        //  v   C   [ ?R   g   [   [ ??  p  script ??  ?   
+        // プレイヤーのジョイコンを止める
         _playerObj.GetComponent<PlayerController>().enabled = false;
 
-        //  v   C   [  Mocopi ??  p X N   v g ??  ?   
+        // プレイヤーの足踏みを止める
         _playerObj.GetComponent<PlayerWalkManager>().enabled = false;
 
-        //  v   C   [ ?J      script ??  ?   
+        // カメラ移動を止める
         _cameraObj.GetComponent<CinemachineBrain>().enabled = false;
 
-        //  x     ??   script ??  ?   
+        // 警備員の移動を止める 
         _guardObj.GetComponent<AroundGuardsmanController>().enabled = false;
 
-        //  x     ??   NavMeshAgent ??  ?   
+        // 警備員の動作を止める
         _guardObj.GetComponent<NavMeshAgent>().enabled = false;
 
-        //  x     ??   Animator ??  ?   
+        // 警備員のアニメーションを止める
         _guardObj.GetComponent<Animator>().enabled = false;
     }
 

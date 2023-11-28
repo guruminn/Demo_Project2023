@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
 using Unity.VisualScripting;
@@ -6,15 +6,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-//  ^ C g    ??  o       L q     X N   v g
-//  ? ?F R    
+// タイトル画面のUI演出をするソースコード
+//  作成者：山﨑晶
 
 public class TitleUIManager : MonoBehaviour
 {
     #region ---Fields---
 
     /// <summary>
-    ///  ?  \      ?u ?  ? ? 
+    ///  待ち時間を保存する変数
     /// </summary>
     [SerializeField, Range(0f, 10f)]
     private float[] _intervalTIme = new float[2];
@@ -22,103 +22,100 @@ public class TitleUIManager : MonoBehaviour
     [Space(10)]
 
     /// <summary>
-    ///  J       ?    ?    ? 
+    /// カメラの移動する速さ
     /// </summary>
     [SerializeField, Range(0f, 10f)]
     private float _cameraMoveSpeed = 1f;
 
-    //  J     ?    ?u  ? 
     /// <summary>
-    ///  J     ?    ?u  ? 
+    ///  カメラの初期位置を保存する変数
     /// </summary>
     private Vector3 _startPosition;
 
     /// <summary>
-    ///  J     ??   ??u  ? 
+    ///  カメラの移動先を保存する変数
     /// </summary>
     [SerializeField]
     private Vector3 _endPosition;
 
     [Space(10)]
 
-    //  X ^ [ g { ^         ?   ?    ? 
     /// <summary>
-    ///  uFadeManager v ?C   X ^   X ?? 
+    ///  FadeManagerを参照する変数
     /// </summary>
     private FadeManager _fadeSystem;
 
     /// <summary>
-    ///  w i ? ?t F [ h A E g ?? 
+    ///  背景画像のフェードを設定する
     /// </summary>
     private FadeManager.FadeSetting _blackFadeIn;
 
     /// <summary>
-    ///  ^ C g     S ?t F [ h A E g ?? 
+    ///  タイトルロゴのフェードを設定する
     /// </summary>
     private FadeManager.FadeSetting _logoFadeOut;
 
     /// <summary>
-    ///  uTranstionScenes v ?C   X ^   X ?? 
+    ///  TranstionScenesを参照する変数
     /// </summary>
     private TranstionScenes transSystem;
 
     /// <summary>
-    ///  uui_startButton v ?uui_endButton v   Q [   I u W F N g ?  ?��
+    ///  ボタンを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject[] _buttonObj = new GameObject[2];
 
     /// <summary>
-    ///  I      ?  ?  { ^     ?  \     ? ? Image   ��
+    /// 選択状態のボタンの画像を取得数変数
     /// </summary>
     [SerializeField]
     private GameObject[] _selectButtonImage = new GameObject[2];
 
     /// <summary>
-    ///  J     ??      ??uMainCamera v   Q [   I u W F N g ?  ?? 
+    /// カメラを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject _cameraObj;
 
     /// <summary>
-    ///  uTitleCanvas v   Q [   I u W F N g ?  ?��
+    /// canvasを取得する変数
     /// </summary>
     [SerializeField]
     private GameObject _titleCanvas;
 
     /// <summary>
-    ///      ?u ??   ?     ? 
+    /// カメラの距離を保存する変数
     /// </summary>
     private float _distance;
 
     /// <summary>
-    ///  Q _ ???     ?u ?l  ? 
+    ///  カメラの位置を保存する変数
     /// </summary>
     private float _positionValue;
 
     /// <summary>
-    ///    ??  ? ?     ? 
+    /// 時間を保存する変数
     /// </summary>
     private float _time;
 
     /// <summary>
-    ///  X ^ [ g { ^         ?   ?    ? 
+    /// ボタンが押されたかを判定する変数
     /// </summary>
     private bool _isClickButton = false;
 
-    //  { ^   ?  ?  ??t   ?   ? 
     /// <summary>
-    ///  { ^   ?  ?  ??t   ?   ? 
+    /// ボタンが押せる状況化を判定する変数
     /// </summary>
     private bool _isInputButton = false;
 
     /// <summary>
-    ///  J     ??     ?  ?    ?     ? 
+    /// シーン遷移ができる状況化を判定する変数
     /// </summary>
     private bool _isStepScene = false;
 
     /// <summary>
-    ///    ??I     ?   I u W F N g  ?     ? 
+    /// 選択状態のボタンを保存する変数? 
     /// </summary>
     private GameObject _saveButton;
 
@@ -153,7 +150,7 @@ public class TitleUIManager : MonoBehaviour
             _selectButtonImage[0].SetActive(true);
         }
 
-        //  ^ C g    ? UI ?  o      R   [ `     ?��o  
+        //  ^ C g    ? UI ?  o      R   [ `     ?яo  
         StartCoroutine("Fade_UI");
 
         //  { ^           ?
@@ -194,14 +191,14 @@ public class TitleUIManager : MonoBehaviour
     /// <returns>  ?      </returns>
     private IEnumerator Fade_UI()
     {
-        //   ???\       �� o    
+        //   ???\       鉉 o    
         if (!FadeManager.fadeIn && !FadeManager.fadeOut)
         {
-            //  t F [ h C        ?    ?��o  
+            //  t F [ h C        ?    ?яo  
             _fadeSystem.FadeIn(_blackFadeIn);
         }
 
-        //   ???\       �� o    
+        //   ???\       鉉 o    
         if (FadeManager.fadeIn && !FadeManager.fadeOut)
         {
             //       ? 
@@ -212,17 +209,17 @@ public class TitleUIManager : MonoBehaviour
                 AudioManager.audioManager.Play_BGMSound(BGMSoundData.BGM.Title);
             }
 
-            //  t F [ h A E g      ?    ?��o  
+            //  t F [ h A E g      ?    ?яo  
             _fadeSystem.FadeOut(_logoFadeOut);
         }
 
-        //  O ???\       �� o    
+        //  O ???\       鉉 o    
         if (FadeManager.fadeIn && FadeManager.fadeOut)
         {
             //       ? 
             yield return new WaitForSeconds(_intervalTIme[1]);
 
-            //  { ^    \       �Y  
+            //  { ^    \       鏈  
             for (int i = 0; i < _buttonObj.Length; i++)
             {
                 _buttonObj[i].SetActive(true);
@@ -308,8 +305,8 @@ public class TitleUIManager : MonoBehaviour
             AudioManager.audioManager.Play_SESound(SESoundData.SE.Walk);
         }
 
-        //      ?u ??   ?    ?      v Z   �Y  
-        //  u(Time.time - _time) / _distance v ?    ?     100 ?  ?  ?  ?o ??    ?        � ??Q _ ??        w ?  l     ? B
+        //      ?u ??   ?    ?      v Z   鏈  
+        //  u(Time.time - _time) / _distance v ?    ?     100 ?  ?  ?  ?o ??    ?        邱 ??Q _ ??        w ?  l     ? B
         _positionValue = ((Time.time - _time) / _distance) * _cameraMoveSpeed;
 
         //  J     ??u ??       

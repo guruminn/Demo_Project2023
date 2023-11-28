@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//  ì¬ÒFRú±»   
-//  BGMASE‚ğ§Œä‚·‚éƒ\[ƒXƒR[ƒh
+//  ä½œæˆè€…ï¼šå±±ï¨‘æ™¶   
+//  BGMã€SEã‚’åˆ¶å¾¡ã™ã‚‹ã‚½ãƒ¼ã‚¹ã‚³ãƒ¼ãƒ‰
 
 public class AudioManager : MonoBehaviour
 {
@@ -24,19 +24,19 @@ public class AudioManager : MonoBehaviour
     [Space(10)]
 
     /// <summary>
-    /// BGMASE‚ğŠÜ‚ß‚½‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// BGMã€SEã‚’å«ã‚ãŸå…¨ä½“éŸ³é‡ã®å¤‰æ•°
     /// </summary>
     [SerializeField, Range(0f, 1f)]
     private float _masterVolume = 1;
 
     /// <summary>
-    /// BGM‚Ì‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// BGMã®å…¨ä½“éŸ³é‡ã®å¤‰æ•°
     /// </summary>
     [SerializeField, Range(0f, 1f)]
     private float _bgmMasterVolume = 1;
 
     /// <summary>
-    /// SE‚Ì‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// SEã®å…¨ä½“éŸ³é‡ã®å¤‰æ•°
     /// </summary>
     [SerializeField, Range(0f, 1f)]
     private float _seMasterVolume = 1;
@@ -44,13 +44,13 @@ public class AudioManager : MonoBehaviour
     [Space(10)]
 
     /// <summary>
-    /// BGM‚Ì‰¹ºƒf[ƒ^‚ÌƒŠƒXƒg
+    /// BGMã®éŸ³å£°ãƒ‡ãƒ¼ã‚¿ã®ãƒªã‚¹ãƒˆ
     /// </summary>
     [SerializeField]
     private List<BGMSoundData> _bgmSoundDatas;
 
     /// <summary>
-    /// SE‚Ì‰¹ºƒf[ƒ^‚ÌƒŠƒXƒg
+    /// SEã®éŸ³å£°ãƒ‡ãƒ¼ã‚¿ã®ãƒªã‚¹ãƒˆ
     /// </summary>
     [SerializeField]
     private List<SESoundData> _seSoundDatas;
@@ -59,7 +59,7 @@ public class AudioManager : MonoBehaviour
 
     #region ---Properties---
 
-    // AudioManager‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬   
+    // AudioManagerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆ   
     public static AudioManager audioManager { get; private set; }
 
     #endregion ---Properties---
@@ -67,45 +67,45 @@ public class AudioManager : MonoBehaviour
     #region ---Methods---
 
     /// <summary>
-    /// BGM‚ğÄ¶‚·‚éŠÖ”
+    /// BGMã‚’å†ç”Ÿã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="bgm">  ?—¬‚·BGM‚Ìƒ^ƒCƒgƒ‹(—ñ‹“Œ^) </param>
+    /// <param name="bgm">  ?æµã™BGMã®ã‚¿ã‚¤ãƒˆãƒ«(åˆ—æŒ™å‹) </param>
     public void Play_BGMSound(BGMSoundData.BGM bgm)
     {
-        // ‰¹ºƒf[ƒ^‚©‚çŠY“–‚·‚éƒf[ƒ^‚ğ•Û‘¶‚·‚é   
+        // éŸ³å£°ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰è©²å½“ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹   
         BGMSoundData data = _bgmSoundDatas.Find(data => data.bgm == bgm);
 
-        // AudioClip‚ğAudioSource‚Éİ’è‚·‚é
+        // AudioClipã‚’AudioSourceã«è¨­å®šã™ã‚‹
         bgmAudioSource.clip = data.audioClip;
 
-        // BGM‚Ì‰¹—Ê‚ğİ’è‚·‚é
+        // BGMã®éŸ³é‡ã‚’è¨­å®šã™ã‚‹
         bgmAudioSource.volume = data.volume * _bgmMasterVolume * _masterVolume;
 
-        // Ä¶‚·‚é
+        // å†ç”Ÿã™ã‚‹
         bgmAudioSource.Play();
     }
 
     /// <summary>
-    /// SE‚ğÄ¶‚·‚éŠÖ”
+    /// SEã‚’å†ç”Ÿã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="se">  ?—¬‚·SE‚Ìƒ^ƒCƒgƒ‹(—ñ‹“Œ^) </param>
+    /// <param name="se">  ?æµã™SEã®ã‚¿ã‚¤ãƒˆãƒ«(åˆ—æŒ™å‹) </param>
     public void Play_SESound(SESoundData.SE se)
     {
-        // ‰¹ºƒf[ƒ^‚©‚çŠY“–‚·‚éƒf[ƒ^‚ğ•Û‘¶‚·‚é
+        // éŸ³å£°ãƒ‡ãƒ¼ã‚¿ã‹ã‚‰è©²å½“ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹
         SESoundData data = _seSoundDatas.Find(data => data.se == se);
 
-        // SE‚Ì‰¹—Ê‚ğİ’è‚·‚é
+        // SEã®éŸ³é‡ã‚’è¨­å®šã™ã‚‹
         seAudioSource.volume = data.volume * _seMasterVolume * _masterVolume;
 
-        // SE‚ğÄ¶‚·‚é
+        // SEã‚’å†ç”Ÿã™ã‚‹
         seAudioSource.PlayOneShot(data.audioClip);
     }
 
     /// <summary>
-    /// ‰¹‚ªÄ¶‚µ‚Ä‚¢‚é‚©‚ğ’²‚×‚éŠÖ”
+    /// éŸ³ãŒå†ç”Ÿã—ã¦ã„ã‚‹ã‹ã‚’èª¿ã¹ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="audioSource"> ’²‚×‚½‚¢AudioSource </param>
-    /// <returns> ‰¹‚ªÄ¶’†‚¾‚Á‚½‚çfalse / ‰¹‚ª~‚Ü‚Á‚Ä‚¢‚½‚çtrue </returns>
+    /// <param name="audioSource"> èª¿ã¹ãŸã„AudioSource </param>
+    /// <returns> éŸ³ãŒå†ç”Ÿä¸­ã ã£ãŸã‚‰false / éŸ³ãŒæ­¢ã¾ã£ã¦ã„ãŸã‚‰true </returns>
     public bool CheckPlaySound(AudioSource audioSource)
     {
         if (!audioSource.isPlaying)
@@ -116,27 +116,27 @@ public class AudioManager : MonoBehaviour
     }
 
     /// <summary>
-    ///  ?    ?  ?     ~ ? ? 
+    ///  å†ç”Ÿä¸­ã®éŸ³ã‚’æ­¢ã‚ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="audioSource">  ~ ?   AudioSource </param>
+    /// <param name="audioSource"> æ­¢ã‚ãŸã„AudioSource </param>
     public void Stop_Sound(AudioSource audioSource)
     {
         audioSource.Stop();
     }
 
     /// <summary>
-    /// BGM ?  ? ?X    ? 
+    /// BGMã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="soundVolume">  ?X           </param>
+    /// <param name="soundVolume"> å¤‰æ›´ã—ãŸã„éŸ³é‡ </param>
     public void Change_BGMVolume(float soundVolume)
     {
         bgmAudioSource.volume = soundVolume * _bgmMasterVolume * _masterVolume;
     }
 
     /// <summary>
-    /// SE ?  ? ?X    ? 
+    /// SEã®éŸ³é‡ã‚’å¤‰æ›´ã™ã‚‹é–¢æ•°
     /// </summary>
-    /// <param name="soundVolume">  ?X           </param>
+    /// <param name="soundVolume"> å¤‰æ›´ã—ãŸã„éŸ³é‡ </param>
     public void Change_SEVolume(float soundVolume)
     {
         seAudioSource.volume = soundVolume * _seMasterVolume * _masterVolume;
@@ -148,13 +148,13 @@ public class AudioManager : MonoBehaviour
 #region ---Class---
 
 /// <summary>
-/// BGM ?    f [ ^ N   X
+/// BGMã®éŸ³å£°ãƒ‡ãƒ¼ã‚¿
 /// </summary>
 [System.Serializable]
 public class BGMSoundData
 {
     /// <summary>
-    /// BGM ?    ^ C g  
+    /// BGMã®ãƒ©ãƒ™ãƒ«
     /// </summary>
     public enum BGM
     {
@@ -166,30 +166,30 @@ public class BGMSoundData
     }
 
     /// <summary>
-    ///  ??^ ??
+    /// åˆ—æŒ™å‹ã®å®£è¨€
     /// </summary>
     public BGM bgm;
 
     /// <summary>
-    /// BGM  AudioClip
+    /// BGMã®AudioClip
     /// </summary>
     public AudioClip audioClip;
 
     /// <summary>
-    /// BGM ?   
+    /// BGMã®éŸ³é‡
     /// </summary>
     [Range(0f, 1f)]
     public float volume = 1;
 }
 
 /// <summary>
-/// SE ?    f [ ^ N   X
+/// SEã®éŸ³å£°ãƒ‡ãƒ¼ã‚¿
 /// </summary>
 [System.Serializable]
 public class SESoundData
 {
     /// <summary>
-    /// SE ?    ^ C g  
+    /// SEã®ãƒ©ãƒ™ãƒ«
     /// </summary>
     public enum SE
     {
@@ -204,17 +204,17 @@ public class SESoundData
     }
 
     /// <summary>
-    ///  ??^ ??
+    /// åˆ—æŒ™å‹ã®å®£è¨€
     /// </summary>
     public SE se;
 
     /// <summary>
-    /// SE  AudioClip
+    /// SEã®AudioClip
     /// </summary>
     public AudioClip audioClip;
 
     /// <summary>
-    /// SE ?   
+    /// SEã®éŸ³é‡
     /// </summary>
     [Range(0f, 2f)]
     public float volume = 1;

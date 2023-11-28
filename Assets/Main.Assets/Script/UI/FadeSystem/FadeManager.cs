@@ -1,22 +1,22 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//  ? ?F R    
-//  t F [ h ??   \ [ X R [ h
+// 作成者：山﨑晶  
+// フェードイン・フェードアウトのソースコード
 
 public class FadeManager : MonoBehaviour
 {
     #region ---Fields---
 
     /// <summary>
-    ///  t F [ h A E g ?    ?     ? 
+    /// フェードアウトが終わったかの判定を保存する変数
     /// </summary>
     public static bool fadeOut;
 
     /// <summary>
-    ///  t F [ h C   ?    ?     ? 
+    /// フェードインが終わったかの判定を保存する変数
     /// </summary>
     public static bool fadeIn;
 
@@ -25,60 +25,60 @@ public class FadeManager : MonoBehaviour
     #region ---Methods---
 
     /// <summary>
-    ///  t F [ h A E g ?  o      ? 
+    /// フェードアウト
     /// </summary>
-    /// <param name="fade">  t F [ h  ??  \     </param>
+    /// <param name="fade"> フェードの設定 </param>
     public void FadeOut(FadeSetting fade)
     {
         float fadeColor = fade.fadeImage.color.a;
 
-        //  t F [ h A E g      p l    \      
+        // フェードの画像を表示する    
         fade.fadeImage.enabled = true;
 
-        //      x     Z   ?�O  
+        // 透明度を設定する
         fadeColor += fade.fadeSpeed * Time.deltaTime;
 
-        //  t F [ h A E g      p l   ?    x  ??  
+        // フェードの画像に透明度を設定する
         fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
 
-        //  p l   ?    x   w ?       x ?l ??      ?   
+        // 特定の透明度になった場合  
         if (fadeColor >= fade.fadeAlpha)
         {
-            //  p l   ?    x   ??  
+            // 透明度を固定
             fadeColor = fade.fadeAlpha;
 
-            //  t F [ h A E g ?    L   ?   
+            // フェードアウトを終了の判定にする
             fadeOut = true;
         }
     }
 
     /// <summary>
-    ///  t F [ h C       o    ? 
+    /// フェードイン
     /// </summary>
-    /// <param name="fade">  t F [ h  ??  \     </param>
+    /// <param name="fade"> フェードの設定 </param>
     public void FadeIn(FadeSetting fade)
     {
         float fadeColor = fade.fadeImage.color.a;
 
-        //  t F [ h A E g      p l    \      
+        // フェードの画像を表示する 
         fade.fadeImage.enabled = true;
 
-        //      x     Z   ?     
+        // 透明度を設定する
         fadeColor -= fade.fadeSpeed * Time.deltaTime;
 
-        //  t F [ h A E g      p l   ?    x  ??  
+        // フェードの画像に透明度を設定する
         fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
 
-        //  p l   ?    x   w ?       x ?l ??      ?   
+        // 特定の透明度になった場合
         if (fadeColor <= fade.fadeAlpha)
         {
-            //  p l   ?    x   ??  
+            // 透明度を固定する
             fadeColor = fade.fadeAlpha;
 
-            //  t F [ h A E g      p l     \      
+            // フォードの画像を非表示にする    
             fade.fadeImage.enabled = false;
 
-            //  t F [ h C   ?    L   ?   
+            // フェードインを終了の判定にする
             fadeIn = true;
         }
     }
@@ -88,28 +88,28 @@ public class FadeManager : MonoBehaviour
     #region ---Struct---
 
     /// <summary>
-    ///  t F [ h  ??  \    
+    /// フェードを設定する構造体 
     /// </summary>
     public struct FadeSetting
     {
         /// <summary>
-        ///  t F [ h ?     
+        /// フェードを使用する場面の説明 
         /// </summary>
         public string fadeName;
 
         /// <summary>
-        ///  t F [ h      ?
+        /// フェードをする画像
         /// </summary>
         public Image fadeImage;
 
         /// <summary>
-        ///  t F [ h ?   
+        /// フェードの速さ
         /// </summary>
         [Range(0f, 10f)]
         public float fadeSpeed;
 
         /// <summary>
-        ///  t F [ h ?    x
+        /// フェードの透明度
         /// </summary>
         [Range(0f, 1f)]
         public float fadeAlpha;
