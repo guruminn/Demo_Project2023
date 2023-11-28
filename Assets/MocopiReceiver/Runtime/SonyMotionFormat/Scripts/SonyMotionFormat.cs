@@ -67,6 +67,7 @@ namespace Sony.SMF
         /// <param name="sender_port">Sender port number</param>
         /// <param name="frame_id">Frame Id</param>
         /// <param name="timestamp">Timestamp</param>
+        /// <param name="unixTime">Unix time when sensor sent data</param>
         /// <param name="size">Size</param>
         /// <param name="joint_ids">Id of joints</param>
         /// <param name="rotations_x">rotations in the X direction</param>
@@ -85,6 +86,7 @@ namespace Sony.SMF
             out int sender_port,
             out int frame_id,
             out float timestamp,
+            out double unixTime,
             out int size,
             out IntPtr joint_ids,
             out IntPtr rotations_x,
