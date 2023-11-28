@@ -1,119 +1,64 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-
-// 作成者：山﨑晶
-// ゲームクリアに関するソースコード
+using UnityEngine.Rendering;
+using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class GameClearManager : MonoBehaviour
 {
-    #region ---Fields---
+    public FadeManager backFade=new FadeManager();
 
-    /// <summary>
-    /// 「FadeManager」を参照
-    /// </summary>
-    private FadeManager _fadeManager;
+    private FadeManager chekiFade=new FadeManager();
 
-    /// <summary>
-    /// 「TranstionScenes」を参照
-    /// </summary>
-    private TranstionScenes _transSystem;
+    public TranstionScenes transSystem;
 
-    /// <summary>
-    /// 背景のフェードアウトの設定
-    /// </summary>
-    [SerializeField]
-    private FadeManager.FadeSetting _backGroundFadeOut;
+    public Image backImage;
 
-    /// <summary>
-    /// チェキのフェードアウトの設定
-    /// </summary>
-    [SerializeField]
-    private FadeManager.FadeSetting _chekiFadeOut;
+    public Image fadeImage;
 
-    /// <summary>
-    /// 画面終了時のフェードアウトの設定
-    /// </summary>
-    [SerializeField]
-    private FadeManager.FadeSetting _endFadeOut;
+    public Image chekiImage;
 
-    /// <summary>
-    /// アイドルの画像を保存する変数
-    /// </summary>
-    [SerializeField]
-    private RectTransform[] _idolImage = new RectTransform[2];
+    public RectTransform[] idolImage = new RectTransform[2];
 
-    /// <summary>
-    /// アイドル画像の初期位置を保存する変数
-    /// </summary>
+    public Vector2[] endPosition = new Vector2[2];
+
     private Vector2[] _startPosition = new Vector2[2];
 
-    /// <summary>
-    /// アイドル画像の移動先を保存する変数
-    /// </summary>
-    [SerializeField]
-    private  Vector2[] _endPosition = new Vector2[2];
-
-    /// <summary>
-    /// アイドル画像の初期位置と移動先の距離を保存する変数
-    /// </summary>
     private float[] _distance = new float[2];
 
-    /// <summary>
-    /// 時間を保存する変数
-    /// </summary>
     private float _time;
 
-    /// <summary>
-    /// アイドル画像を動かす速さを保存する変数
-    /// </summary>
-    [SerializeField,Range(0f, 100f)]
-    private float _moveSpeed;
+    public float _moveSpeed;
 
-    /// <summary>
-    /// プレイヤーの画像を取得する変数
-    /// </summary>
-    [SerializeField]
-    private GameObject _playerImage;
+    public GameObject playerImage;
 
-    /// <summary>
-    /// カウントダウンの時間を保存する変数
-    /// </summary>
-    [SerializeField,Range(0,10f)]
-    private float _countDownTime;
+    public float countDownTime;
 
-    /// <summary>
-    /// カウントダウンを表示するテキストオブジェクトを取得する変数
-    /// </summary>
-    [SerializeField]
-    private TextMeshProUGUI _countText;
+    public TextMeshProUGUI countText;
 
-    /// <summary>
-    /// カウントダウンの時間をint型で保存する変数
-    /// </summary>
     private int _uiCount;
 
-    /// <summary>
-    /// 終盤に表示するテキストのオブジェクトを取得する変数
-    /// </summary>
-    [SerializeField]
-    private GameObject _lastText;
+    public float backSpeed;
 
-    /// <summary>
-    /// チェキを撮った後の待機時間を保存する変数
-    /// </summary>
-    [SerializeField,Range(0f,10f)]
-    private float _changeSpeed;
+    public float chekiSpeed;
 
-    #endregion ---Fields---
+    public GameObject lastText;
 
-    #region ---Methods---
+    public float changeSpeed;
+
 
     // Start is called before the first frame update
     void Start()
     {
         Initi_UI();
+
+        FadeVariables.Initi_Fade();
     }
 
     // Update is called once per frame
@@ -122,78 +67,61 @@ public class GameClearManager : MonoBehaviour
         direction_UI();
     }
 
-    /// <summary>
-    /// 初期の関数
-    /// </summary>
     private void Initi_UI()
     {
-        // アイドルの位置を初期化
-        for (int i = 0; i < _idolImage.Length; i++)
+        for (int i = 0; i < idolImage.Length; i++)
         {
-            _startPosition[i] = _idolImage[i].anchoredPosition;
-            _distance[i] = Vector2.Distance(_startPosition[i], _endPosition[i]);
+            _startPosition[i] = idolImage[i].anchoredPosition;
+            _distance[i] = Vector2.Distance(_startPosition[i], endPosition[i]);
         }
 
-        // カウントダウンを初期化
         _uiCount = 0;
     }
 
-    /// <summary>
-    /// UIの演出関数
-    /// </summary>
     private void direction_UI()
     {
         switch (_uiCount)
         {
-            // 背景画像をフェードする
-            case 0: 
-                _fadeManager.FadeOut(_backGroundFadeOut);
-                if (FadeManager.fadeOut)
+            case 0:
+                backFade.FadeOut(backImage, backImage.color.b, backSpeed,true);
+                if (FadeVariables.FadeOut)
                 {
-                    FadeManager.fadeOut = false;
+                    FadeVariables.FadeOut = false;
                     _uiCount++;
                 }
                 break;
-            
-            // チェキをフェードする
             case 1:               
-                _fadeManager.FadeOut(_chekiFadeOut);
-                if (FadeManager.fadeOut)
+                if (!chekiImage.gameObject.activeSelf)
                 {
-                    FadeManager.fadeOut = false;
+                    chekiImage.gameObject.SetActive(true);
+                }
+                chekiFade.FadeOut(  chekiImage, chekiImage.color.a,  chekiSpeed);
+                if (FadeVariables.FadeOut)
+                {
+                    FadeVariables.FadeOut = false;
                     _time = Time.time;
                     _uiCount++;
                 }
                 break;
-
-            // アイドル画像を横にスライドする
             case 2:               
                 Move_IdolImage();
                 break;
-
-            // プレイヤー画像を表示する
             case 3:
-                _playerImage.SetActive(true);
+                playerImage.SetActive(true);
                 _uiCount++;
                 break;
-
-            // カウントダウンを表示する
             case 4:
                 CountDown_Text();
                 break;
-
-            // チェキを撮影する
             case 5:
                 StartCoroutine(ShotPhoto());
                 break;
-
-            // 画面終了時のフェードする
             case 6:
-                _fadeManager.FadeOut(_endFadeOut);
-                if (FadeManager.fadeOut)
+                backFade.FadeOut(fadeImage, fadeImage.color.a,backSpeed);
+                if (FadeVariables.FadeOut)
                 {
-                    FadeManager.fadeOut = false;
-                    _transSystem.Trans_Scene(0);
+                    FadeVariables.FadeOut = false;
+                    transSystem.Trans_Scene(0);
                 }
                 break;
             default:
@@ -201,83 +129,61 @@ public class GameClearManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// アイドル画像を動かす関数
-    /// </summary>
     private void Move_IdolImage()
     {
         float _positionValue;
 
-        for (int i = 0; i < _idolImage.Length; i++)
+        for (int i = 0; i < idolImage.Length; i++)
         {
             // 初期位置と移動先の距離の割合を計算する処理
             // 「(Time.time - time) / _distance」は距離の長さを100として見て時間経過で距離の長さを割ることで２点の移動距離を指定する値を求める。
             _positionValue = ((Time.time - _time) / _distance[i]) * _moveSpeed;
 
-            // アイドル画像の位置を動かす処理
-            _idolImage[i].anchoredPosition = Vector2.Lerp(_startPosition[i], _endPosition[i], _positionValue);
+            // カメラの位置を動かす処理
+            idolImage[i].anchoredPosition = Vector2.Lerp(_startPosition[i], endPosition[i], _positionValue);
 
-            // アイドル画像の位置が指定した位置に来た場合
-            if ((_idolImage[0].anchoredPosition == _endPosition[0]) && (_idolImage[1].anchoredPosition == _endPosition[1]))
+            // カメラの位置が指定した位置に来た場合
+            if ((idolImage[0].anchoredPosition == endPosition[0]) && (idolImage[1].anchoredPosition == endPosition[1]))
             {
-                _lastText.SetActive(false);
+                lastText.SetActive(false);
                 _uiCount++;
             }
         }
     }
 
-    /// <summary>
-    /// カウントダウンを演出する関数
-    /// </summary>
     private void CountDown_Text()
     {
-        // 時間を保存する変数
         int _countDownText;
 
-        // 時間を保存する
-        _countDownTime -= Time.deltaTime;
+        countDownTime -= Time.deltaTime;
         
-        // 少数付きの時間を整数に変換する
-        _countDownText = (int)_countDownTime;
+        _countDownText = (int)countDownTime;
 
-        // カウントダウンの時間を表示
-        _countText.text = (_countDownText + 1).ToString();
+        countText.text = (_countDownText+1).ToString();
 
-        // カウントダウンの時間が０より小さくなった場合
-        if ((int)_countDownTime < 0)
+        if ((int)countDownTime < 0)
         {
-            _countText.enabled = false;
+            countText.enabled = false;
             _uiCount++;
         }
     }
 
-    /// <summary>
-    /// チェキを撮る演出の関数
-    /// </summary>
-    /// <returns></returns>
     private IEnumerator ShotPhoto()
     {
-        // SEが鳴っていなかった場合
-        if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource))
+        if (AudioManager.Instance.CheckPlaySound(AudioManager.Instance.seAudioSource))
         {
-            AudioManager.audioManager.Play_SESound(SESoundData.SE.Shutters);
+            AudioManager.Instance.Play_SESound(SESoundData.SE.Shutters);
         }
 
-        // 待ち時間
-        yield return new WaitForSeconds(_changeSpeed);
+        yield return new WaitForSeconds(changeSpeed);
 
-        // テキストを表示する
-        _lastText.SetActive(true);
+        lastText.SetActive(true);
 
-        // UIのカウントを進める
         if (_uiCount == 5)
         {
             _uiCount++;
         }
         
-        // 終了
         yield return null;
     }
-
-    #endregion ---Methods---
 }

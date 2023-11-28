@@ -25,7 +25,7 @@ public class GuardsmanCollision : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             // ゲームオーバーの判定をtrueにする
-            OutGameManager.gameOver = true;
+            VariablesController.gameOverControl = true;
 
             Debug.Log("ゲームオーバー");
         }

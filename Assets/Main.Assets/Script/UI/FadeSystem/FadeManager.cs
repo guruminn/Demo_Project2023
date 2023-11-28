@@ -3,117 +3,84 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 作成者：山﨑晶
-// フェードに関するソースコード
 
-public class FadeManager:MonoBehaviour
+public class FadeVariables
 {
-    #region ---Fields---
+    public static bool FadeOut;
+    public static bool FadeIn;
 
-    /// <summary>
-    /// フェードアウトの判定を保存する変数
-    /// </summary>
-    public static bool fadeOut;
-
-    /// <summary>
-    /// フェードインの判定を保存する変数
-    /// </summary>
-    public static bool fadeIn;
-
-    #endregion ---Fields---
-
-    #region ---Methods---
-
-    /// <summary>
-    /// フェードアウトの演出をする関数
-    /// </summary>
-    /// <param name="fade"> フェードを設定する構造体 </param>
-    public void FadeOut(FadeSetting fade)
+    public static void Initi_Fade()
     {
-        float fadeColor = fade.fadeImage.color.a;
+        FadeOut = false;
+        FadeIn = false;
+    }
+}
 
+public class FadeManager
+{
+    // フェードアウトの演出をする関数
+    public void FadeOut(Image _fadeImage, float _fadeOutColor,float fadeSpeed=0.1f,bool fadeType = false, float _defaultValue = 1)
+    {
         // フェードアウトさせるパネルを表示する
-        fade.fadeImage.enabled = true;
+        _fadeImage.gameObject.SetActive(true);
 
         // 透明度を加算して上げる
-        fadeColor += fade.fadeSpeed * Time.deltaTime;
+        _fadeOutColor += fadeSpeed * Time.deltaTime;
 
-        // フェードアウトさせるパネルの透明度を設定する
-        fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
+        switch (fadeType)
+        {
+            case false:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeOutColor);
+                break;
+            case true:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeOutColor, _fadeOutColor, _fadeOutColor, _fadeImage.color.a);
+                break;
+        }
 
         // パネルの透明度が指定した透明度の値になった時の処理
-        if (fadeColor >= fade.fadeAlpha)
+        if (_fadeOutColor >= _defaultValue)
         {
             // パネルの透明度を固定する
-            fadeColor = fade.fadeAlpha;
+            _fadeOutColor = _defaultValue;
 
             // フェードアウトの判定を有効にする
-            fadeOut = true;
+            FadeVariables.FadeOut = true;
         }
     }
 
-    /// <summary>
-    /// フェードインを演出する関数
-    /// </summary>
-    /// <param name="fade"> フェードを設定する構造体 </param>
-    public void FadeIn(FadeSetting fade)
+    public void FadeIn(Image _fadeImage, float _fadeInColor, float fadeSpeed = 0.1f, bool fadeType = false, float _defaultValue = 0)
     {
-        float fadeColor = fade.fadeImage.color.a;
-
         // フェードアウトさせるパネルを表示する
-        fade.fadeImage.enabled = true;
+        _fadeImage.enabled = true;
 
         // 透明度を減算して下げる
-        fadeColor -= fade.fadeSpeed * Time.deltaTime;
+        _fadeInColor -= fadeSpeed * Time.deltaTime;
 
-        // フェードアウトさせるパネルの透明度を設定する
-        fade.fadeImage.color = new Color(fade.fadeImage.color.r, fade.fadeImage.color.g, fade.fadeImage.color.b, fadeColor);
+        switch (fadeType)
+        {
+            case false:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeImage.color.r, _fadeImage.color.g, _fadeImage.color.b, _fadeInColor);
+                break;
+            case true:
+                // フェードアウトさせるパネルの透明度を設定する
+                _fadeImage.color = new Color(_fadeInColor, _fadeInColor, _fadeInColor, _fadeImage.color.a);
+                break;
+        }
 
         // パネルの透明度が指定した透明度の値になった時の処理
-        if (fadeColor <= fade.fadeAlpha)
+        if (_fadeInColor <= _defaultValue)
         {
             // パネルの透明度を固定する
-            fadeColor = fade.fadeAlpha;
+            _fadeInColor = _defaultValue;
 
             // フェードアウトさせるパネルを非表示する
-            fade.fadeImage.enabled = false;
+            _fadeImage.gameObject.SetActive(false);
 
             // フェードインの判定を有効にする
-            fadeIn = true;
+            FadeVariables.FadeIn = true;
         }
     }
-
-    #endregion ---Methods---
-
-    #region ---Struct---
-
-    /// <summary>
-    /// フェードを設定する構造体
-    /// </summary>
-    public struct FadeSetting
-    {
-        /// <summary>
-        /// フェードの説明欄
-        /// </summary>
-        public string fadeName;
-
-        /// <summary>
-        /// フェードをする画像
-        /// </summary>
-        public Image fadeImage;
-
-        /// <summary>
-        /// フェードの速さ
-        /// </summary>
-        [Range(0f, 10f)]
-        public float fadeSpeed;
-
-        /// <summary>
-        /// フェードの透明度
-        /// </summary>
-        [Range(0f,1f)]
-        public float fadeAlpha;
-    }
-
-    #endregion ---Struct---
 }

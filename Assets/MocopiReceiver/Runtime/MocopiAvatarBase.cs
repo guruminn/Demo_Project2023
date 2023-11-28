@@ -34,7 +34,6 @@ namespace Mocopi.Receiver
         /// </summary>
         /// <param name="frameId">Frame Id</param>
         /// <param name="timestamp">Timestamp</param>
-        /// <param name="unixTime">Unix time when sensor sent data</param>
         /// <param name="boneIds">mocopi Avatar bone id list</param>
         /// <param name="rotationsX">Rotation angle of each bone</param>
         /// <param name="rotationsY">Rotation angle of each bone</param>
@@ -44,7 +43,7 @@ namespace Mocopi.Receiver
         /// <param name="positionsY">Position of each bone</param>
         /// <param name="positionsZ">Position of each bone</param>
         public virtual void UpdateSkeleton(
-            int frameId, float timestamp, double unixTime,
+            int frameId, float timestamp,
             int[] boneIds,
             float[] rotationsX, float[] rotationsY, float[] rotationsZ, float[] rotationsW,
             float[] positionsX, float[] positionsY, float[] positionsZ

@@ -88,11 +88,6 @@ namespace Mocopi.Receiver
         [Range(0, 1f)] public float MotionSmoothness = 0;
 
         /// <summary>
-        /// Enable motion buffering
-        /// </summary>
-        public bool IsBufferingEnabled = true;
-
-        /// <summary>
         /// Buffer delay recovery ratio
         /// </summary>
         [Range(0, 1f)] public float DelayRecoveryRate = 0.001f;
@@ -334,7 +329,6 @@ namespace Mocopi.Receiver
         /// </summary>
         /// <param name="frameId">Frame Id</param>
         /// <param name="timestamp">Timestamp</param>
-        /// <param name="unixTime">Unix time when sensor sent data</param>
         /// <param name="boneIds">mocopi Avatar bone id list</param>
         /// <param name="rotationsX">Rotation angle of each bone</param>
         /// <param name="rotationsY">Rotation angle of each bone</param>
@@ -345,23 +339,42 @@ namespace Mocopi.Receiver
         /// <param name="positionsZ">Position of each bone</param>
         /// <remarks><see cref="MocopiAvatarBase.UpdateSkeleton(int[], float[], float[], float[], float[], float[], float[], float[])"/></remarks>
         public override void UpdateSkeleton(
-            int frameId, float timestamp, double unixTime,
+            int frameId, float timestamp,
             int[] boneIds,
             float[] rotationsX, float[] rotationsY, float[] rotationsZ, float[] rotationsW,
             float[] positionsX, float[] positionsY, float[] positionsZ
         )
         {
             this.skeletonData.FrameId = frameId;
+            //Debug.Log("this.skeletonData.FrameId : " + this.skeletonData.FrameId + "  frameId :" + frameId);
+
             this.skeletonData.Timestamp = timestamp;
-            this.skeletonData.UnixTime = unixTime;
+            //Debug.Log("this.skeletonData.Timestamp : " + this.skeletonData.Timestamp + "  timestamp :" + timestamp);
+
             this.skeletonData.BoneIds = boneIds;
+            //Debug.Log("this.skeletonData.Timestamp : " + this.skeletonData.Timestamp + "  timestamp :" + timestamp);
+
             this.skeletonData.RotationsX = rotationsX;
+            //Debug.Log("this.skeletonData.RotationsX : " + this.skeletonData.RotationsX + "  rotationsX :" + rotationsX);
+
             this.skeletonData.RotationsY = rotationsY;
+            //Debug.Log("this.skeletonData.RotationsY : " + this.skeletonData.RotationsY + "  rotationsY :" + rotationsY);
+
             this.skeletonData.RotationsZ = rotationsZ;
+            //Debug.Log("this.skeletonData.RotationsZ : " + this.skeletonData.RotationsZ + "  rotationsZ :" + rotationsZ);
+
             this.skeletonData.RotationsW = rotationsW;
+            //Debug.Log("this.skeletonData.RotationsW : " + this.skeletonData.RotationsW + "  rotationsW :" + rotationsW);
+
             this.skeletonData.PositionsX = positionsX;
+            //Debug.Log("this.skeletonData.PositionsX : " + this.skeletonData.PositionsX + "  positionsX :" + positionsX);
+
             this.skeletonData.PositionsY = positionsY;
+            //Debug.Log("this.skeletonData.PositionsY : " + this.skeletonData.PositionsY + "  positionsY :" + positionsY);
+
             this.skeletonData.PositionsZ = positionsZ;
+            //Debug.Log("this.skeletonData.PositionsZ : " + this.skeletonData.PositionsZ + "  positionsZ :" + positionsZ);
+
 
             this.isSkeletonUpdated = true;
 
@@ -723,6 +736,7 @@ namespace Mocopi.Receiver
             for (int i = 0; i < this.skeletonData.BoneIds.Length; i++)
             {
                 MocopiBone bone = this.bones.Find(_ => _.Id == this.skeletonData.BoneIds[i]);
+
                 if (bone == null)
                 {
                     continue;
@@ -734,6 +748,7 @@ namespace Mocopi.Receiver
                     this.skeletonData.PositionsY[i],
                     this.skeletonData.PositionsZ[i]
                 );
+
                 Quaternion rotation = this.ConvertPluginDataToQuaternion(
                     this.skeletonData.RotationsX[i],
                     this.skeletonData.RotationsY[i],
@@ -747,7 +762,8 @@ namespace Mocopi.Receiver
                 }
 
                 this.boneRotations[bone] = rotation;
-            }
+
+            }          
         }
 
         /// <summary>
@@ -906,33 +922,26 @@ namespace Mocopi.Receiver
         {
             if (lastUsedIndex == -1) return;
 
+            var lastData = poseBuffer[lastUsedIndex];
+            var next = FindNextPose(lastUsedIndex);
+
+            // Here, if next is before the current time, search for next
+            if (next.data.timestamp < GetCurrentTimestamp())
+            {
+                lastData = next.data;
+                lastUsedIndex = next.bufferIndex;
+                next = FindNextPose(next.bufferIndex);
+            }
+
+            var nextData = next.data;
+
             var targetPose = temppose;
 
-            if (IsBufferingEnabled)
-            {
-                var lastData = poseBuffer[lastUsedIndex];
-                var next = FindNextPose(lastUsedIndex);
+            float t = Mathf.Clamp01(lastData.frameId == nextData.frameId ? 1.0f : (float)((GetCurrentTimestamp() - lastData.timestamp) / (nextData.timestamp - lastData.timestamp)));
 
-                // Here, if next is before the current time, search for next
-                if (next.data.timestamp < GetCurrentTimestamp())
-                {
-                    lastData = next.data;
-                    lastUsedIndex = next.bufferIndex;
-                    next = FindNextPose(next.bufferIndex);
-                }
+            LerpHumanPose(ref targetPose, ref lastData.pose, ref nextData.pose, t);
 
-                var nextData = next.data;
-
-                float t = Mathf.Clamp01(lastData.frameId == nextData.frameId ? 1.0f : (float)((GetCurrentTimestamp() - lastData.timestamp) / (nextData.timestamp - lastData.timestamp)));
-
-                LerpHumanPose(ref targetPose, ref lastData.pose, ref nextData.pose, t);
-
-                var lerptimestamp = t == 0 ? lastData.timestamp : lastData.timestamp + (nextData.timestamp - lastData.timestamp) / (1 / t);
-            }
-            else
-            {
-                targetPose = this.poseBuffer[lastBufferIndex].pose;
-            }
+            var lerptimestamp = t == 0 ? lastData.timestamp : lastData.timestamp + (nextData.timestamp - lastData.timestamp) / (1 / t);
 
             if (this.MotionSmoothness > 0)
             {
@@ -1111,11 +1120,6 @@ namespace Mocopi.Receiver
             /// Timestamp
             /// </summary>
             public float Timestamp;
-
-            /// <summary>
-            /// Unix time when sensor sent data
-            /// </summary>
-            public double UnixTime;
 
             /// <summary>
             /// mocopi Avatar bone id list
