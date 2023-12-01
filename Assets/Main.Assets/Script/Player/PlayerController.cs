@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     float _rot = 0.0f;
     // 回転スピードを取得する変数
     [Tooltip("回転スピード数字が大きいほど速くなる")]
-    public float rotateSpeed = 0.0f;
+    public float rotateSpeed = 0.5f;
     // 前後移動スピードを取得する変数
     [Tooltip("前後スピード数字が大きいほど速くなる")]
     public float positionSpeed = 0.5f;
