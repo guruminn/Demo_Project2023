@@ -11,7 +11,7 @@ using TMPro;
 public class FadeController : MonoBehaviour
 {
     // 不要なので消しました。by山﨑晶
-    //AudioSource audioSource;
+    //AudioSource _audioSource;
     //[Tooltip("ここにブザー音を入れる")]
     //[SerializeField] AudioClip buzzerClip;
     [Tooltip("いじらない")]
@@ -49,7 +49,7 @@ public class FadeController : MonoBehaviour
 
 
         // 不要なので消しました。by山﨑晶
-        //audioSource = GetComponent<AudioSource>();
+        //_audioSource = GetComponent<AudioSource>();
 
         //フェードインコルーチンスタート
         StartCoroutine("Color_FadeIn");
@@ -65,7 +65,7 @@ public class FadeController : MonoBehaviour
     {
         //音楽を鳴らす
         // SEのブザー音を再生します。by山﨑晶
-        //audioSource.PlayOneShot(buzzerClip);
+        //_audioSource.PlayOneShot(buzzerClip);
         AudioManager.audioManager.Play_SESound(SESoundData.SE.Buzzer);
 
         //終了まで待機

@@ -5,45 +5,62 @@ using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
 
-//　ビデオとテキストボイス流す
+//　しゃがんだ時の判定
 
 public class syagami : MonoBehaviour
 {
-    VideoClip _videoClip;
-    GameObject screen;
-    [SerializeField] TextMeshProUGUI _announceText;
-    public AudioClip sound1;
-    AudioSource audioSource;
+    // 経過時間
+    float _count;
+    // しゃがみ出来ているかできていないか
+    bool _active = true;
+    // カウントのテキスト
+    public TextMeshProUGUI _countText;
+    // 正解サウンド
+    public AudioClip _correct;
+    // サウンドのおおもと
+    AudioSource _audioSource;
+    // 音が鳴り終わったか
+    private bool isAudioEnd;
 
     // Start is called before the first frame update
     void Start()
     {
-        var videoPlayer = screen.AddComponent<VideoPlayer>();   // videoPlayeコンポーネントの追加
-
-        videoPlayer.source = VideoSource.VideoClip; // 動画ソースの設定
-        videoPlayer.clip = _videoClip;
-
-        videoPlayer.isLooping = true;   // ループの設定
-        audioSource = GetComponent<AudioSource>();
+        _audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        AnnounceText("しゃがんでみましょう");
-        audioSource.PlayOneShot(sound1);
-    }
-    public void VPControl()
-    {
-        var videoPlayer = GetComponent<VideoPlayer>();
-
-        if (!videoPlayer.isPlaying) // ボタンを押した時の処理
-            videoPlayer.Play(); // 動画を再生する。
+        _countText.text = _count.ToString("F1");
+        if (_active)
+        {
+            _count += Time.deltaTime;
+        }
         else
-            videoPlayer.Pause();    // 動画を一時停止する。
+        {
+            _count = 0;
+        }
+
+        if (_count > 3)
+        {
+            _countText.text = "OK";
+
+            //ここに正解SE
+            _audioSource.PlayOneShot(_correct);
+            isAudioEnd = true;
+        }
+        if (!_audioSource.isPlaying && isAudioEnd)
+        {
+
+        }
     }
-    public void AnnounceText(string comment)
+
+    private void OnTriggerEnter(Collider other)
     {
-        _announceText.text = comment;
+        _active = false;
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        _active = true;
     }
 }
