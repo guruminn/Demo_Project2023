@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
 using UnityEngine.UI;
 using TMPro;
 
 //　しゃがんだ時の判定
 
-public class syagami : MonoBehaviour
+public class BodyDownManager : MonoBehaviour
 {
     // 経過時間
     float _count;
@@ -16,11 +15,24 @@ public class syagami : MonoBehaviour
     // カウントのテキスト
     public TextMeshProUGUI _countText;
     // 正解サウンド
-    public AudioClip _correct;
+    [SerializeField] AudioClip _correctAudio;
+    // アナウンスサウンド
+    [SerializeField] AudioClip _announceAudio;
     // サウンドのおおもと
     AudioSource _audioSource;
     // 音が鳴り終わったか
     private bool isAudioEnd;
+    // 音が一度だけ再生するフラグ
+    bool SEflag = true;
+    [SerializeField] GameObject _crouchPanel;
+
+    void OnEnable()
+    {
+        // audio
+        _audioSource = gameObject.GetComponent<AudioSource>();
+        // しゃがんでみましょうボイス
+        _audioSource.PlayOneShot(_announceAudio);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -41,17 +53,21 @@ public class syagami : MonoBehaviour
             _count = 0;
         }
 
-        if (_count > 3)
+        if(_count >3)
         {
             _countText.text = "OK";
+        }
 
-            //ここに正解SE
-            _audioSource.PlayOneShot(_correct);
+        if (SEflag && _count > 3)
+        {
+            _audioSource.PlayOneShot(_correctAudio);
+            SEflag = false;
+
             isAudioEnd = true;
         }
         if (!_audioSource.isPlaying && isAudioEnd)
         {
-
+            _crouchPanel.SetActive(false);
         }
     }
 
