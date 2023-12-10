@@ -22,6 +22,24 @@ public class OutGameManager : MonoBehaviour
     private FadeManager _fadeSystem;
 
     /// <summary>
+    /// 「TranstionScene」を参照する変数
+    /// </summary>
+    [SerializeField]
+    private TranstionScenes _transSystem;
+
+    /// <summary>
+    /// 「AudioManager」を参照する変数
+    /// </summary>
+    [SerializeField]
+    private AudioManager audioManager;
+
+    /// <summary>
+    /// 値を管理するアセットから値を参照する変数
+    /// </summary>
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
+    /// <summary>
     /// 背景画像のフェードの設定
     /// </summary>
     private FadeManager.FadeSetting _blackFadeOut;
@@ -30,12 +48,6 @@ public class OutGameManager : MonoBehaviour
     /// シーン遷移時のフェードの設定
     /// </summary>
     private FadeManager.FadeSetting _endFadeOut;
-
-    /// <summary>
-    /// 「TranstionScene」を参照する変数
-    /// </summary>
-    [SerializeField]
-    private TranstionScenes _transSystem;
 
     /// <summary>
     ///  テキストを取得する変数
@@ -83,12 +95,6 @@ public class OutGameManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private int _waitTime = 3;
 
-    [SerializeField]
-    private AudioManager audioManager;
-
-    [SerializeField]
-    private ValueSettingManager settingManager;
-
     #endregion ---Fields---
 
     #region ---Methods---
@@ -103,14 +109,14 @@ public class OutGameManager : MonoBehaviour
         // ゲームオーバー時の処理  
         if (settingManager.gameOver)
         {
-            audioManager.Stop_Sound(audioManager.bgmAudioSource);
+            audioManager.StopSound(audioManager.bgmAudioSource);
             StartCoroutine(Direction_UI(_overText, 4));
         }
 
         // ゲームクリア時の処理
         if (settingManager.gameClear)
         {
-            audioManager.Stop_Sound(audioManager.bgmAudioSource);
+            audioManager.StopSound(audioManager.bgmAudioSource);
             StartCoroutine(Direction_UI(_clearText, 3));
         }
     }

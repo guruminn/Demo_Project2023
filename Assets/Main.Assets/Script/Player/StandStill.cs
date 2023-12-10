@@ -38,8 +38,14 @@ public class StandStill : MonoBehaviour
     /// </summary>
     private bool _moveFoot = false;
 
+    /// <summary>
+    /// 値を管理するアセットから値を参照する変数
+    /// </summary>
     [SerializeField]
     private ValueSettingManager settingManager;
+
+    [SerializeField]
+    private AudioManager audioManager;
 
     #endregion --- Fields ---
 
@@ -48,6 +54,7 @@ public class StandStill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 値を参照して保存する
         _reactionValume = settingManager.FootDistanceFoor;
 
         // 右足の初期位置を保存する
@@ -93,6 +100,10 @@ public class StandStill : MonoBehaviour
     {
         if (_reactionValume < _foot.distance&&_moveFoot)
         {
+            if (audioManager.CheckPlaySound(audioManager.seAudioSource))
+            {
+                audioManager.PlaySESound(SEData.SE.Walk);
+            }
             //Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
             powerSource = 1;
         }

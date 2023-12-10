@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ClaerManager : MonoBehaviour
 {
+    // ’l‚ğQÆ‚·‚é‚½‚ß‚Éæ“¾‚·‚é•Ï”
     [SerializeField]
     private ValueSettingManager settingManager;
 

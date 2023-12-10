@@ -67,7 +67,7 @@ public class FadeController : MonoBehaviour
         //���y��炷
         // SE�̃u�U�[�����Đ����܂��Bby�R����
         //audioSource.PlayOneShot(buzzerClip);
-        _audio.Play_SESound(SEData.SE.Buzzer);
+        _audio.PlaySESound(SEData.SE.Buzzer);
 
         //�I���܂őҋ@
         // �Ȃ�����Ă��邩�`�F�b�N����֐����ĂсA�Ȃ�����I������炱�̊֐��́ufalse�v�̒l�����̂ł��̏������ɂ��Ă��܂��Bby �R����
@@ -120,7 +120,7 @@ public class FadeController : MonoBehaviour
                 _countdownImage.gameObject.SetActive(false);
 
                 // BGM���Đ����� by�R����
-                _audio.Play_BGMSound(BGMData.BGM.Main);
+                _audio.PlayBGMSound(BGMData.BGM.Main);
 
                 yield break;
             }

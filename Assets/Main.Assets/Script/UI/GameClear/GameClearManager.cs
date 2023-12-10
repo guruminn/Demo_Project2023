@@ -14,12 +14,26 @@ public class GameClearManager : MonoBehaviour
     /// <summary>
     ///  「FadeManager」を参照する変数
     /// </summary>
+    [SerializeField]
     private FadeManager _fadeManager;
 
     /// <summary>
     ///  「TranstionScenes」を参照する変数
     /// </summary>
+    [SerializeField]
     private TranstionScenes _transSystem;
+
+    /// <summary>
+    /// AudioManager
+    /// </summary>
+    [SerializeField]
+    private AudioManager audioManager;
+
+    /// <summary>
+    /// 値を参照するために取得する変数
+    /// </summary>
+    [SerializeField]
+    private ValueSettingManager settingManager;
 
     /// <summary>
     /// 背景画像のフェードの設定
@@ -44,6 +58,12 @@ public class GameClearManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private RectTransform[] _idolImage = new RectTransform[2];
+
+    /// <summary>
+    /// プレイヤー画像を取得する変数
+    /// </summary>
+    [SerializeField]
+    private GameObject _playerImage;
 
     /// <summary>
     /// スライドインの初期位置を保存する変数
@@ -73,12 +93,6 @@ public class GameClearManager : MonoBehaviour
     private float _moveSpeed;
 
     /// <summary>
-    /// プレイヤー画像を取得する変数
-    /// </summary>
-    [SerializeField]
-    private GameObject _playerImage;
-
-    /// <summary>
     /// カウントダウンの時間を保存する変数
     /// </summary>
     [SerializeField, Range(0, 10f)]
@@ -89,11 +103,6 @@ public class GameClearManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     private TextMeshProUGUI _countText;
-
-    /// <summary>
-    /// UIの演出処理の順番を保存する変数
-    /// </summary>
-    private int _uiCount;
 
     /// <summary>
     /// 最期に表示するテキストを取得する変数
@@ -107,11 +116,10 @@ public class GameClearManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private float _changeSpeed;
 
-    [SerializeField]
-    private AudioManager audioManager;
-
-    [SerializeField]
-    private ValueSettingManager settingManager;
+    /// <summary>
+    /// UIの演出処理の順番を保存する変数
+    /// </summary>
+    private int _uiCount;
 
     #endregion ---Fields---
 
@@ -266,7 +274,7 @@ public class GameClearManager : MonoBehaviour
         //　音声を再生する
         if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
-            audioManager.Play_SESound(SEData.SE.Shutters);
+            audioManager.PlaySESound(SEData.SE.Shutters);
         }
 
         // 待ち時間  

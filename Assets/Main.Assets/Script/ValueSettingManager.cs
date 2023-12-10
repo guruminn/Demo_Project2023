@@ -34,6 +34,17 @@ public class ValueSettingManager : ScriptableObject
     [Range(0f,10f),Tooltip("何秒で到達したか")]
     public float smoothTime = 1.0f;
 
+    // === GuardMan ===
+    [Header("=== GUARDMAN ===")]
+    [Range(0f,100f),Tooltip("警備員の動きの速さの値（NavMeshAgent->Speed）")]
+    public float guardMoveSpeed = 2f;
+
+    [Range(0f, 1000f),Tooltip("警備員の回転の速さの値（NavMeshAgent->AngularSpeed）")]
+    public float guardAngularSpeed = 120f;
+
+    [Range(0f, 100f),Tooltip("警備員の最高加速度の値（NavMeshAgent->Acceleration）")]
+    public float guardAcceleration = 8f;
+
     // === Audio ===
     [Header("=== AUDIO ===")]
     /// <summary>

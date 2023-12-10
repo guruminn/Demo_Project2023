@@ -50,6 +50,7 @@ public class AudioManager:MonoBehaviour
     /// </summary>
     private void Start()
     {
+        // 値を参照したものを保存する
         _masterVolume = settingManager.masterVolume;
         _seMasterVolume = settingManager.seMasterVolume;
         _bgmMasterVolume = settingManager.bgmMasterVolume;
@@ -59,7 +60,7 @@ public class AudioManager:MonoBehaviour
     /// BGMを再生する関数
     /// </summary>
     /// <param name="bgm">  ?流すBGMのタイトル(列挙型) </param>
-    public void Play_BGMSound(BGMData.BGM bgm)
+    public void PlayBGMSound(BGMData.BGM bgm)
     {
         // 音声データから該当するデータを保存する   
         BGMData data = settingManager.bgmSoundDatas.Find(data => data.bgm == bgm);
@@ -78,7 +79,7 @@ public class AudioManager:MonoBehaviour
     /// SEを再生する関数
     /// </summary>
     /// <param name="se">  ?流すSEのタイトル(列挙型) </param>
-    public void Play_SESound(SEData.SE se)
+    public void PlaySESound(SEData.SE se)
     {
         // 音声データから該当するデータを保存する
         SEData data = settingManager.seSoundDatas.Find(data => data.se == se);
@@ -108,7 +109,7 @@ public class AudioManager:MonoBehaviour
     ///  再生中の音を止める関数
     /// </summary>
     /// <param name="audioSource"> 止めたいAudioSource </param>
-    public void Stop_Sound(AudioSource audioSource)
+    public void StopSound(AudioSource audioSource)
     {
         audioSource.Stop();
     }
@@ -117,7 +118,7 @@ public class AudioManager:MonoBehaviour
     /// BGMの音量を変更する関数
     /// </summary>
     /// <param name="soundVolume"> 変更したい音量 </param>
-    public void Change_BGMVolume(float soundVolume)
+    public void ChangeBGMVolume(float soundVolume)
     {
         bgmAudioSource.volume = soundVolume * _bgmMasterVolume * _masterVolume;
     }
@@ -126,7 +127,7 @@ public class AudioManager:MonoBehaviour
     /// SEの音量を変更する関数
     /// </summary>
     /// <param name="soundVolume"> 変更したい音量 </param>
-    public void Change_SEVolume(float soundVolume)
+    public void ChangeSEVolume(float soundVolume)
     {
         seAudioSource.volume = soundVolume * _seMasterVolume * _masterVolume;
     }

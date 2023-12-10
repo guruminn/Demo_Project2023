@@ -4,67 +4,68 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-//  ? ?F R    
-//  Q [   I [ o [ ??   \ [ X R [ h
+// 作成者：山﨑晶 
+// ゲームオーバーのUI演出処理
 
 public class GameOverManager : MonoBehaviour
 {
     #region ---Fields---
 
     /// <summary>
-    ///  uFadeManager v   Q  
+    ///  FadeManager
     /// </summary>
+    [SerializeField]
     private FadeManager _fadeSystem;
 
     /// <summary>
-    ///  w i ? ?t F [ h  ? 
+    /// 背景をフェードインする設定
     /// </summary>
     [SerializeField]
     private FadeManager.FadeSetting _backGroundFadeIn;
 
     /// <summary>
-    ///  A C h   ?   擾    ? 
+    ///  アイドルの画像
     /// </summary>
     [SerializeField]
     private GameObject _idolImage;
 
     /// <summary>
-    ///  ?q ?   擾    ? 
+    /// 　観客の画像
     /// </summary>
     [SerializeField]
     private GameObject _audienceImage;
 
     /// <summary>
-    ///  v   C   [ ?   擾    ? 
+    /// プレイヤーの画像
     /// </summary>
     [SerializeField]
     private GameObject _playerImage;
 
     /// <summary>
-    ///  ? { ^     擾    ? 
+    /// メイン画面に戻るボタンのオブジェクト
     /// </summary>
     [SerializeField]
     private GameObject _returnButton;
 
     /// <summary>
-    ///  ^ C g   { ^     擾    ? 
+    /// タイトル画面に戻るボタンのオブジェクト
     /// </summary>
     [SerializeField]
     private GameObject _backButton;
 
     /// <summary>
-    ///  { ^     I     ?  ?  ?  ??   擾    
+    /// ボタンが選択されてないときに表示する画像
     /// </summary>
     [SerializeField]
     private GameObject[] _selectButton = new GameObject[2];
 
     /// <summary>
-    ///  { ^     I   ?   ??  ???  ? 
+    /// ボタンがを表示する判定
     /// </summary>
     private bool _isButton = false;
 
     /// <summary>
-    ///    ?I     ?   I u W F N g  ?     ? 
+    /// 現在選択しているオブジェクトを保存
     /// </summary>
     private GameObject _button;
 
@@ -75,40 +76,40 @@ public class GameOverManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //  { ^   ?I u W F N g   \   ?   
+        // ボタンを非表示にする
         _returnButton.SetActive(false);
         _backButton.SetActive(false);
 
-        //  L     N ^ [ ?   \   ?   
+        // 画像を非表示にする
         _idolImage.SetActive(false);
         _audienceImage.SetActive(false);
         _playerImage.SetActive(false);
 
-        //  I   ?   \   ?   
+        // 選択画像を非表示にする
         foreach (GameObject selectImage in _selectButton)
         {
             selectImage.SetActive(false);
         }
 
-        //      ?I    ??  ?    I u W F N g ?? 
+        // 初期に選択状態にするオブジェクトを設定する
         EventSystem.current.SetSelectedGameObject(_returnButton);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //    ?I     ?   I u W F N g  ?     ? 
+        // 現在選択しているボタンを保存する
         _button = EventSystem.current.currentSelectedGameObject;
 
-        //  t F [ h C     I      ?
+        // フェードインが終わった場合
         if (FadeManager.fadeIn)
         {
-            //  L     N ^ [ ?  \      
+            // 画像を表示する
             _idolImage.SetActive(true);
             _audienceImage.SetActive(true);
             _playerImage.SetActive(true);
 
-            //  { ^   ?I     ?   ? ?   
+            // ボタンを表示するようにする
             _isButton = true;
         }
         else if (!FadeManager.fadeIn)
@@ -116,13 +117,15 @@ public class GameOverManager : MonoBehaviour
             _fadeSystem.FadeIn(_backGroundFadeIn);
         }
 
-        //  { ^   ?I     o
+        // ボタンが表示される判定trueになった場合
         if (_isButton)
         {
+            // ボタンを表示にする
             _returnButton.SetActive(true);
             _backButton.SetActive(true);
         }
 
+        // ボタンが選択されている状態を表現する
         if (_button == _returnButton && _isButton)
         {
             _selectButton[0].SetActive(false);
