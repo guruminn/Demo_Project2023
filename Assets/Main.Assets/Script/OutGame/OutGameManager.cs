@@ -16,18 +16,9 @@ public class OutGameManager : MonoBehaviour
     #region ---Fields---
 
     /// <summary>
-    /// ゲームオーバーの判定を保存する変数
-    /// </summary>
-    public static bool gameOver;
-
-    /// <summary>
-    /// ゲームクリアの判定を保存する変数
-    /// </summary>
-    public static bool gameClear;
-
-    /// <summary>
     /// 「FadeSystem」を参照する変数
     /// </summary>
+    [SerializeField]
     private FadeManager _fadeSystem;
 
     /// <summary>
@@ -43,6 +34,7 @@ public class OutGameManager : MonoBehaviour
     /// <summary>
     /// 「TranstionScene」を参照する変数
     /// </summary>
+    [SerializeField]
     private TranstionScenes _transSystem;
 
     /// <summary>
@@ -91,6 +83,12 @@ public class OutGameManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private int _waitTime = 3;
 
+    [SerializeField]
+    private AudioManager audioManager;
+
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
     #endregion ---Fields---
 
     #region ---Methods---
@@ -103,16 +101,16 @@ public class OutGameManager : MonoBehaviour
     private void Update()
     {
         // ゲームオーバー時の処理  
-        if (gameOver)
+        if (settingManager.gameOver)
         {
-            AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
+            audioManager.Stop_Sound(audioManager.bgmAudioSource);
             StartCoroutine(Direction_UI(_overText, 4));
         }
 
         // ゲームクリア時の処理
-        if (gameClear)
+        if (settingManager.gameClear)
         {
-            AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
+            audioManager.Stop_Sound(audioManager.bgmAudioSource);
             StartCoroutine(Direction_UI(_clearText, 3));
         }
     }

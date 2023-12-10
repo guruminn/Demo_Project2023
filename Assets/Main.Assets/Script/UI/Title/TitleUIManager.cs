@@ -119,6 +119,17 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     private GameObject _saveButton;
 
+    /// <summary>
+    /// AudioManagerを取得する
+    /// </summary>
+    [SerializeField]
+    private AudioManager audioManager;
+
+    /// <summary>
+    /// 値を参照するために取得する変数
+    /// </summary>
+    public ValueSettingManager settingManager;
+
     #endregion ---Fields---
 
     #region ---Methods---
@@ -164,7 +175,7 @@ public class TitleUIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.JoystickButton3))
         {
             //  r d  ??
-            AudioManager.audioManager.Play_SESound(SESoundData.SE.ClickButton);
+            audioManager.Play_SESound(SEData.SE.ClickButton);
 
             //  J     ??    ?  ?   
             _isStepScene = true;
@@ -184,7 +195,38 @@ public class TitleUIManager : MonoBehaviour
     }
 
 
-    //  ^ C g    ? UI ?  o      R   [ `  
+    /// <summary>
+    /// UI   o ?W ?      ?? 
+    /// </summary>
+    void Initi_TitleUI()
+    {
+        //  { ^   ?\   ??  ?   
+        for (int i = 0; i < _buttonObj.Length; i++)
+        {
+            _buttonObj[i].SetActive(false);
+
+            _selectButtonImage[i].SetActive(false);
+        }
+
+        //      ?I    ??  ?    I u W F N g  ??  
+        EventSystem.current.SetSelectedGameObject(_buttonObj[0]);
+    }
+
+    /// <summary>
+    ///  J     ?    o ?W ?      ?? 
+    /// </summary>
+    void Initi_TransFunction()
+    {
+        //  J     ?    ?u  ?  ??     
+        _startPosition = _cameraObj.transform.position;
+
+        //      ?u ??   ??u   m ?    ?     ?  ??     
+        _distance = Vector3.Distance(_startPosition, _endPosition);
+
+        //  X ^ [ g { ^         ?    ??  ?   
+        _isClickButton = false;
+    }
+
     /// <summary>
     ///  ^ C g    ? UI ?  o      R   [ `  
     /// </summary>
@@ -204,9 +246,9 @@ public class TitleUIManager : MonoBehaviour
             //       ? 
             yield return new WaitForSeconds(_intervalTIme[0]);
 
-            if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.bgmAudioSource))
+            if (audioManager.CheckPlaySound(audioManager.bgmAudioSource))
             {
-                AudioManager.audioManager.Play_BGMSound(BGMSoundData.BGM.Title);
+                audioManager.Play_BGMSound(BGMData.BGM.Title);
             }
 
             //  t F [ h A E g      ?    ?яo  
@@ -230,43 +272,11 @@ public class TitleUIManager : MonoBehaviour
     }
 
     /// <summary>
-    ///  J     ?    o ?W ?      ?? 
-    /// </summary>
-    void Initi_TransFunction()
-    {
-        //  J     ?    ?u  ?  ??     
-        _startPosition = _cameraObj.transform.position;
-
-        //      ?u ??   ??u   m ?    ?     ?  ??     
-        _distance = Vector3.Distance(_startPosition, _endPosition);
-
-        //  X ^ [ g { ^         ?    ??  ?   
-        _isClickButton = false;
-    }
-
-    /// <summary>
-    /// UI   o ?W ?      ?? 
-    /// </summary>
-    void Initi_TitleUI()
-    {
-        //  { ^   ?\   ??  ?   
-        for (int i = 0; i < _buttonObj.Length; i++)
-        {
-            _buttonObj[i].SetActive(false);
-
-            _selectButtonImage[i].SetActive(false);
-        }
-
-        //      ?I    ??  ?    I u W F N g  ??  
-        EventSystem.current.SetSelectedGameObject(_buttonObj[0]);
-    }
-
-    /// <summary>
     ///  X ^ [ g { ^         ?   ?    ?? 
     /// </summary>
     public void OnClick_StartButton()
     {
-        AudioManager.audioManager.Play_SESound(SESoundData.SE.ClickButton);
+        audioManager.Play_SESound(SEData.SE.ClickButton);
 
         //  ^ C g    ? UI \     \   ?   
         _titleCanvas.SetActive(false);
@@ -283,9 +293,9 @@ public class TitleUIManager : MonoBehaviour
     /// </summary>
     public void OnClick_EndButton()
     {
-        AudioManager.audioManager.Play_SESound(SESoundData.SE.ClickButton);
+        audioManager.Play_SESound(SEData.SE.ClickButton);
 
-        if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource))
+        if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
             transSystem.Trans_EndGame();
         }
@@ -297,12 +307,12 @@ public class TitleUIManager : MonoBehaviour
     /// <param name="_seceneNumber">  J ?      V [   ??  </param>
     private void Move_CameraObj(int _seceneNumber)
     {
-        AudioManager.audioManager.Change_BGMVolume(0.01f);
+        audioManager.Change_BGMVolume(0.01f);
 
-        if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource))
+        if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
             //AudioManager.audioManager.Play_SESound(SESoundData.SE.Audience);
-            AudioManager.audioManager.Play_SESound(SESoundData.SE.Walk);
+            audioManager.Play_SESound(SEData.SE.Walk);
         }
 
         //      ?u ??   ?    ?      v Z   鏈  
@@ -314,8 +324,8 @@ public class TitleUIManager : MonoBehaviour
         //  X ^ [ g { ^         ?    ??  ?   
         _isClickButton = false;
 
-        AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.seAudioSource);
-        AudioManager.audioManager.Stop_Sound(AudioManager.audioManager.bgmAudioSource);
+        audioManager.Stop_Sound(audioManager.seAudioSource);
+        audioManager.Stop_Sound(audioManager.bgmAudioSource);
 
         //  `   [ g   A   ?V [   ?J ?   
         transSystem.Trans_Scene(_seceneNumber);

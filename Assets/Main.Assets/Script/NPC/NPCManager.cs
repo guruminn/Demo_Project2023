@@ -13,8 +13,12 @@ public class NPCManager : MonoBehaviour
     Vector3 _velocity = Vector3.zero;
     // _pos‚Ö“’B‚·‚é‚Ü‚Å‰½•b‚Ì•Ï”
     //[SerializeField, Range(0.0f, 2.0f)]
-    [Tooltip("‰½•b‚Å“’B‚µ‚½‚©")]
-    public float smoothTime = 1.0f;
+    //[Tooltip("‰½•b‚Å“’B‚µ‚½‚©")]
+    //public float smoothTime = 1.0f;
+    private float smoothTime;
+
+    [SerializeField]
+    private ValueSettingManager _setting;
 
     //Rigidbody _rb;
 
@@ -30,6 +34,7 @@ public class NPCManager : MonoBehaviour
     void Start()
     {
         _pos = this.transform.position;
+        smoothTime=_setting.smoothTime;
         //Rigidbody‚ğæ“¾
         //_rb = gameObject.GetComponent<Rigidbody>();
     }

@@ -18,6 +18,7 @@ public class FadeController : MonoBehaviour
     [SerializeField] UITimer _timer;
     [Tooltip("いじらない")]
     [SerializeField] AroundGuardsmanController _controller;
+    [SerializeField] AudioManager _audio;
 
     // フェードインにかかる時間（秒）★変更可
     [Tooltip("フェードインにかかる時間")]
@@ -66,11 +67,11 @@ public class FadeController : MonoBehaviour
         //音楽を鳴らす
         // SEのブザー音を再生します。by山﨑晶
         //audioSource.PlayOneShot(buzzerClip);
-        AudioManager.audioManager.Play_SESound(SESoundData.SE.Buzzer);
+        _audio.Play_SESound(SEData.SE.Buzzer);
 
         //終了まで待機
         // 曲が流れているかチェックする関数を呼び、曲が流れ終わったらこの関数は「false」の値を持つのでこの書き方にしています。by 山﨑晶
-        yield return new WaitWhile(() => (!AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource)));
+        yield return new WaitWhile(() => (!_audio.CheckPlaySound(_audio.seAudioSource)));
 
         // 画面をフェードインさせるコールチン
 
@@ -119,7 +120,7 @@ public class FadeController : MonoBehaviour
                 _countdownImage.gameObject.SetActive(false);
 
                 // BGMを再生する by山﨑晶
-                AudioManager.audioManager.Play_BGMSound(BGMSoundData.BGM.Main);
+                _audio.Play_BGMSound(BGMData.BGM.Main);
 
                 yield break;
             }

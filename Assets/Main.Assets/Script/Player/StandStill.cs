@@ -25,7 +25,6 @@ public class StandStill : MonoBehaviour
     /// <summary>
     /// 歩く判定をする距離の差の値
     /// </summary>
-    [SerializeField, Range(0f, 1f)]
     private float _reactionValume = 0.1f;
 
     /// <summary>
@@ -39,6 +38,9 @@ public class StandStill : MonoBehaviour
     /// </summary>
     private bool _moveFoot = false;
 
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
     #endregion --- Fields ---
 
     #region --- Methods ---
@@ -46,6 +48,8 @@ public class StandStill : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _reactionValume = settingManager.FootDistanceFoor;
+
         // 右足の初期位置を保存する
         _foot = new FootPosition(_footObj.transform.position, _footObj.transform.position, 0);
         //Debug.Log("StandStill  initiFoot : " + _foot);
@@ -89,6 +93,7 @@ public class StandStill : MonoBehaviour
     {
         if (_reactionValume < _foot.distance&&_moveFoot)
         {
+            //Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
             powerSource = 1;
         }
     }

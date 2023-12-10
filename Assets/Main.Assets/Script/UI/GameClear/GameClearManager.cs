@@ -107,6 +107,12 @@ public class GameClearManager : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     private float _changeSpeed;
 
+    [SerializeField]
+    private AudioManager audioManager;
+
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
     #endregion ---Fields---
 
     #region ---Methods---
@@ -258,9 +264,9 @@ public class GameClearManager : MonoBehaviour
     private IEnumerator ShotPhoto()
     {
         //　音声を再生する
-        if (AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource))
+        if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
-            AudioManager.audioManager.Play_SESound(SESoundData.SE.Shutters);
+            audioManager.Play_SESound(SEData.SE.Shutters);
         }
 
         // 待ち時間  

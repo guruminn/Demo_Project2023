@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class GuardsmanCollision : MonoBehaviour
 {
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,7 @@ public class GuardsmanCollision : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             // ゲームオーバーの判定をtrueにする
-            OutGameManager.gameOver = true;
+            settingManager.gameOver = true;
 
             Debug.Log("ゲームオーバー");
         }
