@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class IncubationGuardsmanController : MonoBehaviour
 {
+    // 値を管理するアセットから値を参照する
     [SerializeField]
     private ValueSettingManager settingManager;
 

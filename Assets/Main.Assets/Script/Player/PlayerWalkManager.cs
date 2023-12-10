@@ -57,7 +57,7 @@ public class PlayerWalkManager : MonoBehaviour
 
         // カメラの向きを取得
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
-        Debug.Log("cameraForward : " + cameraForward);
+        //Debug.Log("cameraForward : " + cameraForward);
 
         // カメラの向きかラプレイヤーの移動方向を設定する      
         //Vector3 moveForward = cameraForward * stickHorizontal;
@@ -65,7 +65,7 @@ public class PlayerWalkManager : MonoBehaviour
 
         // プレイヤーを移動させる
         _rb.velocity = cameraForward * moveSpeed + new Vector3(0, _rb.velocity.y, 0);
-        Debug.Log(_rb.velocity);
+        //Debug.Log(_rb.velocity);
     }
 
     #endregion ---Methods---

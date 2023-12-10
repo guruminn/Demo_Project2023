@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private float positionSpeed;
     // ílÇéQè∆Ç∑ÇÈïœêî
     public ValueSettingManager settingManager;
+    public AudioManager audioManager;
     Rigidbody _rb;
 
     // Start is called before the first frame update
@@ -49,12 +50,30 @@ public class PlayerController : MonoBehaviour
         {
             //_rb.AddForce(transform.forward * positionSpeed);
             transform.position += transform.forward * positionSpeed;
+
+            if (audioManager.CheckPlaySound(audioManager.seAudioSource))
+            {
+                audioManager.PlaySESound(SEData.SE.Walk);
+            }
         }
         // å„ÇÎ
         if (Input.GetKey(KeyCode.JoystickButton2) || Input.GetKey(KeyCode.S))
         {
             //_rb.AddForce(-transform.forward * positionSpeed);
             transform.position -= transform.forward * positionSpeed;
+
+            if (audioManager.CheckPlaySound(audioManager.seAudioSource))
+            {
+                audioManager.PlaySESound(SEData.SE.Walk);
+            }
+        }
+
+        if (Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.JoystickButton2))
+        {
+            if (!audioManager.CheckPlaySound(audioManager.seAudioSource))
+            {
+                audioManager.StopSound(audioManager.seAudioSource);
+            }
         }
     }
 }

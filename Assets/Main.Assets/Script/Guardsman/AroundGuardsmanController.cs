@@ -25,11 +25,19 @@ public class AroundGuardsmanController : MonoBehaviour
     [Tooltip("見つかった時のUI")]
     [SerializeField] Image _haken;
 
+    [SerializeField] ValueSettingManager settingManager;
+
+    [SerializeField] AudioManager audioManager; 
+
     // Start is called before the first frame update
     void Start()
     {
         //NavMeshAgent取得
         _agent = GetComponent<NavMeshAgent>();
+        //NavMeshAgentの値を参照して保存
+        _agent.speed = settingManager.guardMoveSpeed;
+        _agent.angularSpeed = settingManager.guardAngularSpeed;
+        _agent.acceleration = settingManager.guardAcceleration;
 
         //autoBraking を無効にすると目標地点の間を継続的に移動
         //つまり、エージェントは目標地点に近づいても速度を落とさない
@@ -82,6 +90,7 @@ public class AroundGuardsmanController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            audioManager.PlaySESound(SEData.SE.FoundSecurity);
             //Debug.Log("視界入った");
             _targetFlag = true;
             _haken.gameObject.SetActive(true);

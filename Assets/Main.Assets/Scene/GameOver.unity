@@ -611,6 +611,7 @@ GameObject:
   m_Component:
   - component: {fileID: 684094054}
   - component: {fileID: 684094053}
+  - component: {fileID: 684094055}
   m_Layer: 0
   m_Name: GameOverSystem
   m_TagString: Untagged
@@ -630,16 +631,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32d4f3ba44dcb945af21147d5d2c7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeImage: {fileID: 1773591325}
-  idolImage: {fileID: 1083721061}
-  audienceImage: {fileID: 2011587689}
-  playerImage: {fileID: 625654111}
-  returnButton: {fileID: 678973131}
-  backButton: {fileID: 1304684472}
+  _fadeSystem: {fileID: 684094055}
+  _backGroundFadeIn:
+    fadeName: "\u80CC\u666F\u753B\u50CF\u306E\u30D5\u30A7\u30FC\u30C9\u30A4\u30F3"
+    fadeImage: {fileID: 1773591325}
+    fadeSpeed: 0.8
+    fadeAlpha: 0
+  _idolImage: {fileID: 1083721061}
+  _audienceImage: {fileID: 2011587689}
+  _playerImage: {fileID: 625654111}
+  _returnButton: {fileID: 678973131}
+  _backButton: {fileID: 1304684472}
   _selectButton:
   - {fileID: 1479753765}
   - {fileID: 1861313934}
-  fadeSpeed: 1
 --- !u!4 &684094054
 Transform:
   m_ObjectHideFlags: 0
@@ -655,6 +660,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &684094055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684094052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 098c953ec23dd3e4f9b3838e7055d0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &712791467
 GameObject:
   m_ObjectHideFlags: 0

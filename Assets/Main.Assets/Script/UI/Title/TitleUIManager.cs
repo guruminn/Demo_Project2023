@@ -43,21 +43,25 @@ public class TitleUIManager : MonoBehaviour
     /// <summary>
     ///  FadeManagerを参照する変数
     /// </summary>
+    [SerializeField]
     private FadeManager _fadeSystem;
 
     /// <summary>
     ///  背景画像のフェードを設定する
     /// </summary>
+    [SerializeField]
     private FadeManager.FadeSetting _blackFadeIn;
 
     /// <summary>
     ///  タイトルロゴのフェードを設定する
     /// </summary>
+    [SerializeField]
     private FadeManager.FadeSetting _logoFadeOut;
 
     /// <summary>
     ///  TranstionScenesを参照する変数
     /// </summary>
+    [SerializeField]
     private TranstionScenes transSystem;
 
     /// <summary>
@@ -128,7 +132,8 @@ public class TitleUIManager : MonoBehaviour
     /// <summary>
     /// 値を参照するために取得する変数
     /// </summary>
-    public ValueSettingManager settingManager;
+    [SerializeField]
+    private ValueSettingManager settingManager;
 
     #endregion ---Fields---
 
@@ -137,17 +142,62 @@ public class TitleUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //  ^ C g    ? UI ?     
-        Initi_TitleUI();
+        // ボタンを非表示にする
+        for (int i = 0; i < _buttonObj.Length; i++)
+        {
+            _buttonObj[i].SetActive(false);
 
-        //  X ^ [ g { ^         ?     ?W ?      
-        Initi_TransFunction();
+            _selectButtonImage[i].SetActive(false);
+        }
+
+        // 初期に選択状態にするオブジェクトを設定する
+        EventSystem.current.SetSelectedGameObject(_buttonObj[0]);
+
+        // 初期地点を保存する
+        _startPosition = _cameraObj.transform.position;
+
+        //  カメラの初期位置と終了位置の距離を保存する
+        _distance = Vector3.Distance(_startPosition, _endPosition);
+
+        //  X ^ [ g { ^         ?    ??  ?   
+        _isClickButton = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //  I ???{ ^   ?   ?     
+        // ボタンが押せるようになった場合
+        if (_isInputButton)
+        {
+            InputButton();
+        }
+
+        // UIの演出をする
+        StartCoroutine("Fade_UI");
+
+        // ｙボタンが押された場合
+        if (Input.GetKeyDown(KeyCode.JoystickButton3)==!_isStepScene)
+        {
+            // ボタンが押されたときのSEを鳴らす
+            audioManager.PlaySESound(SEData.SE.ClickButton);
+
+            // 現在の時間を保存する
+            _time = Time.time;
+
+            // canvasを表示する
+            _titleCanvas.SetActive(false);
+
+            // yボタンが押された判定をする
+            _isStepScene = true;
+        }
+    }
+
+    /// <summary>
+    /// ボタンが押せるようになった時の演出処理の関数
+    /// </summary>
+    void InputButton()
+    {
+        // 現在の選択しているボタンを保存する
         _saveButton = EventSystem.current.currentSelectedGameObject;
 
         if (_saveButton == _buttonObj[0])
@@ -161,176 +211,131 @@ public class TitleUIManager : MonoBehaviour
             _selectButtonImage[0].SetActive(true);
         }
 
-        //  ^ C g    ? UI ?  o      R   [ `     ?яo  
-        StartCoroutine("Fade_UI");
-
-        //  { ^           ?
-        if (_isClickButton && _isInputButton)
+        // ボタンが押された場合
+        if (_isClickButton)
         {
-            //  J     ??   
-            Move_CameraObj(1);
+            // カメラを動かす
+            MoveCameraObj(1);
         }
 
-        //    { ^           ?
-        if (Input.GetKeyDown(KeyCode.JoystickButton3))
+        //  yボタンが押された場合
+        if (_isStepScene)
         {
-            //  r d  ??
-            audioManager.Play_SESound(SEData.SE.ClickButton);
-
-            //  J     ??    ?  ?   
-            _isStepScene = true;
-
-            //    ??Q [     ?  ? ?  ??     
-            _time = Time.time;
-
-            //  ^ C g    ? UI \     \   ?   
-            _titleCanvas.SetActive(false);
-        }
-
-        //    { ^           ? ?J     ?  ?   
-        if (_isStepScene && _isInputButton)
-        {
-            Move_CameraObj(2);
+            // カメラを動かす
+            MoveCameraObj(2);
         }
     }
 
-
     /// <summary>
-    /// UI   o ?W ?      ?? 
+    /// UIの演出関数
     /// </summary>
-    void Initi_TitleUI()
-    {
-        //  { ^   ?\   ??  ?   
-        for (int i = 0; i < _buttonObj.Length; i++)
-        {
-            _buttonObj[i].SetActive(false);
-
-            _selectButtonImage[i].SetActive(false);
-        }
-
-        //      ?I    ??  ?    I u W F N g  ??  
-        EventSystem.current.SetSelectedGameObject(_buttonObj[0]);
-    }
-
-    /// <summary>
-    ///  J     ?    o ?W ?      ?? 
-    /// </summary>
-    void Initi_TransFunction()
-    {
-        //  J     ?    ?u  ?  ??     
-        _startPosition = _cameraObj.transform.position;
-
-        //      ?u ??   ??u   m ?    ?     ?  ??     
-        _distance = Vector3.Distance(_startPosition, _endPosition);
-
-        //  X ^ [ g { ^         ?    ??  ?   
-        _isClickButton = false;
-    }
-
-    /// <summary>
-    ///  ^ C g    ? UI ?  o      R   [ `  
-    /// </summary>
-    /// <returns>  ?      </returns>
+    /// <returns> 待ち時間  </returns>
     private IEnumerator Fade_UI()
     {
-        //   ???\       鉉 o    
+        // 一番目の演出
         if (!FadeManager.fadeIn && !FadeManager.fadeOut)
         {
-            //  t F [ h C        ?    ?яo  
+            // 背景画面をフェードインさせる
             _fadeSystem.FadeIn(_blackFadeIn);
         }
 
-        //   ???\       鉉 o    
+        // ２番目の演出
         if (FadeManager.fadeIn && !FadeManager.fadeOut)
         {
-            //       ? 
+            // 待ち時間
             yield return new WaitForSeconds(_intervalTIme[0]);
 
+            // 音が鳴っていなかった場合
             if (audioManager.CheckPlaySound(audioManager.bgmAudioSource))
             {
-                audioManager.Play_BGMSound(BGMData.BGM.Title);
+                // BGMを鳴らす
+                audioManager.PlayBGMSound(BGMData.BGM.Title);
             }
 
-            //  t F [ h A E g      ?    ?яo  
+            // タイトルロゴをフェードアウトする
             _fadeSystem.FadeOut(_logoFadeOut);
         }
 
-        //  O ???\       鉉 o    
+        // 三番目の演出
         if (FadeManager.fadeIn && FadeManager.fadeOut)
         {
-            //       ? 
+            // 待ち時間
             yield return new WaitForSeconds(_intervalTIme[1]);
 
-            //  { ^    \       鏈  
+            // ボタンを表示する
             for (int i = 0; i < _buttonObj.Length; i++)
             {
                 _buttonObj[i].SetActive(true);
             }
 
+            // ボタンを押せるようにする
             _isInputButton = true;
         }
     }
 
     /// <summary>
-    ///  X ^ [ g { ^         ?   ?    ?? 
+    /// スタートボタンが押されたときの関数
     /// </summary>
-    public void OnClick_StartButton()
+    public void OnClickStartButton()
     {
-        audioManager.Play_SESound(SEData.SE.ClickButton);
+        // SEを鳴らす
+        audioManager.PlaySESound(SEData.SE.ClickButton);
 
-        //  ^ C g    ? UI \     \   ?   
+        // canvasを非表示にする
         _titleCanvas.SetActive(false);
 
-        //  X ^ [ g { ^         ?     L   ?   
+        // ボタンを押せるようにする
         _isClickButton = true;
 
-        //    ??Q [     ?  ? ?  ??     
+        // 現在の時間を保存する
         _time = Time.time;
     }
 
     /// <summary>
-    ///  G   h { ^         ?   ?    ?? 
+    /// 終了ボタンが押されたときの関数
     /// </summary>
-    public void OnClick_EndButton()
+    public void OnClickEndButton()
     {
-        audioManager.Play_SESound(SEData.SE.ClickButton);
+        audioManager.PlaySESound(SEData.SE.ClickButton);
 
+        // 音が鳴り終わった場合
         if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
+            // ゲームを終了させる
             transSystem.Trans_EndGame();
         }
     }
 
     /// <summary>
-    ///  J     ??    ? 
+    /// カメラを動かす演出の関数
     /// </summary>
-    /// <param name="_seceneNumber">  J ?      V [   ??  </param>
-    private void Move_CameraObj(int _seceneNumber)
+    /// <param name="_seceneNumber">  遷移させたいシーンの番号  </param>
+    private void MoveCameraObj(int _seceneNumber)
     {
-        audioManager.Change_BGMVolume(0.01f);
+        audioManager.ChangeBGMVolume(0.01f);
 
         if (audioManager.CheckPlaySound(audioManager.seAudioSource))
         {
             //AudioManager.audioManager.Play_SESound(SESoundData.SE.Audience);
-            audioManager.Play_SESound(SEData.SE.Walk);
+            audioManager.PlaySESound(SEData.SE.Walk);
         }
 
-        //      ?u ??   ?    ?      v Z   鏈  
-        //  u(Time.time - _time) / _distance v ?    ?     100 ?  ?  ?  ?o ??    ?        邱 ??Q _ ??        w ?  l     ? B
+        // カメラを移動する位置を設定する
         _positionValue = ((Time.time - _time) / _distance) * _cameraMoveSpeed;
 
-        //  J     ??u ??       
+        // カメラを移動させる
         _cameraObj.transform.position = Vector3.Lerp(_startPosition, _endPosition, _positionValue);
-        //  X ^ [ g { ^         ?    ??  ?   
-        _isClickButton = false;
 
-        audioManager.Stop_Sound(audioManager.seAudioSource);
-        audioManager.Stop_Sound(audioManager.bgmAudioSource);
+        if (_endPosition == _cameraObj.transform.position)
+        {
+            // 音を止める
+            audioManager.StopSound(audioManager.seAudioSource);
+            audioManager.StopSound(audioManager.bgmAudioSource);
 
-        //  `   [ g   A   ?V [   ?J ?   
-        transSystem.Trans_Scene(_seceneNumber);
+            // 指定のシーンに遷移する
+            transSystem.Trans_Scene(_seceneNumber);
+        }
     }
-
 
     #endregion ---Methods---
 }

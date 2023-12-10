@@ -90,6 +90,7 @@ public class FadeManager : MonoBehaviour
     /// <summary>
     /// フェードを設定する構造体 
     /// </summary>
+    [System.Serializable]
     public struct FadeSetting
     {
         /// <summary>
