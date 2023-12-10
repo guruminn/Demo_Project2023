@@ -5,26 +5,27 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using TMPro;
 
-// ì¬ÒF’nˆø—ƒ
-// ƒƒCƒ“‰æ–Ê‚ÌƒtƒF[ƒhƒCƒ“
+// ï¿½ì¬ï¿½ÒFï¿½nï¿½ï¿½ï¿½ï¿½
+// ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½ï¿½Ê‚Ìƒtï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½
 
 public class FadeController : MonoBehaviour
 {
-    // •s—v‚È‚Ì‚ÅÁ‚µ‚Ü‚µ‚½BbyRú±»
+    // ï¿½sï¿½vï¿½È‚Ì‚Åï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Bbyï¿½Rï¿½ï¿½ï¿½ï¿½
     //AudioSource _audioSource;
-    //[Tooltip("‚±‚±‚ÉƒuƒU[‰¹‚ğ“ü‚ê‚é")]
+    //[Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½Éƒuï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     //[SerializeField] AudioClip buzzerClip;
-    [Tooltip("‚¢‚¶‚ç‚È‚¢")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½")]
     [SerializeField] UITimer _timer;
-    [Tooltip("‚¢‚¶‚ç‚È‚¢")]
+    [Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È‚ï¿½")]
     [SerializeField] AroundGuardsmanController _controller;
+    [SerializeField] AudioManager _audio;
 
-    // ƒtƒF[ƒhƒCƒ“‚É‚©‚©‚éŠÔi•bjš•ÏX‰Â
-    [Tooltip("ƒtƒF[ƒhƒCƒ“‚É‚©‚©‚éŠÔ")]
+    // ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½éï¿½Ôiï¿½bï¿½jï¿½ï¿½ï¿½ÏXï¿½ï¿½
+    [Tooltip("ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½É‚ï¿½ï¿½ï¿½ï¿½éï¿½ï¿½")]
     [SerializeField] const float _fadeTime = 1.0f;
 
-    // ƒ‹[ƒv‰ñ”i0‚ÍƒGƒ‰[jš•ÏX‰Â
-    [Tooltip("ƒ‹[ƒv‰ñ”A”‚ª‘½‚¢‚ÆŠŠ‚ç‚©‚É‚È‚é")]
+    // ï¿½ï¿½ï¿½[ï¿½vï¿½ñ”i0ï¿½ÍƒGï¿½ï¿½ï¿½[ï¿½jï¿½ï¿½ï¿½ÏXï¿½ï¿½
+    [Tooltip("ï¿½ï¿½ï¿½[ï¿½vï¿½ñ”Aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÆŠï¿½ï¿½ç‚©ï¿½É‚È‚ï¿½")]
     [SerializeField] const int _loopCount = 60;
 
     [SerializeField] TextMeshProUGUI _countdownText;
@@ -41,17 +42,17 @@ public class FadeController : MonoBehaviour
     {
         guardsman = guardsman.GetComponent<NavMeshAgent>();
 
-        //UITimer,AroundGuardsmanController‚ğˆê’â~‚·‚é
+        //UITimer,AroundGuardsmanControllerï¿½ï¿½ï¿½êï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½
         _timer.enabled = false;
         _controller.enabled = false;
         _fadePanel.enabled = true;
         guardsman.enabled = false;
 
 
-        // •s—v‚È‚Ì‚ÅÁ‚µ‚Ü‚µ‚½BbyRú±»
+        // ï¿½sï¿½vï¿½È‚Ì‚Åï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½ï¿½ï¿½Bbyï¿½Rï¿½ï¿½ï¿½ï¿½
         //_audioSource = GetComponent<AudioSource>();
 
-        //ƒtƒF[ƒhƒCƒ“ƒRƒ‹[ƒ`ƒ“ƒXƒ^[ƒg
+        //ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½Rï¿½ï¿½ï¿½[ï¿½`ï¿½ï¿½ï¿½Xï¿½^ï¿½[ï¿½g
         StartCoroutine("Color_FadeIn");
     }
 
@@ -63,36 +64,36 @@ public class FadeController : MonoBehaviour
 
     IEnumerator Color_FadeIn()
     {
-        //‰¹Šy‚ğ–Â‚ç‚·
-        // SE‚ÌƒuƒU[‰¹‚ğÄ¶‚µ‚Ü‚·BbyRú±»
-        //_audioSource.PlayOneShot(buzzerClip);
-        AudioManager.audioManager.Play_SESound(SESoundData.SE.Buzzer);
+        //ï¿½ï¿½ï¿½yï¿½ï¿½Â‚ç‚·
+        // SEï¿½Ìƒuï¿½Uï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ï¿½Bbyï¿½Rï¿½ï¿½ï¿½ï¿½
+        //audioSource.PlayOneShot(buzzerClip);
+        _audio.Play_SESound(SEData.SE.Buzzer);
 
-        //I—¹‚Ü‚Å‘Ò‹@
-        // ‹È‚ª—¬‚ê‚Ä‚¢‚é‚©ƒ`ƒFƒbƒN‚·‚éŠÖ”‚ğŒÄ‚ÑA‹È‚ª—¬‚êI‚í‚Á‚½‚ç‚±‚ÌŠÖ”‚Íufalsev‚Ì’l‚ğ‚Â‚Ì‚Å‚±‚Ì‘‚«•û‚É‚µ‚Ä‚¢‚Ü‚·Bby Rú±»
-        yield return new WaitWhile(() => (!AudioManager.audioManager.CheckPlaySound(AudioManager.audioManager.seAudioSource)));
+        //ï¿½Iï¿½ï¿½ï¿½Ü‚Å‘Ò‹@
+        // ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½é‚©ï¿½`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½Öï¿½ï¿½ï¿½ï¿½Ä‚ÑAï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ç‚±ï¿½ÌŠÖï¿½ï¿½Íufalseï¿½vï¿½Ì’lï¿½ï¿½ï¿½ï¿½ï¿½Â‚Ì‚Å‚ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É‚ï¿½ï¿½Ä‚ï¿½ï¿½Ü‚ï¿½ï¿½Bby ï¿½Rï¿½ï¿½ï¿½ï¿½
+        yield return new WaitWhile(() => (!_audio.CheckPlaySound(_audio.seAudioSource)));
 
-        // ‰æ–Ê‚ğƒtƒF[ƒhƒCƒ“‚³‚¹‚éƒR[ƒ‹ƒ`ƒ“
+        // ï¿½ï¿½Ê‚ï¿½ï¿½tï¿½Fï¿½[ï¿½hï¿½Cï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Rï¿½[ï¿½ï¿½ï¿½`ï¿½ï¿½
 
-        // F‚ğ•Ï‚¦‚éƒQ[ƒ€ƒIƒuƒWƒFƒNƒg‚©‚çImageƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+        // ï¿½Fï¿½ï¿½Ï‚ï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½ï¿½ï¿½Imageï¿½Rï¿½ï¿½ï¿½|ï¿½[ï¿½lï¿½ï¿½ï¿½gï¿½ï¿½ï¿½æ“¾
         Image fade = GetComponent<Image>();
 
-        // ƒtƒF[ƒhŒ³‚ÌF‚ğİ’èi•jš•ÏX‰Â
+        // ï¿½tï¿½Fï¿½[ï¿½hï¿½ï¿½ï¿½ÌFï¿½ï¿½İ’ï¿½iï¿½ï¿½ï¿½jï¿½ï¿½ï¿½ÏXï¿½ï¿½
         fade.color = new Color((0.0f / 255.0f), (0.0f / 255.0f), (0.0f / 0.0f), (255.0f / 255.0f));
 
-        // ƒEƒFƒCƒgŠÔZo
+        // ï¿½Eï¿½Fï¿½Cï¿½gï¿½ï¿½ï¿½ÔZï¿½o
         float wait_time = _fadeTime / _loopCount;
 
-        // F‚ÌŠÔŠu‚ğZo
+        // ï¿½Fï¿½ÌŠÔŠuï¿½ï¿½ï¿½Zï¿½o
         float alpha_interval = 255.0f / _loopCount;
 
-        // F‚ğ™X‚É•Ï‚¦‚éƒ‹[ƒv
+        // ï¿½Fï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½É•Ï‚ï¿½ï¿½éƒ‹ï¿½[ï¿½v
         for (float alpha = 255.0f; alpha >= 0.0f; alpha -= alpha_interval)
         {
-            // ‘Ò‚¿ŠÔ
+            // ï¿½Ò‚ï¿½ï¿½ï¿½ï¿½ï¿½
             yield return new WaitForSeconds(wait_time);
 
-            // Alpha’l‚ğ­‚µ‚¸‚Â‰º‚°‚é
+            // Alphaï¿½lï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â‰ï¿½ï¿½ï¿½ï¿½ï¿½
             Color new_color = fade.color;
             new_color.a = alpha / 255.0f;
             fade.color = new_color;
@@ -110,7 +111,7 @@ public class FadeController : MonoBehaviour
 
             if (_countdown <= 0)
             {
-                //UITimer,AroundGuardsmanController‚ğÄ¶‚·‚é
+                //UITimer,AroundGuardsmanControllerï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½
                 _timer.enabled = true;
                 _controller.enabled = true;
                 guardsman.enabled = true;
@@ -118,8 +119,8 @@ public class FadeController : MonoBehaviour
                 _countdownText.gameObject.SetActive(false);
                 _countdownImage.gameObject.SetActive(false);
 
-                // BGM‚ğÄ¶‚·‚é byRú±»
-                AudioManager.audioManager.Play_BGMSound(BGMSoundData.BGM.Main);
+                // BGMï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½ byï¿½Rï¿½ï¿½ï¿½ï¿½
+                _audio.Play_BGMSound(BGMData.BGM.Main);
 
                 yield break;
             }

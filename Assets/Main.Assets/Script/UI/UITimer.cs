@@ -8,11 +8,17 @@ using UnityEngine.UI;
 public class UITimer : MonoBehaviour
 {
     public Slider timeSlider;
-    public float maxTime = 90.0f;
+    //public float maxTime = 90.0f;
+    private float maxTime;
+
+    [SerializeField]
+    private ValueSettingManager settingManager;
 
     // Start is called before the first frame update
     void Start()
     {
+        maxTime = settingManager.GameLimitTime;
+
         timeSlider = GetComponent<Slider>();
 
         //スライダーの最大値の設定
@@ -28,7 +34,7 @@ public class UITimer : MonoBehaviour
         if(timeSlider.value == maxTime)
         {
             // ゲームオーバーの判定をtrueにする
-            OutGameManager.gameOver = true;
+            settingManager.gameOver = true;
             Debug.Log("時間です");
         }
     }

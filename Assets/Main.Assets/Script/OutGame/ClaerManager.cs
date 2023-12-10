@@ -7,13 +7,16 @@ using UnityEngine;
 
 public class ClaerManager : MonoBehaviour
 {
+    [SerializeField]
+    private ValueSettingManager settingManager;
+
     //  クリア判定と当たった場合
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
             //  ゲームクリアの判定をする
-            OutGameManager.gameClear = true;
+            settingManager.gameClear = true;
 
             //Debug.Log("クリアになった");
         }

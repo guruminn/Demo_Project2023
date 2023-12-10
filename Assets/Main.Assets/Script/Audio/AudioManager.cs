@@ -5,7 +5,7 @@ using UnityEngine;
 //  作成者：山﨑晶   
 //  BGM、SEを制御するソースコード
 
-public class AudioManager : MonoBehaviour
+public class AudioManager:MonoBehaviour
 {
     #region ---Fields---
 
@@ -21,59 +21,48 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     public AudioSource seAudioSource;
 
-    [Space(10)]
+    /// <summary>
+    /// BGM、SEの全体の音量
+    /// </summary>
+    private float _masterVolume;
 
     /// <summary>
-    /// BGM、SEを含めた全体音量の変数
+    /// SEの全体の音量
     /// </summary>
-    [SerializeField, Range(0f, 1f)]
-    private float _masterVolume = 1;
+    private float _seMasterVolume;
 
     /// <summary>
-    /// BGMの全体音量の変数
+    /// BGMの全体の音量
     /// </summary>
-    [SerializeField, Range(0f, 1f)]
-    private float _bgmMasterVolume = 1;
+    private float _bgmMasterVolume;
 
     /// <summary>
-    /// SEの全体音量の変数
+    /// 値を参照するために取得する変数
     /// </summary>
-    [SerializeField, Range(0f, 1f)]
-    private float _seMasterVolume = 1;
-
-    [Space(10)]
-
-    /// <summary>
-    /// BGMの音声データのリスト
-    /// </summary>
-    [SerializeField]
-    private List<BGMSoundData> _bgmSoundDatas;
-
-    /// <summary>
-    /// SEの音声データのリスト
-    /// </summary>
-    [SerializeField]
-    private List<SESoundData> _seSoundDatas;
+    public ValueSettingManager settingManager;
 
     #endregion ---Fields---
 
-    #region ---Properties---
-
-    // AudioManagerのインスタンスを作成   
-    public static AudioManager audioManager { get; private set; }
-
-    #endregion ---Properties---
-
     #region ---Methods---
+
+    /// <summary>
+    /// 初期化の変数
+    /// </summary>
+    private void Start()
+    {
+        _masterVolume = settingManager.masterVolume;
+        _seMasterVolume = settingManager.seMasterVolume;
+        _bgmMasterVolume = settingManager.bgmMasterVolume;
+    }
 
     /// <summary>
     /// BGMを再生する関数
     /// </summary>
     /// <param name="bgm">  ?流すBGMのタイトル(列挙型) </param>
-    public void Play_BGMSound(BGMSoundData.BGM bgm)
+    public void Play_BGMSound(BGMData.BGM bgm)
     {
         // 音声データから該当するデータを保存する   
-        BGMSoundData data = _bgmSoundDatas.Find(data => data.bgm == bgm);
+        BGMData data = settingManager.bgmSoundDatas.Find(data => data.bgm == bgm);
 
         // AudioClipをAudioSourceに設定する
         bgmAudioSource.clip = data.audioClip;
@@ -89,10 +78,10 @@ public class AudioManager : MonoBehaviour
     /// SEを再生する関数
     /// </summary>
     /// <param name="se">  ?流すSEのタイトル(列挙型) </param>
-    public void Play_SESound(SESoundData.SE se)
+    public void Play_SESound(SEData.SE se)
     {
         // 音声データから該当するデータを保存する
-        SESoundData data = _seSoundDatas.Find(data => data.se == se);
+        SEData data = settingManager.seSoundDatas.Find(data => data.se == se);
 
         // SEの音量を設定する
         seAudioSource.volume = data.volume * _seMasterVolume * _masterVolume;
@@ -144,80 +133,3 @@ public class AudioManager : MonoBehaviour
 
     #endregion ---Methods---
 }
-
-#region ---Class---
-
-/// <summary>
-/// BGMの音声データ
-/// </summary>
-[System.Serializable]
-public class BGMSoundData
-{
-    /// <summary>
-    /// BGMのラベル
-    /// </summary>
-    public enum BGM
-    {
-        Title,
-        Tutorial,
-        Main,
-        ClearEnd,
-        OverEnd,
-    }
-
-    /// <summary>
-    /// 列挙型の宣言
-    /// </summary>
-    public BGM bgm;
-
-    /// <summary>
-    /// BGMのAudioClip
-    /// </summary>
-    public AudioClip audioClip;
-
-    /// <summary>
-    /// BGMの音量
-    /// </summary>
-    [Range(0f, 1f)]
-    public float volume = 1;
-}
-
-/// <summary>
-/// SEの音声データ
-/// </summary>
-[System.Serializable]
-public class SESoundData
-{
-    /// <summary>
-    /// SEのラベル
-    /// </summary>
-    public enum SE
-    {
-        Audience,
-        Shutters,
-        Buzzer,
-        ClickButton,
-        FoundSecurity,
-        Correct,
-        Squwat,
-        Walk,
-    }
-
-    /// <summary>
-    /// 列挙型の宣言
-    /// </summary>
-    public SE se;
-
-    /// <summary>
-    /// SEのAudioClip
-    /// </summary>
-    public AudioClip audioClip;
-
-    /// <summary>
-    /// SEの音量
-    /// </summary>
-    [Range(0f, 2f)]
-    public float volume = 1;
-}
-
-#endregion ---Class---

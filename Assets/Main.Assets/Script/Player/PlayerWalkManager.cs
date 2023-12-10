@@ -13,7 +13,9 @@ public class PlayerWalkManager : MonoBehaviour
     /// </summary>
     private Rigidbody _rb;
 
-    [SerializeField,Range(0,100)]
+    /// <summary>
+    /// プレイヤーが動くスピードを保存する変数
+    /// </summary>
     private float _moveSpeed;
 
     /// <summary>
@@ -22,6 +24,12 @@ public class PlayerWalkManager : MonoBehaviour
     [SerializeField]
     private GameObject _playerCamera;
 
+    /// <summary>
+    /// 値を参照する変数
+    /// </summary>
+    [SerializeField]
+    private ValueSettingManager setttingManager;
+
     #endregion ---Fields---
 
     #region ---Methods---
@@ -29,6 +37,9 @@ public class PlayerWalkManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // 値を管理するアセットから値を参照して保存する
+        _moveSpeed = setttingManager.MOCOPI_PlayerMoveSpeed;
+
         // Rigidbody   Q ?   
         _rb = GetComponent<Rigidbody>();
     }
@@ -37,25 +48,24 @@ public class PlayerWalkManager : MonoBehaviour
     void Update()
     {
         // プレイヤーを移動させる動力を保存 
-        float moveSpeed = StandStill.powerSource;
+        float moveSpeed = StandStill.powerSource* _moveSpeed;
+        //Debug.Log("modeSpeed : " + moveSpeed);
 
         // ジョイスティックの入力を保存する
-        float stickHorizontal = Input.GetAxis("Horizontal");
+        //float stickHorizontal = Input.GetAxis("Horizontal");
+        //Debug.Log("stickHorizontal : " + stickHorizontal);
 
         // カメラの向きを取得
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+        Debug.Log("cameraForward : " + cameraForward);
 
         // カメラの向きかラプレイヤーの移動方向を設定する      
-        Vector3 moveForward = cameraForward * stickHorizontal;
+        //Vector3 moveForward = cameraForward * stickHorizontal;
+        //Debug.Log("moveForward : " + moveForward);
 
         // プレイヤーを移動させる
-        _rb.velocity = moveForward * moveSpeed + new Vector3(0, _rb.velocity.y, 0);
-
-        // プレイヤーの向きを変える
-        if (moveForward != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(moveForward);
-        }
+        _rb.velocity = cameraForward * moveSpeed + new Vector3(0, _rb.velocity.y, 0);
+        Debug.Log(_rb.velocity);
     }
 
     #endregion ---Methods---

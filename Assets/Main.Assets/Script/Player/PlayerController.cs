@@ -12,16 +12,22 @@ public class PlayerController : MonoBehaviour
     float _rot = 0.0f;
     // 回転スピードを取得する変数
     [Tooltip("回転スピード数字が大きいほど速くなる")]
-    public float rotateSpeed = 0.5f;
+    //public float rotateSpeed = 0.5f;
+    private float rotateSpeed;
     // 前後移動スピードを取得する変数
     [Tooltip("前後スピード数字が大きいほど速くなる")]
-    public float positionSpeed = 0.5f;
-
+    //public float positionSpeed = 0.5f;
+    private float positionSpeed;
+    // 値を参照する変数
+    public ValueSettingManager settingManager;
     Rigidbody _rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        // 値を管理するアセットから値を参照して変数に保存する
+        rotateSpeed = settingManager.PlayerRotateSpeed;
+        positionSpeed = settingManager.JOYSTIC_PlayerMoveSpeed;
         _rb = gameObject.GetComponent<Rigidbody>();
     }
 
