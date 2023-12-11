@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Transactions;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -74,7 +75,7 @@ public class TitleUIManager : MonoBehaviour
     /// 選択状態のボタンの画像を取得数変数
     /// </summary>
     [SerializeField]
-    private GameObject[] _selectButtonImage = new GameObject[2];
+    private TextMeshProUGUI[] _buttonText = new TextMeshProUGUI[2];
 
     /// <summary>
     /// カメラを取得する変数
@@ -146,8 +147,6 @@ public class TitleUIManager : MonoBehaviour
         for (int i = 0; i < _buttonObj.Length; i++)
         {
             _buttonObj[i].SetActive(false);
-
-            _selectButtonImage[i].SetActive(false);
         }
 
         // 初期に選択状態にするオブジェクトを設定する
@@ -202,13 +201,13 @@ public class TitleUIManager : MonoBehaviour
 
         if (_saveButton == _buttonObj[0])
         {
-            _selectButtonImage[0].SetActive(false);
-            _selectButtonImage[1].SetActive(true);
+            _buttonText[0].color = Color.white;
+            _buttonText[1].color = Color.black;
         }
         if (_saveButton == _buttonObj[1])
         {
-            _selectButtonImage[1].SetActive(false);
-            _selectButtonImage[0].SetActive(true);
+            _buttonText[0].color = Color.black;
+            _buttonText[1].color = Color.white;
         }
 
         // ボタンが押された場合
