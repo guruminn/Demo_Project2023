@@ -17,6 +17,9 @@ MonoBehaviour:
   PlayerRotateSpeed: 0.5
   JOYSTIC_PlayerMoveSpeed: 0.5
   smoothTime: 1
+  guardMoveSpeed: 2
+  guardAngularSpeed: 120
+  guardAcceleration: 8
   masterVolume: 1
   bgmMasterVolume: 1
   seMasterVolume: 1
@@ -54,6 +57,9 @@ MonoBehaviour:
     volume: 1
   - se: 7
     audioClip: {fileID: 8300000, guid: cd0e3a8166b623d40bc4063859b3c81a, type: 3}
+    volume: 1
+  - se: 8
+    audioClip: {fileID: 8300000, guid: b735150c0582a824ab6a0207978acdfc, type: 3}
     volume: 1
   GameLimitTime: 90
   gameOver: 0

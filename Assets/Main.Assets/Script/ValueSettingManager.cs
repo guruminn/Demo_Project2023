@@ -152,6 +152,7 @@ public class SEData
         Correct,
         Squwat,
         Walk,
+        voice,
     }
 
     /// <summary>
