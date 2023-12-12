@@ -15,8 +15,11 @@ MonoBehaviour:
   MOCOPI_PlayerMoveSpeed: 1
   FootDistanceFoor: 0.1
   PlayerRotateSpeed: 0.5
-  JOYSTIC_PlayerMoveSpeed: 0.5
+  JOYSTIC_PlayerMoveSpeed: 0.1
   smoothTime: 1
+  guardMoveSpeed: 2
+  guardAngularSpeed: 120
+  guardAcceleration: 8
   masterVolume: 1
   bgmMasterVolume: 1
   seMasterVolume: 1
@@ -55,6 +58,15 @@ MonoBehaviour:
   - se: 7
     audioClip: {fileID: 8300000, guid: cd0e3a8166b623d40bc4063859b3c81a, type: 3}
     volume: 1
+  - se: 8
+    audioClip: {fileID: 0}
+    volume: 1
+  - se: 9
+    audioClip: {fileID: 8300000, guid: 4f9bd71db4ec70e47b8d7e8cb9f4c53e, type: 3}
+    volume: 1
+  - se: 10
+    audioClip: {fileID: 8300000, guid: b735150c0582a824ab6a0207978acdfc, type: 3}
+    volume: 1
   GameLimitTime: 90
-  gameOver: 0
+  gameOver: 1
   gameClear: 0

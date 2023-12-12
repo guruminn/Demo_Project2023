@@ -13,37 +13,27 @@ public class BodyDownManager : MonoBehaviour
     // しゃがみ出来ているかできていないか
     bool _active = true;
     // カウントのテキスト
-    public TextMeshProUGUI _countText;
-    // 正解サウンド
-    [SerializeField] AudioClip _correctAudio;
-    // アナウンスサウンド
-    [SerializeField] AudioClip _announceAudio;
-    // サウンドのおおもと
-    AudioSource _audioSource;
+    public TextMeshProUGUI _countTimeText;
     // 音が鳴り終わったか
     private bool isAudioEnd;
     // 音が一度だけ再生するフラグ
     bool SEflag = true;
-    [SerializeField] GameObject _crouchPanel;
+    // パネルを非表示にする
+    [SerializeField] GameObject _bodyDownPanel;
+    // audio付ける
+    [SerializeField] AudioManager _audioManager;
 
+    // アクティブになった時に呼び出される
     void OnEnable()
     {
-        // audio
-        _audioSource = gameObject.GetComponent<AudioSource>();
         // しゃがんでみましょうボイス
-        _audioSource.PlayOneShot(_announceAudio);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        _audioSource = gameObject.GetComponent<AudioSource>();
+        _audioManager.PlaySESound(SEData.SE.BodyDownVoice);
     }
 
     // Update is called once per frame
     void Update()
     {
-        _countText.text = _count.ToString("F1");
+        _countTimeText.text = _count.ToString("F1");
         if (_active)
         {
             _count += Time.deltaTime;
@@ -55,19 +45,19 @@ public class BodyDownManager : MonoBehaviour
 
         if(_count >3)
         {
-            _countText.text = "OK";
+            _countTimeText.text = "OK";
         }
 
         if (SEflag && _count > 3)
         {
-            _audioSource.PlayOneShot(_correctAudio);
+            _audioManager.PlaySESound(SEData.SE.Correct);
             SEflag = false;
-
             isAudioEnd = true;
         }
-        if (!_audioSource.isPlaying && isAudioEnd)
+        if (_audioManager.CheckPlaySound(_audioManager.seAudioSource) && isAudioEnd)
         {
-            _crouchPanel.SetActive(false);
+            _bodyDownPanel.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 

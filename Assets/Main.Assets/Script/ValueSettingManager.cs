@@ -152,6 +152,9 @@ public class SEData
         Correct,
         Squwat,
         Walk,
+        WalkVoice,
+        BodyDownVoice,
+        KakiwakeVoice,
     }
 
     /// <summary>
