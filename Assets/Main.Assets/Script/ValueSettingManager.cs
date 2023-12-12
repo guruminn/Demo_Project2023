@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ì¬ÒGRú±»
-// ’l‚ğŠÇ—‚·‚éƒAƒZƒbƒg
+// ï¿½ì¬ï¿½ÒGï¿½Rï¿½ï¿½ï¿½ï¿½
+// ï¿½lï¿½ï¿½ï¿½Ç—ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½Zï¿½bï¿½g
 
 [CreateAssetMenu]
 public class ValueSettingManager : ScriptableObject
@@ -13,84 +13,84 @@ public class ValueSettingManager : ScriptableObject
 
     // === Player ===
     [Header("=== PLAYER MOCOPI ===")]
-    [Range(0f,100f),Tooltip("‘«“¥‚İ‚µ‚½‚Æ‚«‚ÌƒvƒŒƒCƒ„[‚Ì‘¬‚³")]
+    [Range(0f,100f),Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ìƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½Ì‘ï¿½ï¿½ï¿½")]
     public float MOCOPI_PlayerMoveSpeed = 1f;
 
-    [Range(0f,5f),Tooltip("‘«“¥‚İ‚µ‚½‚Æ‚«‚Ì°‚Æ‘«‚Ì‹——£‚ª—£‚ê‚½‚Æ‚«‚Ì”»’è‚ğ‚·‚é’l")]
+    [Range(0f,5f),Tooltip("ï¿½ï¿½ï¿½ï¿½ï¿½İ‚ï¿½ï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Ìï¿½ï¿½Æ‘ï¿½ï¿½Ì‹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½Æ‚ï¿½ï¿½Ì”ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½l")]
     public float FootDistanceFoor = 0.1f;
 
     [Header("=== PLAYER JOYSTIC ===")]
-    [Range(0f, 10f),Tooltip("ƒRƒ“ƒgƒ[ƒ‰[‚Å‘€ì‚µ‚½‚Æ‚«‚ÉƒvƒŒƒCƒ„[‚ª‰ñ“]‚·‚é‘¬‚³")]
+    [Range(0f, 10f),Tooltip("ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Å‘ï¿½ï¿½ì‚µï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Éƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½]ï¿½ï¿½ï¿½é‘¬ï¿½ï¿½")]
     public float PlayerRotateSpeed = 0.5f;
 
-    [Range(0f, 10f),Tooltip("ƒRƒ“ƒgƒ[ƒ‰[‚Å‘€ì‚µ‚½‚Æ‚«‚ÉƒvƒŒƒCƒ„[‚ª“®‚­‘¬‚³")]
+    [Range(0f, 10f),Tooltip("ï¿½Rï¿½ï¿½ï¿½gï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½[ï¿½Å‘ï¿½ï¿½ì‚µï¿½ï¿½ï¿½Æ‚ï¿½ï¿½Éƒvï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float JOYSTIC_PlayerMoveSpeed = 0.5f;
 
     // === NPC ===
     [Header("=== NPC ===")]
     /// <summary>
-    /// ‰½•b‚Å“’B‚µ‚½‚©‚Ì•Ï”
+    /// ï¿½ï¿½ï¿½bï¿½Å“ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì•Ïï¿½
     /// </summary>
-    [Range(0f,10f),Tooltip("‰½•b‚Å“’B‚µ‚½‚©")]
+    [Range(0f,10f),Tooltip("ï¿½ï¿½ï¿½bï¿½Å“ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float smoothTime = 1.0f;
 
     // === GuardMan ===
     [Header("=== GUARDMAN ===")]
-    [Range(0f,100f),Tooltip("Œx”õˆõ‚Ì“®‚«‚Ì‘¬‚³‚Ì’liNavMeshAgent->Speedj")]
+    [Range(0f,100f),Tooltip("ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½ï¿½Ì‘ï¿½ï¿½ï¿½ï¿½Ì’lï¿½iNavMeshAgent->Speedï¿½j")]
     public float guardMoveSpeed = 2f;
 
-    [Range(0f, 1000f),Tooltip("Œx”õˆõ‚Ì‰ñ“]‚Ì‘¬‚³‚Ì’liNavMeshAgent->AngularSpeedj")]
+    [Range(0f, 1000f),Tooltip("ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½Ì‰ï¿½]ï¿½Ì‘ï¿½ï¿½ï¿½ï¿½Ì’lï¿½iNavMeshAgent->AngularSpeedï¿½j")]
     public float guardAngularSpeed = 120f;
 
-    [Range(0f, 100f),Tooltip("Œx”õˆõ‚ÌÅ‚‰Á‘¬“x‚Ì’liNavMeshAgent->Accelerationj")]
+    [Range(0f, 100f),Tooltip("ï¿½xï¿½ï¿½ï¿½ï¿½ï¿½ÌÅï¿½ï¿½ï¿½ï¿½ï¿½ï¿½xï¿½Ì’lï¿½iNavMeshAgent->Accelerationï¿½j")]
     public float guardAcceleration = 8f;
 
     // === Audio ===
     [Header("=== AUDIO ===")]
     /// <summary>
-    /// BGMASE‚ğŠÜ‚ß‚½‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// BGMï¿½ASEï¿½ï¿½ï¿½Ü‚ß‚ï¿½ï¿½Sï¿½Ì‰ï¿½ï¿½Ê‚Ì•Ïï¿½
     /// </summary>
-    [Range(0f, 1f),Tooltip("BGM/SE‚ğŠÜ‚ß‚½‘S‘Ì‚Ì‰¹—Ê‚ğ’²ß‚·‚é’l")]
+    [Range(0f, 1f),Tooltip("BGM/SEï¿½ï¿½ï¿½Ü‚ß‚ï¿½ï¿½Sï¿½Ì‚Ì‰ï¿½ï¿½Ê‚ğ’²ß‚ï¿½ï¿½ï¿½l")]
     public float masterVolume = 1;
 
     /// <summary>
-    /// BGM‚Ì‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// BGMï¿½Ì‘Sï¿½Ì‰ï¿½ï¿½Ê‚Ì•Ïï¿½
     /// </summary>
-    [ Range(0f, 1f),Tooltip("BGM‚Ì‘S‘Ì‚Ì‰¹—Ê‚ğ’²ß‚·‚é’l")]
+    [ Range(0f, 1f),Tooltip("BGMï¿½Ì‘Sï¿½Ì‚Ì‰ï¿½ï¿½Ê‚ğ’²ß‚ï¿½ï¿½ï¿½l")]
     public float bgmMasterVolume = 1;
 
     /// <summary>
-    /// SE‚Ì‘S‘Ì‰¹—Ê‚Ì•Ï”
+    /// SEï¿½Ì‘Sï¿½Ì‰ï¿½ï¿½Ê‚Ì•Ïï¿½
     /// </summary>
-    [Range(0f, 1f),Tooltip("SE‚Ì‘S‘Ì‚Ì‰¹—Ê‚ğ’²ß‚·‚é’l")]
+    [Range(0f, 1f),Tooltip("SEï¿½Ì‘Sï¿½Ì‚Ì‰ï¿½ï¿½Ê‚ğ’²ß‚ï¿½ï¿½ï¿½l")]
     public float seMasterVolume = 1;
 
     /// <summary>
-    /// BGM‚Ì‰¹ºƒf[ƒ^‚ÌƒŠƒXƒg
+    /// BGMï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìƒï¿½ï¿½Xï¿½g
     /// </summary>
-    [Tooltip("BGM‚Ì‰¹ºƒf[ƒ^")]
+    [Tooltip("BGMï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^")]
     public List<BGMData> bgmSoundDatas;
 
     /// <summary>
-    /// SE‚Ì‰¹ºƒf[ƒ^‚ÌƒŠƒXƒg
+    /// SEï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^ï¿½Ìƒï¿½ï¿½Xï¿½g
     /// </summary>
-    [Tooltip("SE‚Ì‰¹ºƒf[ƒ^")]
+    [Tooltip("SEï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^")]
     public List<SEData> seSoundDatas;
 
     // === MainGameUI ===
     [Header("=== UI TIMER ===")]
-    [Range(0f, 180f),Tooltip("ƒƒCƒ“ƒQ[ƒ€‚Ì§ŒÀŠÔ")]
+    [Range(0f, 180f),Tooltip("ï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½Qï¿½[ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float GameLimitTime = 90f;
 
     // === InGame ===
     /// <summary>
-    /// ƒQ[ƒ€ƒI[ƒo[‚Ì”»’è‚ğ•Û‘¶‚·‚é•Ï”
+    /// ï¿½Qï¿½[ï¿½ï¿½ï¿½Iï¿½[ï¿½oï¿½[ï¿½Ì”ï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
     /// </summary>
     [HideInInspector]
     public bool gameOver;
 
     /// <summary>
-    /// ƒQ[ƒ€ƒNƒŠƒA‚Ì”»’è‚ğ•Û‘¶‚·‚é•Ï”
+    /// ï¿½Qï¿½[ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½Aï¿½Ì”ï¿½ï¿½ï¿½ï¿½Û‘ï¿½ï¿½ï¿½ï¿½ï¿½Ïï¿½
     /// </summary>
     [HideInInspector]
     public bool gameClear;
@@ -99,13 +99,13 @@ public class ValueSettingManager : ScriptableObject
 }
 
 /// <summary>
-/// BGM‚Ì‰¹ºƒf[ƒ^
+/// BGMï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^
 /// </summary>
 [Serializable]
 public class BGMData
 {
     /// <summary>
-    /// BGM‚Ìƒ‰ƒxƒ‹
+    /// BGMï¿½Ìƒï¿½ï¿½xï¿½ï¿½
     /// </summary>
     public enum BGM
     {
@@ -117,30 +117,30 @@ public class BGMData
     }
 
     /// <summary>
-    /// —ñ‹“Œ^‚ÌéŒ¾
+    /// ï¿½ñ‹“Œ^ï¿½ÌéŒ¾
     /// </summary>
     public BGM bgm;
 
     /// <summary>
-    /// BGM‚ÌAudioClip
+    /// BGMï¿½ï¿½AudioClip
     /// </summary>
     public AudioClip audioClip;
 
     /// <summary>
-    /// BGM‚Ì‰¹—Ê
+    /// BGMï¿½Ì‰ï¿½ï¿½ï¿½
     /// </summary>
     [Range(0f, 1f)]
     public float volume = 1;
 }
 
 /// <summary>
-/// SE‚Ì‰¹ºƒf[ƒ^
+/// SEï¿½Ì‰ï¿½ï¿½ï¿½ï¿½fï¿½[ï¿½^
 /// </summary>
 [Serializable]
 public class SEData
 {
     /// <summary>
-    /// SE‚Ìƒ‰ƒxƒ‹
+    /// SEï¿½Ìƒï¿½ï¿½xï¿½ï¿½
     /// </summary>
     public enum SE
     {
@@ -152,21 +152,23 @@ public class SEData
         Correct,
         Squwat,
         Walk,
-        voice,
+        WalkVoice,
+        BodyDownVoice,
+        KakiwakeVoice,
     }
 
     /// <summary>
-    /// —ñ‹“Œ^‚ÌéŒ¾
+    /// ï¿½ñ‹“Œ^ï¿½ÌéŒ¾
     /// </summary>
     public SE se;
 
     /// <summary>
-    /// SE‚ÌAudioClip
+    /// SEï¿½ï¿½AudioClip
     /// </summary>
     public AudioClip audioClip;
 
     /// <summary>
-    /// SE‚Ì‰¹—Ê
+    /// SEï¿½Ì‰ï¿½ï¿½ï¿½
     /// </summary>
     [Range(0f, 1f)]
     public float volume = 1;
