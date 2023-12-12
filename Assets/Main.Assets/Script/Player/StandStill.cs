@@ -47,6 +47,10 @@ public class StandStill : MonoBehaviour
     [SerializeField]
     private AudioManager audioManager;
 
+    bool asibumisitaka;
+
+    public int WalkCount;
+
     #endregion --- Fields ---
 
     #region --- Methods ---
@@ -105,7 +109,14 @@ public class StandStill : MonoBehaviour
                 audioManager.PlaySESound(SEData.SE.Walk);
             }
             //Debug.Log("aaaaaaaaaaaaaaaaaaaaaa");
-            powerSource = 1;
+
+            if(asibumisitaka)
+            {
+                WalkCount++;
+                asibumisitaka = false;
+            }
+
+            powerSource = 100;
         }
     }
 
@@ -139,6 +150,8 @@ public class StandStill : MonoBehaviour
         {
             // 動いている判定にする
             _moveFoot = true;
+
+            asibumisitaka = true;
 
             //Debug.Log("StandStill  抜けた。");
         }
