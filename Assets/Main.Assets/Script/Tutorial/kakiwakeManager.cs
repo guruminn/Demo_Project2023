@@ -6,7 +6,7 @@ using TMPro;
 
 public class kakiwakeManager : MonoBehaviour
 {
-    static List<GameObject> hitolist = new List<GameObject>();
+    public static List<GameObject> hitolist = new List<GameObject>();
     // カウントのテキスト
     public TextMeshProUGUI _Text;
     // 音が鳴り終わったか
@@ -18,17 +18,15 @@ public class kakiwakeManager : MonoBehaviour
     // パネルを非表示にする
     [SerializeField] GameObject _kakiwakePanel;
 
-
-    void OnEnable()
+    private void OnEnable()
     {
-        // しゃがんでみましょうボイス
         _audioManager.PlaySESound(SEData.SE.KakiwakeVoice);
+        Debug.Log("kakiwake");
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
+        //_audioManager.PlaySESound(SEData.SE.KakiwakeVoice);
     }
 
     // Update is called once per frame

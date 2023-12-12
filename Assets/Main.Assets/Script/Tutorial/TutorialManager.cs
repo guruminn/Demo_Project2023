@@ -8,7 +8,12 @@ using TMPro;
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] GameObject[] _panel;
-    public static int _phaseCount;
+    public int _phaseCount;
+
+    public GameObject _bodyDownobj; 
+    public GameObject _kakiwakeobj; 
+    public GameObject _kakiwakeobj_2; 
+    public GameObject _mobobj; 
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +24,21 @@ public class TutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(_phaseCount);
         _panel[_phaseCount].SetActive(true);
+
+        if(_phaseCount == 1)
+        {
+            _bodyDownobj.SetActive(true);
+        }
+        if(_phaseCount == 2)
+        {
+            _kakiwakeobj.SetActive(true);
+            _kakiwakeobj_2.SetActive(true);
+            _mobobj.SetActive(true);
+        }
+        if(_phaseCount == 3)
+        {
+
+        }
     }
 }

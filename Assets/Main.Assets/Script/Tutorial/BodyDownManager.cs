@@ -23,17 +23,27 @@ public class BodyDownManager : MonoBehaviour
     // audio付ける
     [SerializeField] AudioManager _audioManager;
 
-    // アクティブになった時に呼び出される
-    void OnEnable()
+    public TutorialManager _tutorialManager;
+
+    public GameObject obj;
+
+    private void OnEnable()
+    {
+        _audioManager.PlaySESound(SEData.SE.BodyDownVoice);
+        Debug.Log("syagami");
+    }
+
+    void Start()
     {
         // しゃがんでみましょうボイス
-        _audioManager.PlaySESound(SEData.SE.BodyDownVoice);
+        //_audioManager.PlaySESound(SEData.SE.BodyDownVoice);
+
+        _tutorialManager = obj.GetComponent<TutorialManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _countTimeText.text = _count.ToString("F1");
         if (_active)
         {
             _count += Time.deltaTime;
@@ -42,8 +52,9 @@ public class BodyDownManager : MonoBehaviour
         {
             _count = 0;
         }
+        _countTimeText.text = _count.ToString("F1");
 
-        if(_count >3)
+        if (_count >3)
         {
             _countTimeText.text = "OK";
         }
@@ -58,15 +69,18 @@ public class BodyDownManager : MonoBehaviour
         {
             _bodyDownPanel.SetActive(false);
             gameObject.SetActive(false);
+            _tutorialManager._phaseCount++;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         _active = false;
+        Debug.Log("ataltuteru");
     }
     private void OnTriggerExit(Collider other)
     {
         _active = true;
+        Debug.Log("nai");
     }
 }
