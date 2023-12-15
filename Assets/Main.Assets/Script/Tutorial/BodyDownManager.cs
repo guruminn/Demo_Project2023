@@ -25,23 +25,12 @@ public class BodyDownManager : MonoBehaviour
 
     public TutorialManager _tutorialManager;
 
-    public GameObject obj;
-
     private void OnEnable()
     {
         _audioManager.PlaySESound(SEData.SE.BodyDownVoice);
         Debug.Log("syagami");
     }
 
-    void Start()
-    {
-        // ‚µ‚á‚ª‚ñ‚Å‚Ý‚Ü‚µ‚å‚¤ƒ{ƒCƒX
-        //_audioManager.PlaySESound(SEData.SE.BodyDownVoice);
-
-        _tutorialManager = obj.GetComponent<TutorialManager>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (_active)

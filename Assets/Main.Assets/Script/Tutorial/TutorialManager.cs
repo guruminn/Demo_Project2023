@@ -17,28 +17,31 @@ public class TutorialManager : MonoBehaviour
 
     bool _pushFlag = false;
 
+    [SerializeField] Animator _fadeAnimator;
+
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
+        _phaseCount = Mathf.Clamp(_phaseCount, 0, 3);
         _panel[_phaseCount].SetActive(true);
-        //if (Input.GetKeyDown(KeyCode.JoystickButton0))
-        //{
-        //    if(_pushFlag == false)
-        //    {
-        //        _phaseCount++;
-        //        _pushFlag = true;
-        //    }
-        //}
-        //else
-        //{
-        //    _pushFlag = false;
-        //}
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            if (_pushFlag == false)
+            {
+                _panel[_phaseCount].SetActive(false);
+                _phaseCount++;
+                _pushFlag = true;
+            }
+        }
+        else
+        {
+            _pushFlag = false;
+        }
         if (_phaseCount == 1)
         {
             _bodyDownobj.SetActive(true);
@@ -51,7 +54,7 @@ public class TutorialManager : MonoBehaviour
         }
         if(_phaseCount == 3)
         {
-
+            _fadeAnimator.Play("Fade");
         }
     }
 }

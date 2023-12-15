@@ -1,53 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
-using UnityEngine.UI;
 using TMPro;
+
+// 作成者：地引翼
+// 足踏み（歩く）フェーズの制御
 
 public class WalkManager : MonoBehaviour
 {
-    // カウントのテキスト
-    public TextMeshProUGUI _Text;
-    // 音が鳴り終わったか
-    private bool isAudioEnd;
+    #region ---Fields---
 
-    bool SEflag = true;
-    // audio付ける
-    [SerializeField] AudioManager _audioManager;
-    // パネルを非表示にする
+    /// <summary>
+    /// 足踏みした回数を表示するテキスト変数
+    /// </summary>
+    [SerializeField] TextMeshProUGUI _countText;
+
+    /// <summary>
+    /// パネルオブジェクト取得
+    /// </summary>
     [SerializeField] GameObject _walkPanel;
 
-    public StandStill _standStill;
+    /// <summary>
+    /// AudioManager参照するための変数
+    /// </summary>
+    [SerializeField] AudioManager _audioManager;
 
-    public TutorialManager _tutorialManager;
+    /// <summary>
+    /// StandStill参照するための変数
+    /// </summary>
+     [SerializeField] StandStill _standStill;
 
-    public GameObject obj;
-    public GameObject _stobj;
+    /// <summary>
+    /// TutorialManager参照するための変数
+    /// </summary>
+    [SerializeField] TutorialManager _tutorialManager;
+
+    /// <summary>
+    /// TutorialManager参照するための変数
+    /// </summary>
+    public int _clearCount = 3;
+
+    /// <summary>
+    /// 音が鳴り終わったか判定するbool
+    /// </summary>
+    bool isAudioEnd;
+
+    /// <summary>
+    /// SEを一度だけ再生させるbool
+    /// </summary>
+    bool SEflag = true;
+
+    #endregion ---Fields---
+
+    #region ---Methods---
 
     void OnEnable()
     {
+        // ボイス再生
         _audioManager.PlaySESound(SEData.SE.WalkVoice);
-        Debug.Log("walk");
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        _standStill = _stobj.GetComponent<StandStill>();
-        _tutorialManager = obj.GetComponent<TutorialManager>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        _Text.text = _standStill.WalkCount.ToString();
+        // 足踏みした回数をText表示
+        _countText.text = _standStill.WalkCount.ToString();
 
-        if(_standStill.WalkCount > 3)
+        if(_standStill.WalkCount > _clearCount)
         {
-            _Text.text = "OK";
+            _countText.text = "OK";
         }
-        if (SEflag && _standStill.WalkCount > 3)
+        if (SEflag && _standStill.WalkCount > _clearCount)
         {
             _audioManager.PlaySESound(SEData.SE.Correct);
             SEflag = false;
@@ -58,6 +80,6 @@ public class WalkManager : MonoBehaviour
             _walkPanel.SetActive(false);
             _tutorialManager._phaseCount++;
         }
-
     }
+    #endregion ---Methods---
 }

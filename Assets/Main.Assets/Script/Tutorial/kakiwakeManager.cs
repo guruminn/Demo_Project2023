@@ -58,6 +58,7 @@ public class kakiwakeManager : MonoBehaviour
         {
             _kakiwakePanel.SetActive(false);
             gameObject.SetActive(false);
+            _tutorialManager._phaseCount++;
         }
     }
 
