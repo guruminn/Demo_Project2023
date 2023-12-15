@@ -13,7 +13,9 @@ public class TutorialManager : MonoBehaviour
     public GameObject _bodyDownobj; 
     public GameObject _kakiwakeobj; 
     public GameObject _kakiwakeobj_2; 
-    public GameObject _mobobj; 
+    public GameObject _mobobj;
+
+    bool _pushFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,8 +27,19 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         _panel[_phaseCount].SetActive(true);
-
-        if(_phaseCount == 1)
+        //if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        //{
+        //    if(_pushFlag == false)
+        //    {
+        //        _phaseCount++;
+        //        _pushFlag = true;
+        //    }
+        //}
+        //else
+        //{
+        //    _pushFlag = false;
+        //}
+        if (_phaseCount == 1)
         {
             _bodyDownobj.SetActive(true);
         }

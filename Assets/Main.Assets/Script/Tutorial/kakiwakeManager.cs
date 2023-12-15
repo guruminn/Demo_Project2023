@@ -18,15 +18,24 @@ public class kakiwakeManager : MonoBehaviour
     // ƒpƒlƒ‹‚ð”ñ•\Ž¦‚É‚·‚é
     [SerializeField] GameObject _kakiwakePanel;
 
+    public TutorialManager _tutorialManager;
+
+    public GameObject obj;
+
+    public GameObject _vcam;
+
+
     private void OnEnable()
     {
         _audioManager.PlaySESound(SEData.SE.KakiwakeVoice);
         Debug.Log("kakiwake");
+        _vcam.SetActive(true);
     }
 
     private void Start()
     {
         //_audioManager.PlaySESound(SEData.SE.KakiwakeVoice);
+        _tutorialManager = obj.GetComponent<TutorialManager>();
     }
 
     // Update is called once per frame

@@ -116,7 +116,7 @@ public class StandStill : MonoBehaviour
                 asibumisitaka = false;
             }
 
-            powerSource = 100;
+            powerSource = 1;
         }
     }
 

@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// フレームレートの表示
+// フレームレート数の表示
+// 作成者：地引翼
 
 public class FPSDisplay : MonoBehaviour
 {
-    // フレームレート
+    #region ---Fields---
+
+    /// <summary>
+    /// フレームレート数を取得する変数
+    /// </summary>
     float _fps;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    #endregion ---Fields---
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        _fps = 1f / Time.deltaTime;
+        // Time.deltaTimeは前回のフレームからの経過時間（秒）を表す変数
+        _fps = 1.0f / Time.deltaTime;
         //Debug.Log(_fps.ToString("F2"));
     }
 }

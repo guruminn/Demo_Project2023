@@ -7,65 +7,49 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-    // このオブジェクトの座標を取得
+    #region ---Fields---
+
+    /// <summary>
+    /// オブジェクトの座標を取得
+    /// </summary>
     Vector3 _pos;
-    // Vector3(0, 0, 0) を取得
+
+    /// <summary>
+    /// 速度を取得　現在はVector3(0, 0, 0)
+    /// </summary>
     Vector3 _velocity = Vector3.zero;
-    // _posへ到達するまで何秒の変数
-    //[SerializeField, Range(0.0f, 2.0f)]
-    //[Tooltip("何秒で到達したか")]
-    //public float smoothTime = 1.0f;
-    private float smoothTime;
 
-    [SerializeField]
-    private ValueSettingManager _setting;
+    /// <summary>
+    /// _posへ到達するまで何秒の変数。値が小さいほど、_target に速く到達
+    /// </summary>
+    float smoothTime;
 
-    //Rigidbody _rb;
+    /// <summary>
+    /// ValueSettingManagerへ参照するための変数
+    /// </summary>
+    [SerializeField] ValueSettingManager _setting;
 
-    //[SerializeField] GameObject _head;
-    //[SerializeField] GameObject _rhand;
+    #endregion ---Fields---
 
-    //public float _attackRange;
+    #region ---Methods---
 
-    //float _distance;
-
-
-    // Start is called before the first frame update
+    /// <summary>
+    /// 初期化の変数
+    /// </summary>
     void Start()
     {
-        _pos = this.transform.position;
-        smoothTime=_setting.smoothTime;
-        //Rigidbodyを取得
-        //_rb = gameObject.GetComponent<Rigidbody>();
+        // 初期位置を保存
+        _pos = transform.position;
+        // 値を参照したものを保存する
+        smoothTime = _setting.smoothTime;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //_distance = _head.transform.position.y - _rhand.transform.position.y;
-
-
+        // 現在位置をリアルタイムで取得
         Vector3 _current = transform.position;
         // SmoothDamp(現在位置, 目的地, 現在の速度, _target へ到達するまでのおおよその時間。値が小さいほど、_target に速く到達)
         transform.position = Vector3.SmoothDamp(_current, _pos, ref _velocity, smoothTime);
-        //移動も回転もしないようにする
-        //_rb.constraints = RigidbodyConstraints.FreezeAll;
-
-        //if(Input.GetKey(KeyCode.JoystickButton14))
-        //{
-        //    Attack();
-        //}
-        //if (_distance < _attackRange)
-        //{
-        //    Attack();
-        //}
     }
-
-    //public void Attack()
-    //{
-    //    _rb.constraints = RigidbodyConstraints.FreezeRotation
-    //                    | RigidbodyConstraints.FreezePositionY;
-
-    //    //Debug.Log("攻撃");
-    //}
+    #endregion ---Methods---
 }

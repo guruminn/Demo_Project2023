@@ -1,15 +1,21 @@
-//作成者地引翼
-//時間制限UI
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//　作成者地引翼
+//　時間制限UI
+
 public class UITimer : MonoBehaviour
 {
-    public Slider timeSlider;
-    //public float maxTime = 90.0f;
-    private float maxTime;
+    #region ---Fields---
+
+    /// <summary>
+    /// Sliderオブジェクト変数
+    /// </summary>
+    [SerializeField] Slider timeSlider;
+
+    float maxTime;
 
     [SerializeField]
     private ValueSettingManager settingManager;

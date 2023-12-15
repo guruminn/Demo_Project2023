@@ -7,34 +7,47 @@ using UnityEngine;
 
 public class RandomNPCScript : MonoBehaviour
 {
-    [SerializeField]
-    [Tooltip("生成するGameObject")]
+    #region ---Fields---
+
+    /// <summary>
+    /// 生成するゲームオブジェクト
+    /// </summary>
+    [SerializeField][Tooltip("生成するGameObject")]
     GameObject _createPrefab;
 
-    [SerializeField]
-    [Tooltip("生成する範囲A")]
+    /// <summary>
+    /// 生成する範囲A（座標を取得）
+    /// </summary>
+    [SerializeField][Tooltip("生成する範囲A")]
     Transform _rangeA;
 
-    [SerializeField]
-    [Tooltip("生成する範囲B")]
+    /// <summary>
+    /// 生成する範囲B（座標を取得）
+    /// </summary>
+    [SerializeField][Tooltip("生成する範囲B")]
     Transform _rangeB;
 
-    [SerializeField]
-    [Tooltip("生成する個数")]
+    /// <summary>
+    /// 生成する個数
+    /// </summary>
+    [SerializeField][Tooltip("生成する個数整数で")]
     int _pieces = 0;
 
-    // Start is called before the first frame update
+    #endregion ---Fields---
+
+    #region ---Methods---
+
+    /// <summary>
+    /// BGMを再生する関数
+    /// </summary>
     void Start()
     {
         RundomNPC();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    /// <summary>
+    /// オブジェクトの配置をランダムで決めて生成する関数
+    /// </summary>
     void RundomNPC()
     {
         while (0 < _pieces)
@@ -64,4 +77,5 @@ public class RandomNPCScript : MonoBehaviour
             _pieces--;
         }
     }
+    #endregion ---Methods---
 }

@@ -18,13 +18,12 @@ public class WalkManager : MonoBehaviour
     // ƒpƒlƒ‹‚ð”ñ•\Ž¦‚É‚·‚é
     [SerializeField] GameObject _walkPanel;
 
-    StandStill _standStill;
+    public StandStill _standStill;
 
     public TutorialManager _tutorialManager;
 
     public GameObject obj;
     public GameObject _stobj;
-
 
     void OnEnable()
     {
