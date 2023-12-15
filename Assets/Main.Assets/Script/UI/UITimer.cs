@@ -19,6 +19,7 @@ public class UITimer : MonoBehaviour
 
     [SerializeField]
     private ValueSettingManager settingManager;
+    #endregion ---Fields---
 
     // Start is called before the first frame update
     void Start()
